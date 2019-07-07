@@ -15,7 +15,7 @@ Las condiciones bajo las cuales es posible para la señal propagarse no se cumpl
 
 Esta ha sido ampliamente estudiada debido a la alta penetración comercial que ha alcanzado precisamente en estos espacios donde el GPS no da cobertura, sin embargo, dentro de los distintos enfoques en que se han abordado los estudios se tiene que la medición de los niveles de potencia radiada desde los \ac{AP}, a través de los cuales se realiza la triangulación de la posición, se ven altamente afectados por la variación del escenario caracterizado. Este tipo de variaciones pueden ser inducidas por la presencia de personas u objetos que reflejen o absorban la señal.
 
-Es por esto que el método a través del cual se de solución al problema del posicionamiento en interiores debe ser un \ac{IPS} capaz de compensar la incidencia de estas variaciones en el \ac{RSSI} dentro de la operación del algoritmo y así, estimar correctamente la posición de objetivo deseado identificable a través de su dirección de \ac{MAC}.
+Es por esto que el método a través del cual se de solución al problema del posicionamiento en interiores debe ser un \ac{IPS} capaz de compensar la incidencia de estas variaciones en el indicador de intensidad de señal recibida (RSSI) dentro de la operación del algoritmo y así, estimar correctamente la posición de objetivo deseado identificable a través de su dirección de \ac{MAC}.
 
 \section{Estado del arte}
 
@@ -75,15 +75,22 @@ Finalmente, en lo que respecta al algoritmo de \textit{Triangulación} se deben 
         
         Un algoritmo basado en \ac{RSSI}, pero que no usa propiedades geométricas para hacer el posicionamiento es aquell llamado \textit{Fingerprinting Based Indoor Localization}, en \cite{6} los autores lo presentan como una técnica que consiste en dos etapas; la primera, conocida como offline, es la de hacer una colección de los niveles de potencia recibidos en las distintas áreas de interés y almacenarlas en una base de datos que sirva de entrenamiento para las predicciones en las cuales se basará la etapa siguiente; luego, en la etapa \textit{online}, lo que se busca es medir los niveles de potencia y compararlos con el vector de \ac{RSS} que más se le parezca.\\
         
-        Para esto, la etapa offline puede verse apoyado por herramientas estadísticas como las de los trabajos \cite{8}, \cite{10},\cite{11},\cite{12} y \cite{14}, o bien, por algoritmos basados técnicas de reconocimiento de patrones probabilísticas y determinísticas tales como KNN, RN, SVM, RNN u otros.
+        Para esto, la etapa offline puede verse apoyado por herramientas estadísticas como las de los trabajos \cite{8}, \cite{10},\cite{11},\cite{12} y \cite{14}, o bien, por algoritmos basados técnicas de reconocimiento de patrones probabilísticas y determinísticas tales como KNN, RN, SVM, RNN u otros.\\
         
         \begin{itemize}
             \item {\textbf{\ac{KNN}}: Este algoritmo introducido teóricamente en \cite{7} aparece como un método que autores en \cite{23} usaron KNN para eliminar aquellos puntos individuales en el dataset de muestreo, que bien podría corresponder a aquellos vectores que surgieron de capturar más AP. Luego, usaron SVM para posicionar al usuario. En este trabajo los resultados muestran que el algoritmo híbrido mejora considerablemente la precisión y la velocidad de este.\\
             
-            A diferencia de el trabajo anterior, en \cite{24} lo usan para directamente obtener la posición del dispositivo, a la vez que en \cite{25} señalan que el comportamiento de KNN superó en términos de precisión al más sofisticado algoritmo basado en un modelo probabilístico.}
+            A diferencia de el trabajo anterior, en \cite{24} lo usan para directamente obtener la posición del dispositivo, a la vez que en \cite{25} señalan que el comportamiento de KNN superó en términos de precisión al más sofisticado algoritmo basado en un modelo probabilístico.\\}
             
-            \item {\textbf{\ac{RNN}}:}
-            \item {\textbf{\ac{RN}}: }
+            \item {\textbf{\ac{RNN}}: \label{RNN} En \cite{15} señalan que las RNN han sido usadas como algoritmos de clasificación en diversas aplicaciones, debido a que puede manejar varias series de datos de tiempo, pero que actualmente no han habido investigaciones que asocien sistemas de posicionamiento indoor al uso de este algoritmo.\\
+            
+            Por este motivo, ellos desarrollaron un sistema que se basa en RNN y que permite clasificar pares ordenados \textit{(x,y)} basados en el RSSI de cada sensor. Específicamente para implementar un tipo de regresión que permite predecir las coordenadas al considerar cada AP como nodo. Algo parecido a lo que se deseaba conseguir en el trabajo presentado en \cite{28}.\\}
+            
+            \item {\textbf{\ac{RNA}}: En se \cite{26} aborde el problema de posicionamiento indoor a través del mismo enfoque visto anteriormente en \ref{RNN}, es decir, se busca transformar los RSS a distancias y así determinar las coordenadas del objetivo. La diferencia radica en que acá no se usan AP, sino que otra tecnología llamada ZigBee que también actúa como un sensor de red, señalando que el uso de este, en conjunto con el modelo, trabajan sustancialmente mejor que la técnica de triangulación que por si sola es inestable.\\
+            
+            Por otro lado en \cite{27} las personas de la investigación comentan que en investigaciones anteriores o en general, en los trabajos que buscan determinar la posición basándose en una ANN utilizan características del ambiente de la \ac{WLAN} para caracterizarlo, estas pueden ser: RSS, que es lo más recurrente a la hora de abordar estos problemas, o bien, \ac{SNR} de los múltiples AP a fin de mapear el espacio en la etapa offline. En contraste a lo anterior señalan que su trabajo es capaz de alcanzar una precisión del 92.86\% solo con el uso de una red de apenas 3 capas que permiten posicionar con una exactitud de tres metros sin incurrir en un margen de error importante, recalcando que si se realiza una división por área, entonces la performance del sistema mejora considerablemente y cuyos resultados fueron contrastados a través de KNN.\\
+            
+            Finalmente en \cite{28}, al igual que en \cite{27} utilizaron una ANN que se compuso de y capas, y estas a su vez, se desglosaron en 1 capa de entradas, 3 capas ocultas, con 28 nodos cada capa, y 1 de salida, con dos nodos. Interesante señalar que el resultado de agregar 2 capas se tradujo en alcanzar una precisión de 2 metros, que lleva a la conclusión de que la precisión guarda cierta dependencia con el número de nodos y capas ocultas.\\}
         \end{itemize}
         }
     \end{itemize}
@@ -97,14 +104,14 @@ Finalmente, en lo que respecta al algoritmo de \textit{Triangulación} se deben 
 
 \section{Hipótesis de trabajo}
 \begin{center}
-\textit{''Es posible posicionar un dispositivo, identificable a través de su MAC, en un espacio interior utilizando una Red Neuronal para compensar las variaciones de RSS de los \ac{AP} usados en la trilateración''}
+\textit{''Es posible posicionar un dispositivo, identificable a través de su MAC, en un espacio interior utilizando una Red Neuronal Artificial para compensar las variaciones de RSS de los \ac{AP} usados en la trilateración''}
 \end{center}
 
 \section{Objetivos}
 A continuación se señalan los objetivos que apuntan a resolver el problema presentado y a probar la hipótesis de trabajo.
 
 \subsection{Objetivo general}
-Posicionar un dispositivo móvil, reconocible a través de su \ac{MAC} dentro de un espacio interior, a través de algoritmos de trilateración y \ac{RN}.
+Posicionar un dispositivo móvil, reconocible a través de su \ac{MAC} dentro de un espacio interior, a través de algoritmos de trilateración y \ac{RNA}.
 
 %\section{Objetivos específicos}
 %\begin{enumerate}
