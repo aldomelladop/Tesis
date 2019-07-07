@@ -1,5 +1,9 @@
 \chapter{Marco Teórico}
 
+\section{Introducción}
+
+En este capítulo se sentarán las bases teóricas que soportan y respaldan el trabajar con el algoritmo escogido.
+
 \section{Aplicaciones y aproximaciones en sistemas de posicionamiento indoor}
 
 En cuánto a los sistemas de posicionamiento indoor, diversas documentaciones revisadas señalan la importancia de desarrollar esta tecnología a fin de resolver necesidades ya reconocidas dentro de espacios interiores tales como hospitales, museos, parques, etc. Sin embargo, todos concuerdan en que la tarea no es sencilla y por este motivo se ha intentado abordar este problema de distintas maneras, teniendo cada una sus respectivas ventajas y limitaciones.
@@ -77,7 +81,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
     \item{\textbf{Técnicas basadas en la propagación por tiempo}
     
     \begin{enumerate}
-        \item {\textbf{\ac{ToA}}: \label{ToA} El tiempo de llegada aparece como el tiempo de viaje del transmisor hasta el receptor y permite, si es que se le multiplica por la velocidad de la luz, obtener la distancia que separa ambos dispositivos. Para medir el tiempo de llegada en el aire, este método requiere sincronización previa de los dispositivos, que para hacer posicionamiento en el espacio, requiere de al menos 4 transmisores.\\
+        \item {\textbf{\ac{ToA}}: \label{ToA} El tiempo de llegada aparece como el tiempo de viaje del transmisor hasta el receptor y permite, si es que se le multiplica por la velocidad de la luz, obtener la distancia que separa ambos dispositivos. Para medir el tiempo de llegada en el aire, este método requiere sincronización previa de los dispositivos, que para hacer posicionamiento en el espacio, requiere de al menos 4 transmisores.
         
          \begin{figure}[h!]
             \centering
@@ -86,13 +90,13 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
             \label{fig:ToA}
         \end{figure}
             
-        En ésta técnica, dado que los errores de estimación de distancia se derivan de mediciones de tiempo de salida y llegada del mensaje, se debe procurar que los tiempos sean bien medidos, esto es, que todos los dispositivos transmisor y receptor estén sincronizados en el mismo tiempo. La correcta implementación de un sistema de medición basado en ToA permite filtrar los efectos de la multitrayectoria.}\\
+        En ésta técnica, dado que los errores de estimación de distancia se derivan de mediciones de tiempo de salida y llegada del mensaje, se debe procurar que los tiempos sean bien medidos, esto es, que todos los dispositivos transmisor y receptor estén sincronizados en el mismo tiempo. La correcta implementación de un sistema de medición basado en ToA permite filtrar los efectos de la multitrayectoria.\\}
         
         \item {\textbf{\ac{TDoA}}: Esta técnica, acorde a lo mencionado en \cite{17}, cosiste en medir la diferencia de tiempo de llegada de la señal que se envia desde un objeto y que es recibida por otros tres dispositivos.\\
         
         Con TDoA, se puede iniciar la transmisión de la señal en un tiempo desconocido en tanto sea conocido por los otros nodos receptores. Lo único que se requiere para que esto funcione, es que entre los receptores, exista una sincronización de tiempo. Esta técnica, también conocida como Multilateración tiene como obstáculo el hecho de requerir una cantidad significativa de ancho de banda, así como también, el alto costo del equipamiento utilizado para aplicarlo.\\
         
-        Y es que la banda usada para la implementación de esta tecnología es la \ac{UWB}, definido por la \ac{FCC} como la porción del espectro electromagnético con frecuencias que van desde los 3.1 hasta los 10.6 GHz.\\
+        Y es que la banda usada para la implementación de esta tecnología es la \ac{UWB}, definido por la \ac{FCC} como la porción del espectro electromagnético con frecuencias que van desde los 3.1 hasta los 10.6 GHz.
         
             \begin{figure}[h!]
                 \centering
@@ -103,13 +107,13 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
         
         }
         \newpage 
-        \item {\textbf{\ac{RToF}}: en este método basado en \ref{ToA} que consiste en el tiempo total que toma la conexión entre los dos dispositivos que participan en la comunicación. A diferencia de \ref{TDoA}, acá se considera el tiempo de ida y regreso de la señal, no sólo el tiempo que tarda desde el transmisor hasta el receptor. Este método de medida no requiere ninguna sincronización entre los dispositivos, de modo que se puede implementar necesitan únicamente enviar el resultado de la medición del \ac{RTT} para hacer el cálculo bajo la siguiente fórmula:\\
+        \item {\textbf{\ac{RToF}}: en este método basado en \ref{ToA} que consiste en el tiempo total que toma la conexión entre los dos dispositivos que participan en la comunicación. A diferencia de \ref{fig:TDoA}, acá se considera el tiempo de ida y regreso de la señal, no sólo el tiempo que tarda desde el transmisor hasta el receptor. Este método de medida no requiere ninguna sincronización entre los dispositivos, de modo que se puede implementar necesitan únicamente enviar el resultado de la medición del \ac{RTT} para hacer el cálculo bajo la siguiente fórmula:\\
         
         \begin{equation}
             d = \dfrac{c\cdot{\left(T_{Total} - T_{proc}\right)}}{2}
         \end{equation}
         
-        Donde \textit{d}, representa la distancia entre los dos dispositivos; \textit{c}, la velocidad de la luz; Tproc, el tiempo que le toma a la estación realizar el calculo. Siendo este último, un parámetro complejo de obtener con precisión, ya que depende de la latencia del sistema. Esto se escala como la principal desventaja de este sistema ya que calcular la posición para varios dispositivos se traduce en lidiar con latencias que impidan obtener la posición de dispositivos que se mueven rápidamente.\\
+        Donde \textit{d}, representa la distancia entre los dos dispositivos; \textit{c}, la velocidad de la luz; Tproc, el tiempo que le toma a la estación realizar el calculo. Siendo este último, un parámetro complejo de obtener con precisión, ya que depende de la latencia del sistema. Esto se escala como la principal desventaja de este sistema ya que calcular la posición para varios dispositivos se traduce en lidiar con latencias que impidan obtener la posición de dispositivos que se mueven rápidamente.
         
         \begin{figure}[h!]
             \centering
@@ -125,7 +129,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
     \begin{enumerate}
         \item{\textbf{\ac{RSSI}}: Respecto de esta técnica se tiene que algunos autores la introducen como una técnica propia de algoritmos de Detección de Proximidad (\ref{Detección de Proximidad}}) debido a que los niveles de los indicadores de intensidad de señal recibida, al guardar relación con la distancia, tal y como señalan los modelos de propagación para interiores, establecen que a menor distancia del AP, mayor debe ser la intensidad de señal recibida.\\
         
-        Los mismos autores que la clasifican dentro de la sección mencionada, utilizan esta técnica para trazar un sistema de coordenadas basadas en las intensidades recibidas respecto de cada AP, esto les permite mapear la zona en una etapa que llaman offline y ubicar al dispositivo en la etapa posterior, llamada online.\ \
+        Los mismos autores que la clasifican dentro de la sección mencionada, utilizan esta técnica para trazar un sistema de coordenadas basadas en las intensidades recibidas respecto de cada AP, esto les permite mapear la zona en una etapa que llaman offline y ubicar al dispositivo en la etapa posterior, llamada online.\\
             
         En esta etapa, se asigna a través de un sistema de coordenadas, los niveles de intensidad de señal, tal que es posible posicionar el objetivo según los RSS de los AP, como se ve en la imagen.
             
@@ -246,7 +250,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
                 \end{equation}
                 }       
                 
-                \item{\textbf{Capa de salida}: Compuesta por una o varias unidades que representan los campos de salida y que entregan el resultado que finalmente es modelado por la siguiente expresión:\\
+                \item{\textbf{Capa de salida}: Compuesta por una o varias unidades que representan los campos de salida y que entregan el resultado que finalmente es modelado por la siguiente expresión:
                 
                 \begin{equation}
                     O_j  = S({w_j}{x_j} + {w_0})

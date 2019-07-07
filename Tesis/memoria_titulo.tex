@@ -17,6 +17,7 @@
 \usepackage{subcaption}        % Soporte para subfiguras
 \usepackage{amsfonts}          %
 \usepackage{mathtools}         %
+\usepackage{enumitem}          % Insertar símbolos en Item
 \usepackage[hyperref=true]{acro} % Acrónimos
 \usepackage[bookmarks=true,bookmarksnumbered, colorlinks=t, hidelinks, breaklinks]{hyperref}
 % Margenes y tamaño de la página
@@ -98,7 +99,7 @@
 	\setcounter{secnumdepth}{-1}
 %    \input{./tex/resumen}
     
-    \input{./tex/agradecimientos}
+    \input{./tex/0-Agradecimientos}
 
 
 % ******************** Índice ********************
@@ -138,12 +139,12 @@
     \newpage
     \pagenumbering{arabic}
 
-    \input{./tex/Introduccion}
-	\input{./tex/Marco_Teorico}
-	\input{./tex/Diseno}
-	\input{./tex/Implementacion}
-	\input{./tex/Resultados}
-	\input{./tex/Conclusiones}
+    \input{./tex/1-Introduccion}
+	\input{./tex/2-Marco_Teorico}
+	\input{./tex/3-Diseno}
+	\input{./tex/4-Implementacion}
+	\input{./tex/5-Resultados}
+	\input{./tex/6-Conclusiones}
 
 
 % ******************** Bibliografía ********************
@@ -152,41 +153,66 @@
 
 \begin{thebibliography}{X}
 \bibitem{1} \textsc{Van Vinh Nguyen} y \textsc{Weon Lee Jong}, <<Self-Positioning System for Indoor Navigation on Mobile Phones>> \textit{IEEE International Conference on Consumer Electronics (ICCE), 2012}
+
 \bibitem{2} \textsc{Rea Mauricio, Cordobés Héctor, Gustiniano Domenico},<<Twins: Time-of-flight based Wireless Indor Navigation System>>
+
 \bibitem{3} \textsc{Bianca Bobescu, Marian Alexandru} <<Mobile indoor positioning using Wifi localization>> Review of the Air Force Academy. Transilvania University, Brasov, Romania
-\bibitem{4} \textsc{Mayur Tawari},\textsc{Onkar Pathak},\textsc{Rajesh Palaskar} y \textsc{Rajesh Palkar}, <<Wi-Fi Indoor Positioning System Based on RSSI Measurements from Wi-Fi Access Points –A Tri-lateration Approach>>, \textit{International Journal of Scientific \& Engineering Research. V5}, 2014.
+
+\bibitem{4} \textsc{Mayur Tawari,Onkar Pathak,Rajesh Palaskar \& Rajesh Palkar}, <<Wi-Fi Indoor Positioning System Based on RSSI Measurements from Wi-Fi Access Points –A Tri-lateration Approach>>, \textit{International Journal of Scientific \& Engineering Research. V5}, 2014.
+
 \bibitem{5} \textsc{C. Yang and H. r. Shao}, <<WiFi-based indoor positioning,>> in IEEE Communications Magazine, vol. 53, no. 3, pp. 150-157, March 2015. doi: 10.1109/MCOM.2015.7060497
-\bibitem{6} \textsc{Zahid Farid, Rosdiadee Nordin} y \textsc{Mahamod Ismail}, <<Recent Advances in Wireless Indoor Localization Techniques and System>>, \textit{Journal of Computer Networks and Communications}, 2013.
+
+\bibitem{6} \textsc{Zahid Farid, Rosdiadee Nordin \& Mahamod Ismail}, <<Recent Advances in Wireless Indoor Localization Techniques and System>>, \textit{Journal of Computer Networks and Communications}, 2013.
+
 \bibitem{7} \textsc{Zhao Kai, Li Binghao} y \textsc{Andrew Dempster}, <<A Comparison of algorithms adopted in fingerprinting indoor positioning systems>>, \textit{IGNSS Symposium}, 2013.
+
 \bibitem{8} \textsc{Ma, R., Guo, Q., Hu, C., \& Xue, J.} (2015). <<An Improved WiFi Indoor Positioning Algorithm by Weighted Fusion>>. Sensors.
+
 \bibitem{9} \textsc{Habibi Lashkari, Arash \& Parhizkar, Behrang \& Ng Ah Ngan, Mike.} (2010). <<WIFI-based indoor positioning system>>. Computer and Network Technology, International Conference on. 76-78. 10.1109/ICCNT.2010.33. 
+
 \bibitem{10} \textsc{Zourmand A., Sheng N., Lai Kun A., et al},<<Human Counting and Indoor Positioning System Using WiFi Technology>> , \textit{IEEE, International Conference on Automatic Control and Intelligent Systems.} October 20,2018, Shah Alam, Malaysia.
+
 \bibitem{11} \textsc{Davies K., Jones I.} y \textsc{Shapiro J.},<<A Bayesian Approach to Dealing with Device Heterogeneity in an Indoor Positining System>>, \textit{International Conference on Indoor Positioning and Indoor Navigation.} September 2018, Nantes, France.
 
 \bibitem{12} \textsc{Le Dortz N, Zetterberg P. and Gain F.}, <<Wifi Fingerpirnt Indoor Positioning System Using Probability Distribution Comparison>>, \textit{IEEE ICASSP 2012}
+
 \bibitem{13} \textsc{Beom-Ju Shin, Kwang-Won Lee, Sun-Ho Choi, et al},<<Indoor WiFi positining System fior Android Based Smartphone>> , \textit{ICTC 2010}
+
 \bibitem{14} \textsc{Lu Y., Zhang D. Cheng Y., et al},<<An Improved Method and Implementation of Indoor Positioning Fingerprint Matching Localization Based on WLAN>>, \textit{Springer Nature},Switzerland AG 2019
+
 \bibitem{15}\textsc{H. Hsieh, S. W. Prakosa and J. Leu}, <<Towards the Implementation of Recurrent Neural Network Schemes for WiFi Fingerprint-Based Indoor Positioning,>> 2018 IEEE 88th Vehicular Technology Conference (VTC-Fall), Chicago, IL, USA, 2018, pp. 1-5.doi: 10.1109/VTCFall.2018.8690989
+
 \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8690989&isnumber=8690547}
 
 \bibitem{16} \textsc{Y Lu et al},<<Implementation of Fingerprint Matching Method for Indoor Position Based on Virtual Reality Technology>>, \textit{An Improved Method and Implementation}
+
 \bibitem{17} \textsc{Alarifi, Abdulrahman \& Al-Salman, AbdulMalik \& Alsaleh, Mansour \& Alnafessah, Ahmad \& Alhadhrami, Suheer \& A. Al-Ammar, Mai \& Al-Khalifa, Hend}. (2016). <<Ultra Wideband Indoor Positioning Technologies: Analysis and Recent Advances>>. Sensors. 16. 1-36. 10.3390/s16050707.
+
 \bibitem{18} \textsc{Lukasz Zwirello, Tom Schipper, Marlene Harter, and Thomas Zwick}, <<UWB Localization System for Indoor Applications: Concept, Realization and Analysis>>, Journal of Electrical and Computer Engineering, vol. 2012, Article ID 849638, 11 pages, 2012. \url{https://doi.org/10.1155/2012/849638.}
+
 \bibitem{19}\textsc{McCulloch, W.S. \& Pitts, W.} <<A logical calculus of the ideas immanent in nervous activity>> Bulletin of Mathematical Biophysics (1943) 5: 115. 
 
 \url{https://doi.org/10.1007/BF02478259}
 
-\bibitem{20} \textsc{K. E. Jeon, J. She, P. Soonsawad and P. C. Ng}, <<BLE Beacons for Internet of Things Applications: Survey, Challenges, and Opportunities>> in IEEE Internet of Things Journal, vol. 5, no. 2, pp. 811-828, April 2018. doi: 10.1109/JIOT.2017.2788449 \ \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8242361&isnumber=8334665}
+\bibitem{20} \textsc{K. E. Jeon, J. She, P. Soonsawad and P. C. Ng}, <<BLE Beacons for Internet of Things Applications: Survey, Challenges, and Opportunities>> in IEEE Internet of Things Journal, vol. 5, no. 2, pp. 811-828, April 2018. doi: 10.1109/JIOT.2017.2788449
+\url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8242361&isnumber=8334665}
 
 \bibitem{21} \textsc{R. P and M. L. Sichitiu}, <<Angle of Arrival Localization for Wireless Sensor Networks,>> 2006 3rd Annual IEEE Communications Society on Sensor and Ad Hoc Communications and Networks, Reston, VA, 2006, pp. 374-382. doi: 10.1109/SAHCN.2006.288442
+
 \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4068140&isnumber=4068087}
 
 \bibitem{22} \textsc{Luo, Juan \& Yin, Xixi \& Zheng, Yanliu \& Wang, Chunhua.} (2018). <<Secure Indoor Localization Based on Extracting Trusted Fingerprint>>. Sensors. 18. 469. 10.3390/s18020469.
+
 \bibitem{23} \textsc{Zhou, J \& Li, W \& Jin, L \& Chen, X.} (2015). <<Indoor positioning system based on KNN-SVM algorithm.>> 43. 517-520. 10.13245/j.hust.15S1123.
+
 \bibitem{24}\textsc{Dari, Yohanes \& Suyoto, Suyoto \& Pranowo, Pranowo.} (2018). CAPTURE: <<A Mobile Based Indoor Positioning System using Wireless Indoor Positioning System.>> International Journal of Interactive Mobile Technologies (iJIM). 12. 61. 10.3991/ijim.v12i1.7632. 
+
 \bibitem{25} \textsc{Ren, Jin \& Yunan, Wang \& Changliu, Niu \& Wei, Song}. (2019). <<A Novel High Precision and Low Consumption Indoor Positioning Algorithm for Internet of Things.>> IEEE Access. PP. 1-1. 10.1109/ACCESS.2019.2924992.
+
 \bibitem{26}\textsc{Chen, Chih-Yung \& Yin, Li-Peng \& Chen, Yu-Ju \& Hwang, Rey-Chue}. (2012). <<A modified probability neural network indoor positioning technique>>. Proceedings - 3rd International Conference on Information Security and Intelligent Control, ISIC 2012. 317-320. 10.1109/ISIC.2012.6449770.
+
 \bibitem{27} \textsc{Mu, Zhou \& Yubin, Xu \& Lin, Ma}. (2009).<<ANN indoor position determination based on area correlation in WLAN environment.>> 2009 International Conference on Wireless Communications and Signal Processing, WCSP 2009. 10.1109/WCSP.2009.5371722. 
+
 \bibitem{28} \textsc{F Malik, R \& Gustifa, R \& Farissi, A \& Stiawan, Deris \& Ubaya, H \& Ahmad, Mohd Riduan \& Al-Khaleefa, Ahmed. (2019)}.<<The Indoor Positioning System Using Fingerprint Method Based Deep Neural Network.>> IOP Conference Series: Earth and Environmental Science. 248. 012077. 10.1088/1755-1315/248/1/012077. 
 \end{thebibliography}
 
