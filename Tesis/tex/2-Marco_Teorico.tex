@@ -113,7 +113,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
             d = \dfrac{c\cdot{\left(T_{Total} - T_{proc}\right)}}{2}
         \end{equation}
         
-        Donde \textit{d}, representa la distancia entre los dos dispositivos; \textit{c}, la velocidad de la luz; Tproc, el tiempo que le toma a la estación realizar el calculo. Siendo este último, un parámetro complejo de obtener con precisión, ya que depende de la latencia del sistema. Esto se escala como la principal desventaja de este sistema ya que calcular la posición para varios dispositivos se traduce en lidiar con latencias que impidan obtener la posición de dispositivos que se mueven rápidamente.
+        Donde \textit{d}, representa la distancia entre los dos dispositivos; \textit{c}, la velocidad de la luz; $T_{proc}$, el tiempo que le toma a la estación realizar el calculo. Siendo este último, un parámetro complejo de obtener con precisión, ya que depende de la latencia del sistema. Esto se escala como la principal desventaja de este sistema ya que calcular la posición para varios dispositivos se traduce en lidiar con latencias que impidan obtener la posición de dispositivos que se mueven rápidamente.
         
         \begin{figure}[h!]
             \centering
@@ -143,7 +143,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
         \item{Algoritmos de posicionamiento para método por características de posición}\\
         
             \begin{enumerate}
-                \item {\textbf{Método Probabilístico}: En este método, se considera el estimar la posición del ibjetivo, como un problema de clasificación, ya que desde un vector de RSS capturadas desde los APs, se puede estimar la probabilidad de que un valor \textit{S}, pertenezca a un AP particular, y por ende, a un punto de coordenadas aproximado. \\
+                \item {\textbf{Método Probabilístico}: En este método, se considera el estimar la posición del objetivo, como un problema de clasificación, ya que desde un vector de RSS capturadas desde los APs, se puede estimar la probabilidad de que un valor \textit{S}, pertenezca a un AP particular, y por ende, a un punto de coordenadas aproximado. \\
                 
                 Se puede hacer el cálculo de la posición a través de modelos de inferencia y asociarlo también a un tipo de Cadenas de Markov, así como también, apoyar el cálculo introduciendo medidas de dispersión tales como la desviación estándar y la varianza, o de una medida de tendencia central como es la media.\\
                 }
@@ -175,7 +175,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
 
                 Ahora, a diferencia de otros métodos de clasificación, como es el caso de \ref{SVM}, en KNN la fase de entrenamiento no existe, de manera que sólo se trata de una fase. En cambio, se tiene que cualquier caso por abstraer o generalizar la información que allí está, es un hecho en la etapa de clasificación.\\
 
-                Esto significa que se puede trabajar inmediatamente sobre los datos, en tanto estos, tal y como se mencionó previamente, no requieran un pre procesamiento. Dado que lo que hace este método es agrupar valores, el resultado óptimo será cuando exista un reducido número de  data-sets y estos no tengan valores no numéricos.\\
+                Esto significa que se puede trabajar inmediatamente sobre los datos, en tanto estos, tal y como se mencionó previamente, no requieran un preprocesamiento. Dado que lo que hace este método es agrupar valores, el resultado óptimo será cuando exista un reducido número de  data-sets y estos no tengan valores no numéricos.\\
 
                 Así, se tiene que los datos que se clasificarán pueden también ser representados como una matriz de M x N  datos, de donde ; M, es el número de datos; y N, son las características de los datos. Dicho esto, el proceso de agrupamiento de los datos se hace según las siguientes consideraciones:\\
 
@@ -204,7 +204,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
             
             \item{\textbf{Método \ac{RNA}}: Este método se vale de una neurona artificial llamada \textbf{perceptrón}, algo que fuera desarrollado entre los años 1950s y 1960s por el científico Frank Rosenblatt, inspirado por el trabajo de Warren McCulloch y Walter Pitts <<A Logical Calculus of the Ideas Immanent in Nervous Activity>> \cite{19} donde señalan la posibilidad de rescatar la idea de un sistema complejo de redes y conexiones, de impulsos y señales, como es nuestro sistema nervioso, y extrapolarlo a uno computarizado, donde en lugar de estímulos, se tuvieran señales.\\
             
-             Se mencionó que uno de los objetivos del trabajo de McCulloch fue el de introducir la noción de neurona artificial, por esto es que el perceptrón le debe su estructura, presentada a continuación:
+             Se mencionó en \cite{29} que uno de los objetivos del trabajo de McCulloch y Pitts fue el de introducir la noción de neurona artificial, por esto es que el perceptrón le debe su estructura, presentada a continuación:
              
             \begin{figure}[h!]
                 \centering
