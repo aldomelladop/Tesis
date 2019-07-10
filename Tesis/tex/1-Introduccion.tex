@@ -18,7 +18,7 @@ Es por esto que el método a través del cual se de solución al problema del po
 
 \section{Estado del arte}
 
-En cuánto a los enfoques que se han considerado para evaluar la posición de un dispositivo móvil en un espacio interior se han podido desarrollar diversas soluciones que apuntan de una u otra manera a aproximaciones geométricas. A fin de ordenar según la técnica, la documentación consultada, se hará una clasificación y dentro de las categorías, explicará las investigaciones en el área.\\
+En cuánto a los enfoques que se han considerado para evaluar la posición de un dispositivo móvil en un espacio interior se han podido desarrollar diversas soluciones que apuntan de una u otra manera a aproximaciones geométricas. A fin de ordenar según la técnica, la documentación consultada, se hará una clasificación y dentro de las categorías, explicará las investigaciones en el área.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 \clearpage 
@@ -31,7 +31,7 @@ Se abordará siguiendo el esquema que está a continuación:
     \label{fig:diagrama}
 \end{figure}
 
-Así, comenzando por el tipo de algoritmos basados en \textit{Detección de proximidad} se tiene que de acyerdo a lo visto en \cite{6}, algunas de las tecnologías que permiten esto, es aquella asociada al uso de beacons; pequeños dispositivos capaces de emitir señales de onda corta por medio de la tecnología Bluetooth, y que puede llegar hasta 50 metros de alcance. Es precisamente en el uso de estos dispositivos que en \cite{20}, los autores, con el fin de integrarlos a tecnologías del IoT, hacen todo un estudio respecto de los distintos tipos de beacons que existen en el mercado, haciendo énfasis en las características asociadas al consumo de energía, al uso del ancho de banda, y de la latencia asociada a la respuesta de los beacons del tipo \ac{BLE}.\\
+Así, comenzando por el tipo de algoritmos basados en \textit{Detección de proximidad} se tiene que de acuerdo a lo visto en \cite{6}, algunas de las tecnologías que permiten esto, es aquella asociada al uso de beacons; pequeños dispositivos capaces de emitir señales de onda corta por medio de la tecnología Bluetooth, y que puede llegar hasta 50 metros de alcance. Es precisamente en el uso de estos dispositivos que en \cite{20}, los autores, con el fin de integrarlos a tecnologías del IoT, hacen todo un estudio respecto de los distintos tipos de beacons que existen en el mercado, haciendo énfasis en las características asociadas al consumo de energía, al uso del ancho de banda, y de la latencia asociada a la respuesta de los beacons del tipo \ac{BLE}.\\
 
 Presentan además como es que se han integrado estos dispositivos en el comercio, museos, hospitales y estaciones de trabajo, permitiendo así, el surgimiento potencial de una industria interesada en sus bondades. Explican allí que el uso de los beacons se traduce en que cada dispositivo posee una etiqueta única, que para efectos de este trabajo bien puede ser la dirección \ac{MAC}, que al comunicarse con el dispositivo móvil permite a este, enviar una respuesta de cuáles dispositivos tiene a la vista y entonces, comparar el \ac{RSS} para así estimar respecto de cuál beacon está más cercano el usuario.\\
 
@@ -54,7 +54,7 @@ Finalmente, en lo que respecta al algoritmo de \textit{Triangulación} se deben 
     \begin{itemize}
         \item{\textbf{\ac{AoA}}: Referido, como su nombre lo dice, se refiere al ángulo de llegada de la señal del dispositivo móvil, proveniente de una ubicación desconocida, la cual es recibida en múltiples estaciones base. Este algoritmo es evaluado por diversos autores; en \cite{1} los autores lo trabajan como un complemento al uso de los sensores propios del dispositivo, logrando una performance destacable en cuánto a la media del error, sin embargo, no presentan resultados numéricos que permitan conocer el área de cobertura, así como la disponibilidad.\\
             
-        En \cite{20}, señalan que una de las desventajas de este método radica en que debido a que no todos los dispositivos están en línea vista con el equipo receptor, la precisión de las mediciones se degrada, haciendo incapié en que la disposición del arreglo de antenas emisoras juega un rol fundamental en estimar la posición.\\
+        En \cite{20}, señalan que una de las desventajas de este método radica en que debido a que no todos los dispositivos están en línea vista con el equipo receptor, la precisión de las mediciones se degrada, haciendo hincapié en que la disposición del arreglo de antenas emisoras juega un rol fundamental en estimar la posición.\\
             
         En \cite{21} comienzan señalando que si bien existen otros algoritmos tales como ToF o TDoF, mucho menos complejos que el de AoA, si es posible implementar un método que alcance una buena precisión pese a las imprecisiones en las mediciones de ángulo y el bajo número de beacons dispuestos. No obstante, en \cite{5} los autores hablan de aproximaciones  híbridos que trabajan con lo mejor de los algoritmos basados en tiempo, y en ángulo para reducir la complejidad que introduce el ambiente indoor. Sin embargo, no logran reducir ni el número de antenas ni el ancho de banda utilizado.}
         \end{itemize}
@@ -74,7 +74,7 @@ Finalmente, en lo que respecta al algoritmo de \textit{Triangulación} se deben 
         
         Un algoritmo basado en \ac{RSSI}, pero que no usa propiedades geométricas para hacer el posicionamiento es aquell llamado \textit{Fingerprinting Based Indoor Localization}, en \cite{6} los autores lo presentan como una técnica que consiste en dos etapas; la primera, conocida como offline, es la de hacer una colección de los niveles de potencia recibidos en las distintas áreas de interés y almacenarlas en una base de datos que sirva de entrenamiento para las predicciones en las cuales se basará la etapa siguiente; luego, en la etapa \textit{online}, lo que se busca es medir los niveles de potencia y compararlos con el vector de \ac{RSS} que más se le parezca.\\
         
-        Para esto, la etapa offline puede verse apoyado por herramientas estadísticas como las de los trabajos \cite{8}, \cite{10},\cite{11},\cite{12} y \cite{14}, o bien, por algoritmos basados técnicas de reconocimiento de patrones probabilísticas y determinísticas tales como KNN, RN, SVM, RNN u otros.\\
+        Para esto, la etapa offline puede verse apoyado por herramientas estadísticas como las de los trabajos \cite{8}, \cite{10},\cite{11},\cite{12} y \cite{14}, o bien, por algoritmos basados técnicas de reconocimiento de patrones probabilísticas y determinísticas tales como KNN, ANN, SVM u otros.\\
         
         \begin{itemize}
             \item {\textbf{\ac{KNN}}: Este algoritmo introducido teóricamente en \cite{7} aparece como un método que autores en \cite{23} usaron KNN para eliminar aquellos puntos individuales en el dataset de muestreo, que bien podría corresponder a aquellos vectores que surgieron de capturar más AP. Luego, usaron SVM para posicionar al usuario. En este trabajo los resultados muestran que el algoritmo híbrido mejora considerablemente la precisión y la velocidad de este.\\
