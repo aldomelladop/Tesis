@@ -1,0 +1,1120 @@
+
+[0]
+
+[1]
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:98:01:30
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:98:01:32
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"eduroam"
+           Cell 04 - Address: F0:5C:19:98:01:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 05 - Address: F0:5C:19:98:08:70
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:08:71
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:B0
+                     Quality=58/70  Signal level=-52 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:97:FF:B1
+                     Quality=58/70  Signal level=-52 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:00:50
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:00:51
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:D0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 12 - Address: F0:5C:19:97:FF:D1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:62
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 14 - Address: 92:63:3B:E3:6D:FB
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 15 - Address: F0:5C:19:97:FF:A0
+                     Quality=50/70  Signal level=-60 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:A1
+                     Quality=50/70  Signal level=-60 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: 78:C3:E9:8D:EC:D8
+                     Quality=18/70  Signal level=-92 dBm  
+                     ESSID:"JoJi"
+           Cell 18 - Address: F0:5C:19:98:00:40
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:C0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:98:1A:F2
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"eduroam"
+           Cell 21 - Address: F0:5C:19:98:00:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 22 - Address: F0:5C:19:98:00:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:98:00:41
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"UdeC"
+           Cell 24 - Address: F0:5C:19:97:FF:C1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:98:01:30
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:98:01:32
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"eduroam"
+           Cell 04 - Address: F0:5C:19:98:01:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 05 - Address: F0:5C:19:98:08:70
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:08:71
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:B0
+                     Quality=58/70  Signal level=-52 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:97:FF:B1
+                     Quality=58/70  Signal level=-52 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:00:50
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:00:51
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:D0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 12 - Address: F0:5C:19:97:FF:D1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:62
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 14 - Address: 92:63:3B:E3:6D:FB
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 15 - Address: F0:5C:19:97:FF:A0
+                     Quality=50/70  Signal level=-60 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:A1
+                     Quality=50/70  Signal level=-60 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: 78:C3:E9:8D:EC:D8
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"JoJi"
+           Cell 18 - Address: F0:5C:19:98:00:40
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:C0
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:98:1A:F2
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"eduroam"
+           Cell 21 - Address: F0:5C:19:98:00:30
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 22 - Address: F0:5C:19:98:00:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:98:00:41
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"UdeC"
+           Cell 24 - Address: F0:5C:19:97:FF:C1
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 25 - Address: F0:5C:19:98:08:61
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"WiFi-UdeC"
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:98:01:30
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:98:01:32
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"eduroam"
+           Cell 04 - Address: F0:5C:19:98:01:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 05 - Address: F0:5C:19:98:08:70
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:08:71
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:B0
+                     Quality=56/70  Signal level=-54 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:97:FF:B1
+                     Quality=56/70  Signal level=-54 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:00:50
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:00:51
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:D0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 12 - Address: F0:5C:19:97:FF:D1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:62
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 14 - Address: 92:63:3B:E3:6D:FB
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 15 - Address: F0:5C:19:97:FF:A0
+                     Quality=52/70  Signal level=-58 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:A1
+                     Quality=52/70  Signal level=-58 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: 78:C3:E9:8D:EC:D8
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"JoJi"
+           Cell 18 - Address: F0:5C:19:98:00:40
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:C0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:98:00:30
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 21 - Address: F0:5C:19:98:00:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:98:00:41
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:97:FF:C1
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 24 - Address: F0:5C:19:98:08:61
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 25 - Address: 5E:EA:1D:70:8A:ED
+                     Quality=38/70  Signal level=-72 dBm  
+                     ESSID:"DIRECT-ed-HP M130f LaserJet"
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:98:01:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:98:01:32
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"eduroam"
+           Cell 04 - Address: F0:5C:19:98:01:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 05 - Address: F0:5C:19:98:08:70
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:08:71
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:B0
+                     Quality=57/70  Signal level=-53 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:97:FF:B1
+                     Quality=57/70  Signal level=-53 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:00:50
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:00:51
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:D0
+                     Quality=40/70  Signal level=-70 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 12 - Address: F0:5C:19:97:FF:D1
+                     Quality=38/70  Signal level=-72 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:62
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 14 - Address: 92:63:3B:E3:6D:FB
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 15 - Address: F0:5C:19:97:FF:A0
+                     Quality=51/70  Signal level=-59 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:A1
+                     Quality=51/70  Signal level=-59 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: 78:C3:E9:8D:EC:D8
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"JoJi"
+           Cell 18 - Address: F0:5C:19:98:00:40
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:C0
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:98:00:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 21 - Address: F0:5C:19:98:00:31
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:98:00:41
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:97:FF:C1
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"UdeC"
+           Cell 24 - Address: 5E:EA:1D:70:8A:ED
+                     Quality=38/70  Signal level=-72 dBm  
+                     ESSID:"DIRECT-ed-HP M130f LaserJet"
+           Cell 25 - Address: F0:5C:19:98:1A:F2
+                     Quality=19/70  Signal level=-91 dBm  
+                     ESSID:"eduroam"
+           Cell 26 - Address: F0:5C:19:98:1A:F1
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"WiFi-UdeC"
+
+[0]
+
+[1]
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: F0:5C:19:97:FF:A1
+                     Quality=47/70  Signal level=-63 dBm  
+                     ESSID:"UdeC"
+           Cell 04 - Address: F0:5C:19:98:00:40
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:98:00:41
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:97:FF:C0
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C1
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"UdeC"
+           Cell 08 - Address: FE:A6:21:B1:51:6A
+                     Quality=38/70  Signal level=-72 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 09 - Address: F0:5C:19:98:01:30
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:01:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:01:32
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"eduroam"
+           Cell 12 - Address: F0:5C:19:98:08:70
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:71
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:97:FF:B0
+                     Quality=60/70  Signal level=-50 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:B1
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"UdeC"
+           Cell 16 - Address: F0:5C:19:98:00:50
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:51
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 18 - Address: F0:5C:19:97:FF:D0
+                     Quality=35/70  Signal level=-75 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:D1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 20 - Address: F0:5C:19:98:1A:E2
+                     Quality=19/70  Signal level=-91 dBm  
+                     ESSID:"eduroam"
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: F0:5C:19:97:FF:A1
+                     Quality=49/70  Signal level=-61 dBm  
+                     ESSID:"UdeC"
+           Cell 04 - Address: F0:5C:19:98:00:40
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:98:00:41
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:97:FF:C0
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C1
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"UdeC"
+           Cell 08 - Address: FE:A6:21:B1:51:6A
+                     Quality=36/70  Signal level=-74 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 09 - Address: F0:5C:19:98:01:30
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:01:31
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:01:32
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"eduroam"
+           Cell 12 - Address: F0:5C:19:98:08:70
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:71
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:97:FF:B0
+                     Quality=60/70  Signal level=-50 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:B1
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"UdeC"
+           Cell 16 - Address: F0:5C:19:98:00:50
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:51
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"UdeC"
+           Cell 18 - Address: F0:5C:19:97:FF:D0
+                     Quality=36/70  Signal level=-74 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:D1
+                     Quality=37/70  Signal level=-73 dBm  
+                     ESSID:"UdeC"
+           Cell 20 - Address: F0:5C:19:98:1A:E2
+                     Quality=19/70  Signal level=-91 dBm  
+                     ESSID:"eduroam"
+           Cell 21 - Address: F0:5C:19:98:1A:E0
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:97:FF:A0
+                     Quality=49/70  Signal level=-61 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 23 - Address: F0:5C:19:98:00:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 24 - Address: F0:5C:19:98:00:30
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: FE:A6:21:B1:51:6A
+                     Quality=37/70  Signal level=-73 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 04 - Address: F0:5C:19:98:00:40
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:98:00:41
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:97:FF:C0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 08 - Address: F0:5C:19:98:01:30
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 09 - Address: F0:5C:19:98:01:32
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"eduroam"
+           Cell 10 - Address: F0:5C:19:98:01:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:08:70
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 12 - Address: F0:5C:19:98:08:71
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 13 - Address: F0:5C:19:98:00:30
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:98:00:31
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:B0
+                     Quality=58/70  Signal level=-52 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:B1
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:50
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:98:00:51
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:D0
+                     Quality=37/70  Signal level=-73 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:97:FF:D1
+                     Quality=37/70  Signal level=-73 dBm  
+                     ESSID:"UdeC"
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: FE:A6:21:B1:51:6A
+                     Quality=38/70  Signal level=-72 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 04 - Address: F0:5C:19:98:00:40
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:98:00:41
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:97:FF:C0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 08 - Address: F0:5C:19:98:01:30
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 09 - Address: F0:5C:19:98:01:32
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"eduroam"
+           Cell 10 - Address: F0:5C:19:98:01:31
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:08:70
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 12 - Address: F0:5C:19:98:08:71
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 13 - Address: F0:5C:19:98:00:30
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:98:00:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:B0
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:B1
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:50
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:98:00:51
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:D0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:97:FF:D1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 21 - Address: F0:5C:19:97:FF:A0
+                     Quality=48/70  Signal level=-62 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 22 - Address: F0:5C:19:97:FF:A1
+                     Quality=48/70  Signal level=-62 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:98:1A:F1
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 24 - Address: F0:5C:19:98:1A:F2
+                     Quality=18/70  Signal level=-92 dBm  
+                     ESSID:"eduroam"
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: 5E:EA:1D:70:8A:ED
+                     Quality=40/70  Signal level=-70 dBm  
+                     ESSID:"DIRECT-ed-HP M130f LaserJet"
+           Cell 04 - Address: F0:5C:19:97:FF:A0
+                     Quality=48/70  Signal level=-62 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:97:FF:A1
+                     Quality=48/70  Signal level=-62 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:00:40
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:98:00:41
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: FE:A6:21:B1:51:6A
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 10 - Address: F0:5C:19:97:FF:C1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:01:30
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 12 - Address: F0:5C:19:98:01:31
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:01:32
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"eduroam"
+           Cell 14 - Address: F0:5C:19:98:08:70
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:98:08:71
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:98:00:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:31
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"UdeC"
+           Cell 18 - Address: F0:5C:19:97:FF:B0
+                     Quality=60/70  Signal level=-50 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:B1
+                     Quality=60/70  Signal level=-50 dBm  
+                     ESSID:"UdeC"
+           Cell 20 - Address: F0:5C:19:98:00:50
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 21 - Address: F0:5C:19:98:00:51
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:97:FF:D0
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 23 - Address: F0:5C:19:97:FF:D1
+                     Quality=42/70  Signal level=-68 dBm  
+                     ESSID:"UdeC"
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: 5E:EA:1D:70:8A:ED
+                     Quality=40/70  Signal level=-70 dBm  
+                     ESSID:"DIRECT-ed-HP M130f LaserJet"
+           Cell 04 - Address: F0:5C:19:97:FF:A0
+                     Quality=48/70  Signal level=-62 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:97:FF:A1
+                     Quality=48/70  Signal level=-62 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:00:40
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C0
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:98:00:41
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: FE:A6:21:B1:51:6A
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 10 - Address: F0:5C:19:97:FF:C1
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:01:30
+                     Quality=19/70  Signal level=-91 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 12 - Address: F0:5C:19:98:01:31
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:01:32
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"eduroam"
+           Cell 14 - Address: F0:5C:19:98:08:70
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:98:08:71
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:98:00:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:31
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 18 - Address: F0:5C:19:97:FF:B0
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:B1
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"UdeC"
+           Cell 20 - Address: F0:5C:19:98:00:50
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 21 - Address: F0:5C:19:98:00:51
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:97:FF:D0
+                     Quality=40/70  Signal level=-70 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 23 - Address: F0:5C:19:97:FF:D1
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"UdeC"
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: F0:5C:19:97:FF:A0
+                     Quality=52/70  Signal level=-58 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 04 - Address: F0:5C:19:97:FF:A1
+                     Quality=52/70  Signal level=-58 dBm  
+                     ESSID:"UdeC"
+           Cell 05 - Address: FE:A6:21:B1:51:6A
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 06 - Address: F0:5C:19:98:00:41
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:97:FF:C1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:01:30
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:01:31
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:01:32
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"eduroam"
+           Cell 12 - Address: F0:5C:19:98:08:70
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:71
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:98:00:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:B0
+                     Quality=53/70  Signal level=-57 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:B1
+                     Quality=52/70  Signal level=-58 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:50
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:98:00:51
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:D0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:97:FF:D1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: 92:63:3B:E3:6D:FB
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 03 - Address: F0:5C:19:97:FF:A0
+                     Quality=53/70  Signal level=-57 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 04 - Address: F0:5C:19:97:FF:A1
+                     Quality=53/70  Signal level=-57 dBm  
+                     ESSID:"UdeC"
+           Cell 05 - Address: FE:A6:21:B1:51:6A
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"MOVISTAR WIFI8204"
+           Cell 06 - Address: F0:5C:19:98:00:41
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 07 - Address: F0:5C:19:97:FF:C0
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:97:FF:C1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:01:30
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:98:01:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 11 - Address: F0:5C:19:98:01:32
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 12 - Address: F0:5C:19:98:08:70
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 13 - Address: F0:5C:19:98:08:71
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:98:00:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:B0
+                     Quality=51/70  Signal level=-59 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:B1
+                     Quality=51/70  Signal level=-59 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:50
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:98:00:51
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:D0
+                     Quality=36/70  Signal level=-74 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:97:FF:D1
+                     Quality=35/70  Signal level=-75 dBm  
+                     ESSID:"UdeC"
+           Cell 21 - Address: F0:5C:19:98:08:62
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"eduroam"
+           Cell 22 - Address: F0:5C:19:98:08:60
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:98:08:61
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 24 - Address: 5E:EA:1D:70:8A:ED
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"DIRECT-ed-HP M130f LaserJet"
+           Cell 25 - Address: F0:5C:19:98:00:40
+                     Quality=30/70  Signal level=-80 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 26 - Address: F0:5C:19:98:00:30
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"WiFi-UdeC"
+
+[0]
+
+[1]
+
+[0]
+
+[1]
+
+[0]
+
+[1]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:98:00:50
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:98:00:51
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 04 - Address: F0:5C:19:97:FF:D0
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:97:FF:D1
+                     Quality=42/70  Signal level=-68 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:08:70
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"UdeC"
+           Cell 07 - Address: F0:5C:19:98:08:71
+                     Quality=28/70  Signal level=-82 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 08 - Address: F0:5C:19:98:00:31
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 09 - Address: F0:5C:19:98:00:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 10 - Address: F0:5C:19:97:FF:B0
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:B1
+                     Quality=59/70  Signal level=-51 dBm  
+                     ESSID:"UdeC"
+           Cell 12 - Address: F0:5C:19:98:01:32
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"eduroam"
+           Cell 13 - Address: F0:5C:19:98:01:30
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:98:01:31
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:A0
+                     Quality=46/70  Signal level=-64 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:A1
+                     Quality=46/70  Signal level=-64 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:40
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:97:FF:C1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 19 - Address: F0:5C:19:98:00:41
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"UdeC"
+           Cell 20 - Address: F0:5C:19:97:FF:C0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 21 - Address: F0:5C:19:98:1A:F0
+                     Quality=19/70  Signal level=-91 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:98:1A:F1
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 23 - Address: F0:5C:19:98:1A:F2
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"eduroam"
+           Cell 24 - Address: 92:63:3B:E3:6D:FB
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+
+[0]
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:97:FF:B0
+                     Quality=57/70  Signal level=-53 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:97:FF:B1
+                     Quality=57/70  Signal level=-53 dBm  
+                     ESSID:"UdeC"
+           Cell 04 - Address: F0:5C:19:98:01:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:98:01:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:01:32
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"eduroam"
+           Cell 07 - Address: F0:5C:19:98:08:70
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"UdeC"
+           Cell 08 - Address: F0:5C:19:98:08:71
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 09 - Address: 92:63:3B:E3:6D:FB
+                     Quality=36/70  Signal level=-74 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 10 - Address: F0:5C:19:97:FF:A0
+                     Quality=50/70  Signal level=-60 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:A1
+                     Quality=49/70  Signal level=-61 dBm  
+                     ESSID:"UdeC"
+           Cell 12 - Address: A8:51:5B:84:AB:A3
+                     Quality=37/70  Signal level=-73 dBm  
+                     ESSID:"AndroidAPABA3"
+           Cell 13 - Address: F0:5C:19:98:00:30
+                     Quality=26/70  Signal level=-84 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 14 - Address: F0:5C:19:98:00:31
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 15 - Address: F0:5C:19:98:00:50
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 16 - Address: F0:5C:19:98:00:51
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:97:FF:D0
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:97:FF:D1
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"UdeC"
+           Cell 19 - Address: F0:5C:19:97:FF:C0
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 20 - Address: F0:5C:19:97:FF:C1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 21 - Address: F0:5C:19:98:00:40
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 22 - Address: 84:D4:7E:28:9A:A2
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"CAPACITACION ECONOMIA"
+           Cell 23 - Address: 84:D4:7E:28:9A:A3
+                     Quality=20/70  Signal level=-90 dBm  
+                     ESSID:"eduroam"
+           Cell 24 - Address: F0:5C:19:98:08:62
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"eduroam"
+           Cell 25 - Address: 5E:EA:1D:70:8A:ED
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"DIRECT-ed-HP M130f LaserJet"
+          Cell 01 - Address: F0:5C:19:98:08:72
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"eduroam"
+           Cell 02 - Address: F0:5C:19:97:FF:B0
+                     Quality=57/70  Signal level=-53 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 03 - Address: F0:5C:19:97:FF:B1
+                     Quality=57/70  Signal level=-53 dBm  
+                     ESSID:"UdeC"
+           Cell 04 - Address: F0:5C:19:98:01:30
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 05 - Address: F0:5C:19:98:01:31
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"UdeC"
+           Cell 06 - Address: F0:5C:19:98:01:32
+                     Quality=24/70  Signal level=-86 dBm  
+                     ESSID:"eduroam"
+           Cell 07 - Address: F0:5C:19:98:08:70
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 08 - Address: F0:5C:19:98:08:71
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 09 - Address: 92:63:3B:E3:6D:FB
+                     Quality=40/70  Signal level=-70 dBm  
+                     ESSID:"Fabi\xC3\xA1n-Redm\xC3\xB3vil"
+           Cell 10 - Address: F0:5C:19:97:FF:A0
+                     Quality=52/70  Signal level=-58 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 11 - Address: F0:5C:19:97:FF:A1
+                     Quality=53/70  Signal level=-57 dBm  
+                     ESSID:"UdeC"
+           Cell 12 - Address: F0:5C:19:98:00:50
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 13 - Address: F0:5C:19:98:00:51
+                     Quality=32/70  Signal level=-78 dBm  
+                     ESSID:"UdeC"
+           Cell 14 - Address: F0:5C:19:97:FF:D0
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 15 - Address: F0:5C:19:97:FF:D1
+                     Quality=34/70  Signal level=-76 dBm  
+                     ESSID:"UdeC"
+           Cell 16 - Address: F0:5C:19:97:FF:C1
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"UdeC"
+           Cell 17 - Address: F0:5C:19:98:00:40
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 18 - Address: F0:5C:19:98:08:62
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"eduroam"
+           Cell 19 - Address: F0:5C:19:98:00:41
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 20 - Address: F0:5C:19:98:00:30
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 21 - Address: F0:5C:19:98:00:31
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"UdeC"
+           Cell 22 - Address: F0:5C:19:98:08:60
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"UdeC"
+           Cell 23 - Address: F0:5C:19:98:1A:F0
+                     Quality=21/70  Signal level=-89 dBm  
+                     ESSID:"UdeC"
+           Cell 24 - Address: F0:5C:19:98:1A:F2
+                     Quality=22/70  Signal level=-88 dBm  
+                     ESSID:"eduroam"
+           Cell 25 - Address: F0:5C:19:98:1A:F1
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"WiFi-UdeC"
+
+[0]
+
+[1]
+
+[0]
+
+[1]
+
+[0]
+
+[1]
