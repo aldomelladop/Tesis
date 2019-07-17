@@ -1,6 +1,0 @@
-          Cell 01 - Address: 00:1D:CE:D7:67:AC
-                     Quality=63/70  Signal level=-47 dBm  
-                     ESSID:"Familia MO."
-           Cell 02 - Address: 18:35:D1:7D:08:49
-                     Quality=24/70  Signal level=-86 dBm  
-                     ESSID:"VTR-6424135"

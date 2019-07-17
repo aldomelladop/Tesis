@@ -1,3 +1,0 @@
-          Cell 01 - Address: 00:1D:CE:D7:67:AC
-                     Quality=70/70  Signal level=-40 dBm  
-                     ESSID:"Familia MO."
