@@ -66,3 +66,17 @@ except IOError:
 	print("File not found or path is incorrect")
 finally:
 	print("Exit")
+
+
+# while(flag!=True):
+# 	    	print("Press 'c' to continue or any key to quit")
+# 	    	key = getkey()
+
+# 	    	if key=='c':
+# 	    		it+=1
+# 	    		break
+# 	    	elif key=='q':
+# 	    		flag=True
+# 	    		print(f"--- {time.time() - start_time} seconds ---\n")
+# 	    	else:
+# 	    		continue
