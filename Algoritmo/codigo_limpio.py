@@ -9,7 +9,6 @@ import pandas as pd
 from getkey import getkey, keys
 from datetime import datetime as dt
 
-
 start_time = time.time()
 flag=False
 it=0
@@ -17,8 +16,9 @@ it=0
 try:
     while(flag==False):
     	print(f"i : {it}")
-    	for j in range(0,100000):
-    		print(f"\tj : {j+1}")
+    	for j in range(0,1001):
+    		print(f"\t(x,y) : ({it},{j})")
+    		#print(f"\tj : {j+1}")
 
 	    	name = uuid.uuid4()
 	    	my_file=open("respaldo.txt",'a')
@@ -39,20 +39,27 @@ try:
 	    	ESSID = []
 	    	MAC = []
 	    	dBm=  []
+	    	x_y_pot = []
+	    	m_MAC_ESSID = []
+	    	
+	    	x_y_pot.append(it)
+	    	x_y_pot.append(j)
 
 	    	lim = len(lines)
 	    	
 	    	for i in range(1,lim,3):
+	    		#print(f"dbm(lines[{i}]: {lines[i]}")
 	    		dBm.append(lines[i])
 
 	    	for i in range(2,lim,3):
 	    		ESSID.append(lines[i])
-
+                
 	    	for i in range(0,lim,3):
 	    		MAC.append(lines[i])
 
 	    	my_file.close()
 	    	my_file1.close()
+
 	    	l = len(dBm)
 	    	
 	    	for i in range(0,l):
@@ -64,18 +71,24 @@ try:
 
 	    		ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
-	    	m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
 
-	    	p_dBm = np.array(dBm)
+	    	m_MAC_ESSID.append("X")
+	    	m_MAC_ESSID.append("Y")
 
+                m_MAC_ESSID.extend([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
+	    	m_MAC_ESSID = np.array(m_MAC_ESSID)
+	    	#m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
+
+	    	x_y_pot.extend(dBm)
+	    	x_y_pot = np.array(x_y_pot)
 	    	
-	    	with open('Potencia.csv', 'a', newline = '') as csvfile:
+	    	with open('Potencia'+str(it)+'.csv', 'a', newline = '') as csvfile:
 	    		filewriter = csv.writer(csvfile)
 
 	    		if it==0 and j==0:
-	    			filewriter.writerow(m_MAC_ESSID)
+	    			filewriter.writerow([m_MAC_ESSID])
 	    		else:
-	    			filewriter.writerow(p_dBm)
+	    			filewriter.writerow([data])
  
 	    	os.system("rm "+ str(name) +".txt")
 
