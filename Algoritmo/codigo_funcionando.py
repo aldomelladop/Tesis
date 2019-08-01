@@ -9,8 +9,6 @@ Tengo que modificar el que las mediciones se copien en el mismo archivo, que una
 Una vez hecho esto, necesito que 
 """
 
-
-
 import sys
 import os
 import csv
@@ -91,10 +89,10 @@ try:
 	    			filewriter.writerow(p_dBm)
  
 	    	os.system("rm "+ str(name) +".txt")
-	    	df= pd.read_csv('Potencia.csv',error_bad_lines=False,warn_bad_lines=False)
-	    	df = df.fillna(-99)
+	    	#df= pd.read_csv('Potencia.csv',error_bad_lines=False,warn_bad_lines=False)
+	    	df= pd.read_csv('Potencia.csv',error_bad_lines=False)
+	    	#df = df.fillna(-99)
 	    	df.to_csv('Potencia.csv', index = None)
-
 
     	while(flag!=True):
     		print("Press 'c' to continue or any key to quit")
