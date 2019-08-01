@@ -71,24 +71,19 @@ try:
 
 	    		ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
-
-	    	m_MAC_ESSID.append("X")
-	    	m_MAC_ESSID.append("Y")
-
-                m_MAC_ESSID.extend([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
+	    	m_MAC_ESSID.extend([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
 	    	m_MAC_ESSID = np.array(m_MAC_ESSID)
 	    	#m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
 
-	    	x_y_pot.extend(dBm)
-	    	x_y_pot = np.array(x_y_pot)
+	    	p_dBm = np.array(dBm)
 	    	
-	    	with open('Potencia'+str(it)+'.csv', 'a', newline = '') as csvfile:
+	    	with open('Potencia.csv', 'a', newline = '') as csvfile:
 	    		filewriter = csv.writer(csvfile)
 
 	    		if it==0 and j==0:
-	    			filewriter.writerow([m_MAC_ESSID])
+	    			filewriter.writerow(m_MAC_ESSID)
 	    		else:
-	    			filewriter.writerow([data])
+	    			filewriter.writerow(p_dBm)
  
 	    	os.system("rm "+ str(name) +".txt")
 
