@@ -93,6 +93,21 @@ try:
 			df= pd.read_csv('Potencia.csv',error_bad_lines=False)
 			df.to_csv('Potencia.csv', index = None)
 
+			"""
+			#en esta parte, se pretende transformar las listas convertidas a arrays en DataFrames, para luego poder hacer un recuento del numero 
+			#mínimo de elementos no nulos en filas y con dicho número, cortar la cantidad de datos admitidos. Finalmente, se hace un append de 
+			#las coordenadas de posición en que se tomaron dichas muestras.
+
+			df= pd.read_csv('Potencias.csv',error_bad_lines=False)
+			num = df.count(axis='columns')
+			minimo= df4.min()
+			df = df.iloc[:,:minimo]
+			coord = pd.DataFrame()
+
+			df2 = pd.DataFrame({"x":[1, 5, 4],"y":[2, 3, 4]}) 
+			df = coord.append(df2, ignore_index = True)
+			"""
+
 		while(flag!=True):
 			print("Press 'c' to continue or any key to quit")
 			key = getkey()

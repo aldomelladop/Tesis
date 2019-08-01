@@ -17,13 +17,10 @@ import pandas as pd
 # Importing the dataset
 # =============================================================================
 #df= pd.read_csv('Potencia0.csv',error_bad_lines=False)
-df= pd.read_csv('Potencia.csv',error_bad_lines=False)
+df= pd.read_csv('Potencias.csv',error_bad_lines=False)
 df4 = df.count(axis='columns')
-df5 = df[:25]
-df= pd.read_csv('Potencia0.csv',error_bad_lines=False)
-df2 = df.dropna(how = 'any')
-df3 = df.fillna(int(-99))
-print(df.index)
+minimo= df4.min()
+df5 = df.iloc[:,:minimo]
 
 
 X = df.iloc[:].values #Dependant variables
@@ -73,7 +70,7 @@ df1 = pd.DataFrame({"a":[1, 2, 3, 4],
 df2 = pd.DataFrame({"x":[1, 5, 4],"y":[2, 3, 4]}) 
   
 # for appending df2 at the end of df1 
-df1 = df.append(df2, ignore_index = True) 
+df1 = df5.append(df2, ignore_index = True) 
 
 
 "
