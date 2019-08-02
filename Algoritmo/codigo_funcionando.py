@@ -104,7 +104,7 @@ try:
 			df = df.iloc[:,:minimo]
 			coord = pd.DataFrame()
 
-			df2 = pd.DataFrame({"x":[1, 5, 4],"y":[2, 3, 4]}) 
+			df2 = pd.DataFrame({"x":coord_x,"y":coord_y}) 
 			df = coord.append(df2, ignore_index = True)
 			"""
 
