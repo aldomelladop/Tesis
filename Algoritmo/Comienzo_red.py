@@ -51,8 +51,7 @@ df2 = pd.DataFrame({"X":[1, 1, 1],"Y":[0, 1, 2]})
 #df6 = df5.append(df2, ignore_index = True, sort=True)
 df7 = df2.join(df, how='right')
 df4 = df7.count(axis='columns')
-minimo= df4.min()
-df5 = df7.iloc[:,:minimo]
+df5 = df7.iloc[:,:df4.min()]
 
 
  

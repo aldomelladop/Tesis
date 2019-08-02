@@ -45,8 +45,30 @@ while(it<a):
         coord_x.append(j)
     it+=1
 
-df = pd.DataFrame({'X':coord_x,'Y':coord_y})
-data= pd.DataFrame.from_dict(df)
+#df = pd.DataFrame({'X':coord_x,'Y':coord_y})
+#coords= pd.DataFrame.from_dict(df)
+    
+coords= pd.DataFrame.from_dict({'X':coord_x,'Y':coord_y})
 
-df1 = df.append(df2, ignore_index = True) 
+df= pd.read_csv('Potencias.csv',error_bad_lines=False)
+df7 = coords.join(df, how='right')
+df5 = df7.iloc[:,:df7.count(axis='columns').min()]
 
+
+import time
+import sys
+
+toolbar_width = 40
+
+# setup toolbar
+sys.stdout.write("[%s]" % (" " * toolbar_width))
+sys.stdout.flush()
+sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
+
+for i in range(toolbar_width):
+    time.sleep(0.1) # do real work here
+    # update the bar
+    sys.stdout.write("-")
+    sys.stdout.flush()
+
+sys.stdout.write("]\n") # this ends the progress bar

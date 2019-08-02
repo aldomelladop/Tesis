@@ -17,20 +17,25 @@ import time
 import subprocess
 import numpy as np
 import pandas as pd
+from tqdm import tqdm
 from getkey import getkey, keys
 from datetime import datetime as dt
-
 
 start_time = time.time()
 flag=False
 it=0
 a = 100
+toolbar_width = 40
 
 try:
 	while(flag==False):
 		print(f"i : {it}")
+		sys.stdout.write("[%s]" % (" " * toolbar_width))
+		sys.stdout.flush()
+		sys.stdout.write("\b" * (toolbar_width+1)) # return to start of line, after '['
+
 		for j in range(0,a):
-			print(f"\tj : {j+1}")
+			time.sleep(0.1) # do real work here
 
 			name = uuid.uuid4()
 			my_file=open("respaldo.txt",'a')
@@ -53,6 +58,8 @@ try:
 			dBm=  []
 			coord_x = []
 			coord_y = []
+			coord_x.append(it)
+			coord_y.append(j)
 
 			lim = len(lines)
 
@@ -90,8 +97,6 @@ try:
 					filewriter.writerow(p_dBm)
 
 			os.system("rm "+ str(name) +".txt")
-			df= pd.read_csv('Potencia.csv',error_bad_lines=False)
-			df.to_csv('Potencia.csv', index = None)
 
 			"""
 			#en esta parte, se pretende transformar las listas convertidas a arrays en DataFrames, para luego poder hacer un recuento del numero 
@@ -108,6 +113,14 @@ try:
 			df = coord.append(df2, ignore_index = True)
 			"""
 
+			sys.stdout.write("-")
+			sys.stdout.flush()
+#			with tqdm(total=100, desc="Writing on Potencia.csv", bar_format="{l_bar}{bar} [ iterations left: {remaining} ]") as pbar:
+#				for i in range(100):
+#					time.sleep(3)
+#					pbar.update(1)
+		sys.stdout.write("]\n") # this ends the progress bar
+	
 		while(flag!=True):
 			print("Press 'c' to continue or any key to quit")
 			key = getkey()
@@ -117,6 +130,11 @@ try:
 				break
 			elif key=='q':
 				flag=True
+				coords= pd.DataFrame.from_dict({'X':coord_x,'Y':coord_y})
+				df= pd.read_csv('Potencias.csv',error_bad_lines=False)
+				df7 = coords.join(df, how='right')
+				df5 = df7.iloc[:,:df7.count(axis='columns').min()]
+                
 				print(f"--- {time.time() - start_time} seconds ---\n")
 			else:
 				continue
