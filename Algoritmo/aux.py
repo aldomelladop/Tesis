@@ -72,3 +72,10 @@ for i in range(toolbar_width):
     sys.stdout.flush()
 
 sys.stdout.write("]\n") # this ends the progress bar
+    
+import time
+from tqdm import tqdm
+
+for i in tqdm(range(10)):
+    time.sleep(3)
+    pbar.update(1)

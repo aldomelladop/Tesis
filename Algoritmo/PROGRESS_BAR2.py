@@ -31,7 +31,8 @@ coord_y = []
 try:
 	while(flag==False):
 		print(f"i : {it}")
-		with tqdm(total=a, desc="Writing on Potencia.csv", bar_format="{l_bar}{bar} [ iterations left: {remaining} ]") as pbar:
+		print(f"Writing on Potencias.csv \t")
+		for i in tqdm(a):
 			for j in range(0,a):
 				remaining = a - j
 			
