@@ -8,6 +8,8 @@ import numpy as np
 import pandas as pd
 from getkey import getkey, keys
 from datetime import datetime as dt
+from fixrows import fixrows
+from createcords import createcords
 
 start_time = time.time()
 flag=False
@@ -16,9 +18,8 @@ it=0
 try:
     while(flag==False):
     	print(f"i : {it}")
-    	for j in range(0,1001):
+    	for j in range(0,10):
     		print(f"\t(x,y) : ({it},{j})")
-    		#print(f"\tj : {j+1}")
 
 	    	name = uuid.uuid4()
 	    	my_file=open("respaldo.txt",'a')
@@ -86,7 +87,7 @@ try:
 	    			filewriter.writerow(p_dBm)
  
 	    	os.system("rm "+ str(name) +".txt")
-
+            
     	while(flag!=True):
     		print("Press 'c' to continue or any key to quit")
     		key = getkey()
@@ -96,7 +97,13 @@ try:
     			break
     		elif key=='q':
     			flag=True
+    			df = fixrows('Potencias') # A través de la función fixrows se ajustan las diferencias de elementos en las filas 
+    			num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
+    			coords = createcords(num_row) # se crean un numero equivalente de pares ordenados para la cantidad de filas
+    			df= coords.join(df, how='right') # se unen ambas partes, los pares y las mediciones en un solo archivo
+    			df.to_csv('Datos.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
     			print(f"--- {time.time() - start_time} seconds ---\n")
+#                df = pd.read_csv('Datos.csv')
     		else:
     			continue
 except IOError:
