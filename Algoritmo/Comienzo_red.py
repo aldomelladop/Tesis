@@ -21,10 +21,7 @@ from createcords import createcords
 df = fixrows('Potencias')
 num_row = np.shape(df)[0]
 
-
 coords = createcords(num_row)
-
-
 # =============================================================================
 #  Creating the Second Dataframe using dictionary 
 # =============================================================================
@@ -32,7 +29,7 @@ coords = createcords(num_row)
 
 num_row = np.shape(df)[0]
 #pos = pd.DataFrame({"X":[i for i in range(num_row)],"Y":[i for i in range(0,num_row)]}) 
-df = pos.join(df, how='right')
+df = coords.join(df, how='right')
 df.to_csv('Datos.csv', index = None)
 df = pd.read_csv('Datos.csv')
 

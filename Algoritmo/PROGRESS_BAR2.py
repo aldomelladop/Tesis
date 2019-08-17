@@ -94,6 +94,7 @@ try:
 						filewriter.writerow(p_dBm)
 
 				os.system("rm "+ str(name) +".txt")
+				pbar.update(1)
 
 				"""
 				#en esta parte, se pretende transformar las listas convertidas a arrays en DataFrames, para luego poder hacer un recuento del numero 
@@ -110,7 +111,7 @@ try:
 				df = coord.append(df2, ignore_index = True)
 				"""
 				#time.sleep(3)
-				pbar.update(1)
+				
 			
 		while(flag!=True):
 			print("Press 'c' to continue or any key to quit")

@@ -98,8 +98,8 @@ try:
     		elif key=='q':
     			flag=True
     			df = fixrows('Potencias') # A través de la función fixrows se ajustan las diferencias de elementos en las filas 
-    			num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
-    			coords = createcords(num_row) # se crean un numero equivalente de pares ordenados para la cantidad de filas
+#    			num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
+#    			coords = createcords(num_row) # se crean un numero equivalente de pares ordenados para la cantidad de filas
     			df= coords.join(df, how='right') # se unen ambas partes, los pares y las mediciones en un solo archivo
     			df.to_csv('Datos.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
     			print(f"--- {time.time() - start_time} seconds ---\n")
