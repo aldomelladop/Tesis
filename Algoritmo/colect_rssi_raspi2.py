@@ -27,34 +27,34 @@ start_time = time.time()
 flag=False
 it = 0
 a = 200
-nombre = "Potencia"
+nombre = "Potencia_r2"
 
 try:
     t.tic()
     while(flag==False):
-        with tqdm(total=a, desc="Writing on  Potencia.csv", bar_format="{l_bar}{bar} [ remaninig time: {remaining} ]") as pbar:
-            t.tic()
+        with tqdm(total=a, desc="Writing on  Potencia_r2.csv", bar_format="{l_bar}{bar} [ remaninig time: {remaining} ]") as pbar:
+#            t.tic()
             for j in range(0,a):
                 remaining = a - j
             
                 name = uuid.uuid4()
                 my_file=open(str(name)+".txt",'a')
                 
-                t.tic()
+#                t.tic()
                 A  = os.popen('sudo iwlist wlp2s0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
 
-                t.tic()
+#                t.tic()
                 B = " ".join(str(x) for x in A) #Para pasar la lista con strings, a un solo string separado por espacios (list comprehension)
 #                t.toc('join(str(x)) = ')
 
-                t.tic()
+#                t.tic()
                 my_file.write(B)
 #                t.toc('my_file.write(B) = ')
 
                 my_file = open(str(name)+ ".txt", "r")
 
-                t.tic()
+#                t.tic()
                 with open(str(name)+ ".txt") as fp:
                     lines = fp.readlines()
                 
@@ -66,18 +66,18 @@ try:
                 
                 lim = len(lines)
 
-                t.tic()
+#                t.tic()
                 for i in range(1,lim,3):
                     dBm.append(lines[i])
 #                t.toc('t_dBm= ')
 
-                t.tic()
+#                t.tic()
                 for i in range(2,lim,3):
                     ESSID.append(lines[i])
 
 #                t.toc('t_ESSID= ')
 
-                t.tic()
+#                t.tic()
                 for i in range(0,lim,3):
                     MAC.append(lines[i])
 
@@ -87,7 +87,7 @@ try:
                 
                 l = len(dBm)
 
-                t.tic()
+#                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
                     dBm[i]= dBm[i][2].replace("level=","")
@@ -101,8 +101,8 @@ try:
                 p_dBm = np.array(dBm)
 #                t.toc('t_writing= ')
 
-                t.tic()
-                with open('Potencia.csv', 'a', newline = '') as csvfile:
+#                t.tic()
+                with open('Potencia_r2.csv', 'a', newline = '') as csvfile:
                     filewriter = csv.writer(csvfile)
 
                     if it==0 and j==0:
@@ -141,7 +141,8 @@ try:
                     print(e)
                     print("Error detectado")
                 finally:
-                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
+#                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
+                    t.toc("whole process")
             else:
                 continue
 except IOError:
