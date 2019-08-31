@@ -58,7 +58,7 @@ def fixrows(name):
 # Se retorna un tipo de dato DataFrame para simplicidad de trabajo
 # =================================================================
     
-    return(pd.read_csv(name + '_corregido'+ '.csv'))
+#    return(pd.read_csv(name + '_corregido.csv'))
 
 fixrows.__doc__ = """ Lo que hace esta función es, leer el archivo, contar y almacenar en un vector la cantidad de elementos por fila.
 

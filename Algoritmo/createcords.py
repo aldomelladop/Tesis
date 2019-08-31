@@ -8,12 +8,19 @@ Created on Wed Aug  7 10:15:18 2019
 import pandas as pd
 
 def createcords(num_row):
-    aux = [[x,y] for x in range(num_row) for y in range(num_row)]
-    aux1 = []
+# =============================================================================
+#     Se tomaron las mediciones de cada baldosa para 9 filas con 50 mediciones por baldosa
+# =============================================================================
+    num_filas = 9
+    num_mediciones = 50
+    div = num_filas * num_mediciones
+    aux = [[x,y] for x in range(num_row//div) for y in range(num_row//div)]
     
+    aux1 = []
+     
     for j,k in enumerate(aux):
         l=0
-        while (l< num_row):
+        while (l< num_mediciones):
             aux1.append(k)
             l+=1
             

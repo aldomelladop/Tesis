@@ -11,14 +11,13 @@ Created on Thu Jul 25 10:24:48 2019
 import numpy as np
 import pandas as pd
 from fixrows import fixrows
-import matplotlib.pyplot as plt
 from createcords import createcords
 
 # =============================================================================
 # Importing the dataset
 # =============================================================================
 
-df = fixrows('Potencias')
+df = fixrows('Potencia')
 num_row = np.shape(df)[0]
 
 coords = createcords(num_row)
@@ -27,11 +26,10 @@ coords = createcords(num_row)
 # =============================================================================
     # num_row = np.shape(df)[0]-1  representa la cantidad de muestras tomadas para una posición dada
 
-num_row = np.shape(df)[0]
 #pos = pd.DataFrame({"X":[i for i in range(num_row)],"Y":[i for i in range(0,num_row)]}) 
 df = coords.join(df, how='right')
 df.to_csv('Datos.csv', index = None)
-df = pd.read_csv('Datos.csv')
+df = pd.read_csv('Potencia_corregido.csv')
 
 #df4 = df7.count(axis='columns')
 #df5 = df7.iloc[:,:df4.min()]

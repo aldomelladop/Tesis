@@ -26,7 +26,7 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 50
+a = 200
 nombre = "Potencia"
 
 try:
@@ -41,7 +41,7 @@ try:
                 
                 t.tic()
                 A  = os.popen('sudo iwlist wlp2s0 scan |egrep "Cell |ESSID|Quality"').readlines()
-                t.toc('iwlist = ')
+#                t.toc('iwlist = ')
 
                 t.tic()
                 B = " ".join(str(x) for x in A) #Para pasar la lista con strings, a un solo string separado por espacios (list comprehension)
