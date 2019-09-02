@@ -25,7 +25,7 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 200
+a = 300
 nombre = "Potencia_r1"
 
 try:
