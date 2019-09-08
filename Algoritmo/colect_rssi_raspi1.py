@@ -99,9 +99,13 @@ try:
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
-                pdBm = [i.replace("/",",")[0] for i in dBm]
-#                p_dBm = [int(int(i)/2)-100 for i in pdBm]
-                p_dBm = np.array(pdBm)
+                pdBm = [i[0].replace("/",",") for i in dBm]
+                
+                print(dBm)
+                print(pdBm)
+                break
+                p_dBm = [int(int(i)/2)-100 for i in pdBm]
+                p_dBm = np.array(p_dBm)
 #                t.toc('t_writing= ')
 
 #                t.tic()

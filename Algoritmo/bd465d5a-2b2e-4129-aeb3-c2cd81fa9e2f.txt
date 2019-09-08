@@ -1,0 +1,12 @@
+          Cell 01 - Address: A8:7D:12:D3:45:04
+                     ESSID:"HUAWEI P20 lite"
+                     Quality=100/100  Signal level=100/100  
+           Cell 02 - Address: 48:D3:43:19:34:31
+                     ESSID:"VTR-1114648"
+                     Quality=34/100  Signal level=32/100  
+           Cell 03 - Address: 00:1D:CE:D7:67:AC
+                     ESSID:"Familia MO."
+                     Quality=48/100  Signal level=64/100  
+           Cell 04 - Address: 48:D3:43:10:08:F9
+                     ESSID:"VTR-2336184"
+                     Quality=81/100  Signal level=23/100  
