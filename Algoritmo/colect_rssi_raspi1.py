@@ -90,7 +90,7 @@ try:
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
                     dBm[i]= dBm[i][2].replace("level=","")
-#                    dBm[i] = dBm[i].split()
+                    dBm[i] = dBm[i].split()
 #                    print("dBm[{}] = {}".format(i,dBm[i]))
                     
                     MAC[i] = MAC[i].split()
@@ -100,8 +100,8 @@ try:
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
                 pdBm = [i.replace("/",",")[0] for i in dBm]
-                p_dBm = [int(int(i)/2)-100 for i in pdBm]
-                p_dBm = np.array(p_dBm)
+#                p_dBm = [int(int(i)/2)-100 for i in pdBm]
+                p_dBm = np.array(pdBm)
 #                t.toc('t_writing= ')
 
 #                t.tic()
@@ -145,7 +145,7 @@ try:
                     print("Error detectado")
                 finally:
 #                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
-                    t.toc("whole process")
+                    t.toc()
             else:
                 continue
 except IOError:

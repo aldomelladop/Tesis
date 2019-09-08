@@ -1,0 +1,24 @@
+          Cell 01 - Address: A8:7D:12:D3:45:04
+                     Quality=67/70  Signal level=-43 dBm  
+                     ESSID:"HUAWEI P20 lite"
+           Cell 02 - Address: CC:D4:A1:E6:A1:E3
+                     Quality=23/70  Signal level=-87 dBm  
+                     ESSID:"joaquin"
+           Cell 03 - Address: CC:D4:A1:8E:EE:08
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"monterovergara"
+           Cell 04 - Address: 48:D3:43:19:34:31
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"VTR-1114648"
+           Cell 05 - Address: 00:1D:CE:D7:67:AC
+                     Quality=45/70  Signal level=-65 dBm  
+                     ESSID:"Familia MO."
+           Cell 06 - Address: 72:D4:A1:8E:EE:09
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"monterovergara_INV"
+           Cell 07 - Address: CC:D4:A1:6E:BE:88
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"casa"
+           Cell 08 - Address: 48:D3:43:10:08:F9
+                     Quality=25/70  Signal level=-85 dBm  
+                     ESSID:"VTR-2336184"
