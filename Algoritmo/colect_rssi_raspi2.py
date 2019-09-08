@@ -26,7 +26,7 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 200
+a = 300
 nombre = "Potencia_r2"
 
 try:
@@ -41,7 +41,7 @@ try:
                 my_file=open(str(name)+".txt",'a')
                 
 #                t.tic()
-                A  = os.popen('sudo iwlist wlp2s0 scan |egrep "Cell |ESSID|Quality"').readlines()
+                A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
 
 #                t.tic()

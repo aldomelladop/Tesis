@@ -145,7 +145,7 @@ try:
                     print("Error detectado")
                 finally:
 #                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
-                    t.toc("whole process")
+                    t.toc()
             else:
                 continue
 except IOError:
