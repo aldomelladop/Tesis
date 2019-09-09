@@ -26,7 +26,7 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 300
+a = 500
 nombre = "Potencia_r2"
 
 try:
@@ -42,6 +42,7 @@ try:
                 
 #                t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
+#                A  = os.popen('sudo ifconfig wlan0 up && sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
 
 #                t.tic()
@@ -98,6 +99,7 @@ try:
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
+                p_dBm = [i for i in dBm if i not line.strip()]
                 p_dBm = np.array(dBm)
 #                t.toc('t_writing= ')
 
