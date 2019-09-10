@@ -20,13 +20,13 @@ from pytictoc import TicToc
 from fixrows import fixrows
 from createcords import createcords 
     
-t = TicToc()
+t = TicToc()g
 
 
 start_time = time.time()
 flag=False
 it = 0
-a = 500
+a = 1000
 nombre = "Potencia_r2"
 
 try:
@@ -99,7 +99,8 @@ try:
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
-                p_dBm = [i for i in dBm if i not line.strip()]
+#                p_dBm = [i for i in dBm if i not line.strip()]
+                p_dBm = [i for i in dBm]
                 p_dBm = np.array(dBm)
 #                t.toc('t_writing= ')
 
