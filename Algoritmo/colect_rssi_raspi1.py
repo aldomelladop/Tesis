@@ -25,7 +25,7 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 500
+a = 2500
 nombre = "Potencia_r1"
 
 try:
@@ -42,7 +42,18 @@ try:
 #                t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
-
+                
+                if len(A)==0:
+                    print("Interface down")
+                    time.sleep(10)
+                    print(f"time.sleep(10)")
+                    print("sudo ifconfig wlan0 up")
+                    os.popen('sudo ifconfig wlan0 up')
+                    continue
+                else:
+                    remaining = a-j
+#                t.toc('iwlist = ')
+                    
 #                t.tic()
                 B = " ".join(str(x) for x in A) #Para pasar la lista con strings, a un solo string separado por espacios (list comprehension)
 #                t.toc('join(str(x)) = ')
