@@ -17,8 +17,8 @@ from createcords import createcords
 # Importing the dataset
 # =============================================================================
 
-fixrows('Potencia')
-df = pd.read_csv('Potencia_corregido.csv')
+df  = fixrows('Potencia')
+df = pd.read_csv('Potencia.csv')
 df = df.iloc[:4050,:]
 num_row = np.shape(df)[0]
 

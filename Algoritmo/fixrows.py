@@ -48,11 +48,15 @@ def fixrows(name):
 # para no perder datos que puedan ser utilizados a posteriori                    
 # =============================================================================
                 
-    with open(name + '_corregido'+ '.csv','w', newline='', encoding='latin-1') as f:
+    with open(name + '_corregido.csv','w', newline='', encoding='latin-1') as f:
         writer = csv.writer(f)
         writer.writerows(amended_rows)
+    
+    return(pd.read_csv(name+'_corregido.csv'))
 
     print(f"output file: {name}_corregido.csv")
+    
+#    return df_aux
 
 # =================================================================
 # Se retorna un tipo de dato DataFrame para simplicidad de trabajo

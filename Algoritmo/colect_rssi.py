@@ -26,23 +26,33 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 200
+a = 2000
 nombre = "Potencia"
 
 try:
     t.tic()
     while(flag==False):
-        with tqdm(total=a, desc="Writing on  Potencia.csv", bar_format="{l_bar}{bar} [ remaninig time: {remaining} ]") as pbar:
+        with tqdm(total=a, desc="Writing on  Potencia.csv", bar_format="{l_bar}{bar} [ remaining time: {remaining} ]") as pbar:
             t.tic()
             for j in range(0,a):
-                remaining = a - j
-            
+                
                 name = uuid.uuid4()
                 my_file=open(str(name)+".txt",'a')
                 
                 t.tic()
                 A  = os.popen('sudo iwlist wlp2s0 scan |egrep "Cell |ESSID|Quality"').readlines()
+                
+                if len(A)==0:
+                    print("Interface down")
+                    time.sleep(10)
+                    print(f"time.sleep(10)")
+                    print("sudo ifconfig wlp2s0 up")
+                    os.popen('sudo ifconfig wlp2s0 up')
+                    continue
+                else:
+                    remaining = a-j
 #                t.toc('iwlist = ')
+                    
 
                 t.tic()
                 B = " ".join(str(x) for x in A) #Para pasar la lista con strings, a un solo string separado por espacios (list comprehension)
@@ -129,14 +139,7 @@ try:
                     t.tic()
                     df = fixrows(nombre) # A través de la función fixrows se ajustan las diferencias de elementos en las filas 
                     t.toc("fixing rows")
-                    num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
-#                    print(f"num_row = {np.shape(df)[0]}")
-#                    t.tic()
-#                    coords = createcords(num_row) # se crean un numero equivalente de pares ordenados para la cantidad de filas
-#                    t.toc("createcords: ")
-#                    df= coords.join(df, how='right') # se unen ambas partes, los pares y las mediciones en un solo archivo
-#                    df.to_csv(name + '_c.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
-                   #df = pd.read_csv('Datos.csv')
+                    df.to_csv(nombre+ '_c.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
                 except Exception as e:  
                     print(e)
                     print("Error detectado")
