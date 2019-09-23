@@ -12,12 +12,12 @@ import csv
 import uuid
 import time
 import numpy as np
-import pandas as pd
+#import pandas as pd
 from tqdm import tqdm
 from getkey import getkey
 from pytictoc import TicToc
-#from fixrows import fixrows
-from createcords import createcords 
+from fixrows import fixrows
+#from createcords import createcords 
     
 t = TicToc()
 
