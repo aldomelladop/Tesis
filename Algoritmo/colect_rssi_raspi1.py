@@ -17,7 +17,11 @@ from tqdm import tqdm
 from getkey import getkey
 from pytictoc import TicToc
 from fixrows import fixrows
+<<<<<<< HEAD
 #from createcords import createcords 
+=======
+from createcords import createcords 
+>>>>>>> 66e3dbe19e08a3219ab852d5dc813926b08ec425
     
 t = TicToc()
 
@@ -25,13 +29,13 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 300
+a = 500
 nombre = "Potencia_r1"
 
 try:
     t.tic()
     while(flag==False):
-        with tqdm(total=a, desc="Writing on  Potencia_r1.csv", bar_format="{l_bar}{bar} [ remaninig time: {remaining} ]") as pbar:
+        with tqdm(total=a, desc="Writing on  Potencia_r1.csv", bar_format="{l_bar}{bar} [ remaining time: {remaining} ]") as pbar:
 #            t.tic()
             for j in range(0,a):
                 remaining = a - j
@@ -90,7 +94,7 @@ try:
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
                     dBm[i]= dBm[i][2].replace("level=","")
-#                    dBm[i] = dBm[i].split()
+                    dBm[i] = dBm[i].split()
 #                    print("dBm[{}] = {}".format(i,dBm[i]))
                     
                     MAC[i] = MAC[i].split()
@@ -99,7 +103,8 @@ try:
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
-                pdBm = [i.replace("/",",")[0] for i in dBm]
+                pdBm = [i[0].replace("/100","") for i in dBm if 'level:0' not in i[0]]
+
                 p_dBm = [int(int(i)/2)-100 for i in pdBm]
                 p_dBm = np.array(p_dBm)
 #                t.toc('t_writing= ')
@@ -145,7 +150,7 @@ try:
                     print("Error detectado")
                 finally:
 #                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
-                    t.toc("whole process")
+                    t.toc()
             else:
                 continue
 except IOError:

@@ -19,14 +19,19 @@ from pytictoc import TicToc
 from fixrows import fixrows
 #from createcords import createcords 
     
-t = TicToc()
+t = TicToc()g
 
 
 start_time = time.time()
 flag=False
 it = 0
+<<<<<<< HEAD
 a = 300
 nombre = "Potencia_r1"
+=======
+a = 1000
+nombre = "Potencia_r2"
+>>>>>>> 66e3dbe19e08a3219ab852d5dc813926b08ec425
 
 try:
     t.tic()
@@ -41,6 +46,10 @@ try:
                 
 #                t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
+<<<<<<< HEAD
+=======
+#                A  = os.popen('sudo ifconfig wlan0 up && sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
+>>>>>>> 66e3dbe19e08a3219ab852d5dc813926b08ec425
 #                t.toc('iwlist = ')
 
 #                t.tic()
@@ -99,9 +108,15 @@ try:
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
+<<<<<<< HEAD
                 pdBm = [i.replace("/",",")[0] for i in dBm]
                 #p_dBm = [int(int(i)/2)-100 for i in pdBm]
                 p_dBm = np.array(p_dBm)
+=======
+#                p_dBm = [i for i in dBm if i not line.strip()]
+                p_dBm = [i for i in dBm]
+                p_dBm = np.array(dBm)
+>>>>>>> 66e3dbe19e08a3219ab852d5dc813926b08ec425
 #                t.toc('t_writing= ')
 
 #                t.tic()
