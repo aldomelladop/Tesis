@@ -20,13 +20,13 @@ from pytictoc import TicToc
 from fixrows import fixrows
 from createcords import createcords 
     
-t = TicToc()g
+t = TicToc()
 
 
 start_time = time.time()
 flag=False
 it = 0
-a = 1000
+a = 2000
 nombre = "Potencia_r2"
 
 try:
