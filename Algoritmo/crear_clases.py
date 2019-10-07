@@ -11,17 +11,20 @@ Created on Thu Jul 25 10:24:48 2019
 import numpy as np
 import pandas as pd
 from fixrows import fixrows
-from createcords import createcords
+#from createcords import createcords
+from merge_csv import fusionar_csv
 
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-
-df  = fixrows('Potencia')
+df1  = fixrows('Potencia_r1')
+df2  = fixrows('Potencia_r2')
+df3 = df1 + df2
 df = pd.read_csv('Potencia.csv')
 df = df.iloc[:4050,:]
 num_row = np.shape(df)[0]
 
+df3 = df + df2.iloc[1:,:]
 coords  = [i for i in range(num_row//450) for j in range(num_row//9)]
 coords = pd.DataFrame(coords,dtype=object, columns = ['pos'])
 df = coords.join(df, how='right')
@@ -59,3 +62,5 @@ for i,j in df.iterrows():
         df.at[i, 'pos'] = 8
 
 df.to_csv('corregido.csv', index = None)
+
+df1 = fusionar_csv('Potencia_r1','Potencia_r2')
