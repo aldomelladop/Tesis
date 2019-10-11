@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3 -*- coding: utf-8 -*-
 """
 Created on Mon Jul 29 13:12:18 2019
 
@@ -13,13 +12,13 @@ import csv
 import uuid
 import time
 import numpy as np
-import pandas as pd
+#import pandas as pd
 from tqdm import tqdm
 from getkey import getkey
 from pytictoc import TicToc
 from fixrows import fixrows
-from createcords import createcords 
-    
+#from createcords import createcords 
+
 t = TicToc()
 
 
@@ -27,20 +26,22 @@ start_time = time.time()
 flag=False
 it = 0
 a = 15000
-nombre = "Potencia_r2"
+nombre = "Potencia_r3"
 
 try:
     t.tic()
     while(flag==False):
-        with tqdm(total=a, desc="Writing on  Potencia_r2.csv", bar_format="{l_bar}{bar} [ remaining time: {remaining} ]") as pbar:
-            t.tic()
+        with tqdm(total=a, desc="Writing on  Potencia_r3.csv", bar_format="{l_bar}{bar} [ remaining time: {remaining} ]") as pbar:
+#            t.tic()
             for j in range(0,a):
-                
+                remaining = a - j
+            
                 name = uuid.uuid4()
                 my_file=open(str(name)+".txt",'a')
                 
-                t.tic()
+#                t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
+#                t.toc('iwlist = ')
                 
                 if len(A)==0:
                     print("Interface down")
@@ -53,18 +54,17 @@ try:
                     remaining = a-j
 #                t.toc('iwlist = ')
                     
-
-                t.tic()
+#                t.tic()
                 B = " ".join(str(x) for x in A) #Para pasar la lista con strings, a un solo string separado por espacios (list comprehension)
 #                t.toc('join(str(x)) = ')
 
-                t.tic()
+#                t.tic()
                 my_file.write(B)
 #                t.toc('my_file.write(B) = ')
 
                 my_file = open(str(name)+ ".txt", "r")
 
-                t.tic()
+#                t.tic()
                 with open(str(name)+ ".txt") as fp:
                     lines = fp.readlines()
                 
@@ -76,18 +76,18 @@ try:
                 
                 lim = len(lines)
 
-                t.tic()
+#                t.tic()
                 for i in range(1,lim,3):
-                    dBm.append(lines[i])
-#                t.toc('t_dBm= ')
-
-                t.tic()
-                for i in range(2,lim,3):
                     ESSID.append(lines[i])
-
 #                t.toc('t_ESSID= ')
 
-                t.tic()
+#                t.tic()
+                for i in range(2,lim,3):
+                    dBm.append(lines[i])
+
+#                t.toc('t_dBm= ')
+
+#                t.tic()
                 for i in range(0,lim,3):
                     MAC.append(lines[i])
 
@@ -97,22 +97,27 @@ try:
                 
                 l = len(dBm)
 
-                t.tic()
+#                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
                     dBm[i]= dBm[i][2].replace("level=","")
-
+                    dBm[i] = dBm[i].split()
+#                    print("dBm[{}] = {}".format(i,dBm[i]))
+                    
                     MAC[i] = MAC[i].split()
                     MAC[i] = MAC[i][-1]
 
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
-                p_dBm = np.array(dBm)
+                pdBm = [i[0].replace("/100","") for i in dBm if 'level:0' not in i[0]]
+
+                p_dBm = [int(int(i)/2)-100 for i in pdBm]
+                p_dBm = np.array(p_dBm)
 #                t.toc('t_writing= ')
 
-                t.tic()
-                with open('Potencia_r2.csv', 'a', newline = '') as csvfile:
+#                t.tic()
+                with open('Potencia_r3|.csv', 'a', newline = '') as csvfile:
                     filewriter = csv.writer(csvfile)
 
                     if it==0 and j==0:
@@ -139,16 +144,23 @@ try:
                     t.tic()
                     df = fixrows(nombre) # A través de la función fixrows se ajustan las diferencias de elementos en las filas 
                     t.toc("fixing rows")
-                    df.to_csv(nombre+ '_c.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
+                    num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
+                    print(f"num_row = {np.shape(df)[0]}")
+#                    t.tic()
+#                    coords = createcords(num_row) # se crean un numero equivalente de pares ordenados para la cantidad de filas
+#                    t.toc("createcords: ")
+#                    df= coords.join(df, how='right') # se unen ambas partes, los pares y las mediciones en un solo archivo
+#                    df.to_csv(name + '_c.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
+#                     df = pd.read_csv('Datos.csv')
                 except Exception as e:  
                     print(e)
                     print("Error detectado")
                 finally:
-                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
+#                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
+                    t.toc()
             else:
                 continue
 except IOError:
     print("File not found or path is incorrect")
 finally:
     print("Exit")
-
