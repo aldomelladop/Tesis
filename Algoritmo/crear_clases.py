@@ -17,10 +17,8 @@ from merge_csv import fusionar_csv
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-df1  = fixrows('Potencia_r1')
-df2  = fixrows('Potencia_r2')
-df3 = df1 + df2
-df = pd.read_csv('Potencia.csv')
+df = fixrows('Potencia_r2')
+df1 = pd.read_csv('Potencia_r1_corregido.csv')
 df = df.iloc[:4050,:]
 num_row = np.shape(df)[0]
 

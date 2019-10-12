@@ -26,7 +26,7 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-a = 2500
+a = 30000
 nombre = "Potencia_r2"
 
 try:
@@ -40,7 +40,7 @@ try:
                 my_file=open(str(name)+".txt",'a')
                 
                 t.tic()
-                A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
+                A  = os.popen('sudo iwlist eth0 scan |egrep "Cell |ESSID|Quality"').readlines()
                 
                 if len(A)==0:
                     print("Interface down")
