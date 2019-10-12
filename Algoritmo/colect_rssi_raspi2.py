@@ -26,11 +26,8 @@ t = TicToc()
 start_time = time.time()
 flag=False
 it = 0
-<<<<<<< HEAD
 a = 30000
-=======
-a = 15000
->>>>>>> 26dbb3e597c0d6263d25140b63834ee22ad5bbd6
+
 nombre = "Potencia_r2"
 
 try:
