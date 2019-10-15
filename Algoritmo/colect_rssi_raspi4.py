@@ -42,7 +42,9 @@ try:
 #                t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
-                
+
+                print(f"len(A) = {len(A)}")
+
                 if len(A)==0:
                     print("Interface down")
                     time.sleep(10)
