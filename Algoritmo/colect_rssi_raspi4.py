@@ -77,27 +77,32 @@ try:
                 dBm=  []
                 
                 lim = len(lines)
+                print(f"lim = {lim}")
 
 #                t.tic()
                 for i in range(1,lim,3):
                     ESSID.append(lines[i])
+                    print(i)
 #                t.toc('t_ESSID= ')
 
 #                t.tic()
                 for i in range(2,lim,3):
                     dBm.append(lines[i])
+                    print(i)
 
 #                t.toc('t_dBm= ')
 
 #                t.tic()
                 for i in range(0,lim,3):
                     MAC.append(lines[i])
+                    print(i)
 
 #                t.toc('t_MAC= ')
 
                 my_file.close()
                 
                 l = len(dBm)
+                print(f"l = {l}")
 
 #                t.tic()
                 for i in range(0,l):
