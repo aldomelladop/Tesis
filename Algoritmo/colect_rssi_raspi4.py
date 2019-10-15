@@ -81,13 +81,13 @@ try:
 
 #                t.tic()
                 for i in range(1,lim,3):
-                    ESSID.append(lines[i])
+                    dBm.append(lines[i])
 
 #                t.toc('t_ESSID= ')
 
 #                t.tic()
                 for i in range(2,lim,3):
-                    dBm.append(lines[i])
+                    ESSID.append(lines[i])
 
 #                t.toc('t_dBm= ')
 
@@ -105,7 +105,6 @@ try:
 #                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
-                    print(f"dBm[i] = {dBm[i]}")
                     dBm[i]= dBm[i][2].replace("level=","")
                     dBm[i] = dBm[i].split()
 #                    print("dBm[{}] = {}".format(i,dBm[i]))
