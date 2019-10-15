@@ -82,20 +82,18 @@ try:
 #                t.tic()
                 for i in range(1,lim,3):
                     ESSID.append(lines[i])
-                    print(i)
+
 #                t.toc('t_ESSID= ')
 
 #                t.tic()
                 for i in range(2,lim,3):
                     dBm.append(lines[i])
-                    print(i)
 
 #                t.toc('t_dBm= ')
 
 #                t.tic()
                 for i in range(0,lim,3):
                     MAC.append(lines[i])
-                    print(i)
 
 #                t.toc('t_MAC= ')
 
@@ -107,6 +105,7 @@ try:
 #                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
+		    print(f"dBm[i] = {dBm[i]}")
                     dBm[i]= dBm[i][2].replace("level=","")
                     dBm[i] = dBm[i].split()
 #                    print("dBm[{}] = {}".format(i,dBm[i]))
