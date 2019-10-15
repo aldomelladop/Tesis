@@ -105,7 +105,7 @@ try:
 #                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
-		    print(f"dBm[i] = {dBm[i]}")
+                    print(f"dBm[i] = {dBm[i]}")
                     dBm[i]= dBm[i][2].replace("level=","")
                     dBm[i] = dBm[i].split()
 #                    print("dBm[{}] = {}".format(i,dBm[i]))
