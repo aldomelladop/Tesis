@@ -43,7 +43,7 @@ try:
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
 
-                print(f"len(A) = {len(A)}")
+#                print(f"len(A) = {len(A)}")
 
                 if len(A)==0:
                     print("Interface down")
@@ -77,7 +77,7 @@ try:
                 dBm=  []
                 
                 lim = len(lines)
-                print(f"lim = {lim}")
+#                print(f"lim = {lim}")
 
 #                t.tic()
                 for i in range(1,lim,3):
@@ -100,13 +100,13 @@ try:
                 my_file.close()
                 
                 l = len(dBm)
-                print(f"l = {l}")
+#                print(f"l = {l}")
 
 #                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
                     dBm[i]= dBm[i][2].replace("level=","")
-                    print("dBm[{}] = {}".format(i,dBm[i]))
+#                    print("dBm[{}] = {}".format(i,dBm[i]))
                     dBm[i] = dBm[i].split()
 #                    print("dBm[{}] = {}".format(i,dBm[i]))
                     
@@ -116,10 +116,10 @@ try:
                     ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
 
                 m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
-                pdBm = [i[0].replace("/100","") for i in dBm if 'level:0' not in i[0]]
+#                pdBm = [i[0].replace("/100","") for i in dBm if 'level:0' not in i[0]]
 
-                p_dBm = [int(int(i)/2)-100 for i in pdBm]
-                p_dBm = np.array(p_dBm)
+#                p_dBm = [int(int(i)/2)-100 for i in pdBm]
+#                p_dBm = np.array(dBm)
 #                t.toc('t_writing= ')
 
 #                t.tic()
@@ -129,7 +129,7 @@ try:
                     if it==0 and j==0:
                         filewriter.writerow(m_MAC_ESSID)
                     else:
-                        filewriter.writerow(p_dBm)
+                        filewriter.writerow(dBm)
 #                t.toc('t_csv ')
 
                 os.system("rm "+ str(name) +".txt")
