@@ -29,6 +29,12 @@ it = 0
 a = 200
 nombre = "Potencia"
 
+folder = os.getcwd()
+
+if os.path.isdir(folder + '/Potencias') != True or os.path.isdir(folder + '/Archivos_Temporales') != True:
+    os.mkdir('Potencias')
+    os.mkdir('Archivos_Temporales')
+
 try:
     t.tic()
     while(flag==False):

@@ -123,7 +123,7 @@ try:
 #                pdBm = [i[0].replace("/100","") for i in dBm if 'level:0' not in i[0]]
 
 #                p_dBm = [int(int(i)/2)-100 for i in pdBm]
-#                p_dBm = np.array(dBm)
+                p_dBm = np.array(dBm)
 #                t.toc('t_writing= ')
 
 #                t.tic()
