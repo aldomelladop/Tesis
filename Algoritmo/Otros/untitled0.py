@@ -1,105 +1,149 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jul 29 13:12:18 2019
+Created on Fri Aug 23 13:29:14 2019
 
 @author: aldo_mellado
 """
 
-import sys
-import os
-import csv
-import uuid
-import time
-import subprocess
+# Artificial Neural Network
+
+# Installing Theano
+# pip install --upgrade --no-deps git+git://github.com/Theano/Theano.git
+
+# Installing Tensorflow
+# pip install tensorflow
+
+# Installing Keras
+# pip install --upgrade keras
+
+# Part 1 - Data Preprocessing
+
+# Importing the libraries
 import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
-from getkey import getkey, keys
-from datetime import datetime as dt
 
+# Importing the dataset
+dataset = pd.read_csv('Churn_Modelling.csv')
+a = dataset.iloc[:, 3:13].values
+b = dataset.iloc[:, 13].values
 
-start_time = time.time()
-flag=False
-it=0
+# Encoding categorical data
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder_X_1 = LabelEncoder()
+X[:, 1] = labelencoder_X_1.fit_transform(X[:, 1])
+labelencoder_X_2 = LabelEncoder()
+X[:, 2] = labelencoder_X_2.fit_transform(X[:, 2])
+onehotencoder = OneHotEncoder(categorical_features = [1])
+X = onehotencoder.fit_transform(X).toarray()
+X = X[:, 1:]
 
-try:
-    while(flag==False):
-    	print(f"i : {it}")
-    	for j in range(0,100000):
-    		print(f"\tj : {j+1}")
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
-	    	name = uuid.uuid4()
-	    	my_file=open("respaldo.txt",'a')
-	    	my_file1=open(str(name)+".txt",'a')
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
 
-	    	A  = os.popen('sudo iwlist wlp2s0 scanning | egrep "Cell |ESSID|Quality"').readlines()
-	    	B = " ".join(str(x) for x in A) #Para pasar la lista con strings, a un solo string separado por espacios (list comprehension)
-	    	
-	    	my_file.write(B)
-	    	my_file1.write(B)
-	    	
-	    	my_file=open("respaldo.txt",'r')
-	    	my_file1 = open(str(name)+ ".txt", "r")
+# Part 2 - Now let's make the ANN!
 
-	    	with open(str(name)+ ".txt") as fp:
-	    		lines = fp.readlines()
+# Importing the Keras libraries and packages
+import keras
+from keras.models import Sequential
+    from keras.layers import Dense
+from keras.layers import Dropout
 
-	    	ESSID = []
-	    	MAC = []
-	    	dBm=  []
+# Initialising the ANN
+classifier = Sequential()
 
-	    	lim = len(lines)
-	    	
-	    	for i in range(1,lim,3):
-	    		dBm.append(lines[i])
+# Adding the input layer and the first hidden layer
+classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_shape = 11))
+# classifier.add(Dropout(p = 0.1))
 
-	    	for i in range(2,lim,3):
-	    		ESSID.append(lines[i])
+# Adding the second hidden layer
+classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+# classifier.add(Dropout(p = 0.1))
 
-	    	for i in range(0,lim,3):
-	    		MAC.append(lines[i])
+# Adding the output layer
+classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
 
-	    	my_file.close()
-	    	my_file1.close()
-	    	l = len(dBm)
-	    	
-	    	for i in range(0,l):
-	    		dBm[i]= dBm[i].split()
-	    		dBm[i]= dBm[i][2].replace("level=","")
+# Compiling the ANN
+classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
 
-	    		MAC[i] = MAC[i].split()
-	    		MAC[i] = MAC[i][-1]
+# Fitting the ANN to the Training set
+classifier.fit(X_train, y_train, batch_size = 10, epochs = 100)
 
-	    		ESSID[i]= ESSID[i].strip().replace("ESSID:",'')
+# Part 3 - Making predictions and evaluating the model
 
-	    	m_MAC_ESSID = np.array([ESSID[i]+'\n'+ MAC[i] for i in range(0,l)])
+# Predicting the Test set results
+y_pred = classifier.predict(X_test)
+y_pred = (y_pred > 0.5)
 
-	    	p_dBm = np.array(dBm)
+# Predicting a single new observation
+"""Predict if the customer with the following informations will leave the bank:
+Geography: France
+Credit Score: 600
+Gender: Male
+Age: 40
+Tenure: 3
+Balance: 60000
+Number of Products: 2
+Has Credit Card: Yes
+Is Active Member: Yes
+Estimated Salary: 50000"""
+new_prediction = classifier.predict(sc.transform(np.array([[0.0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])))
+new_prediction = (new_prediction > 0.5)
 
-	    	
-	    	with open('Potencia.csv', 'a', newline = '') as csvfile:
-	    		filewriter = csv.writer(csvfile)
+# Making the Confusion Matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred)
 
-	    		if it==0 and j==0:
-	    			filewriter.writerow(m_MAC_ESSID)
-	    		else:
-	    			filewriter.writerow(p_dBm)
- 
-	    	os.system("rm "+ str(name) +".txt")
+# Part 4 - Evaluating, Improving and Tuning the ANN
 
-    	while(flag!=True):
-    		print("Press 'c' to continue or any key to quit")
-    		key = getkey()
-    		
-    		if key=='c':
-    			it+=1
-    			break
-    		elif key=='q':
-    			flag=True
-    			print(f"--- {time.time() - start_time} seconds ---\n")
-    		else:
-    			continue
-except IOError:
-	print("File not found or path is incorrect")
-finally:
-	print("Exit")
+# Evaluating the ANN
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import cross_val_score
+from keras.models import Sequential
+from keras.layers import Dense
+def build_classifier():
+    classifier = Sequential()
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11))
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
+    classifier.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics = ['accuracy'])
+    return classifier
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 10, epochs = 100)
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
+mean = accuracies.mean()
+variance = accuracies.std()
+
+# Improving the ANN
+# Dropout Regularization to reduce overfitting if needed
+
+# Tuning the ANN
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import GridSearchCV
+from keras.models import Sequential
+from keras.layers import Dense
+def build_classifier(optimizer):
+    classifier = Sequential()
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu', input_dim = 11))
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dense(units = 1, kernel_initializer = 'uniform', activation = 'sigmoid'))
+    classifier.compile(optimizer = optimizer, loss = 'binary_crossentropy', metrics = ['accuracy'])
+    return classifier
+classifier = KerasClassifier(build_fn = build_classifier)
+parameters = {'batch_size': [25, 32],
+              'epochs': [100, 500],
+              'optimizer': ['adam', 'rmsprop']}
+grid_search = GridSearchCV(estimator = classifier,
+                           param_grid = parameters,
+                           scoring = 'accuracy',
+                           cv = 10)
+grid_search = grid_search.fit(X_train, y_train)
+best_parameters = grid_search.best_params_
+best_accuracy = grid_search.best_score_
