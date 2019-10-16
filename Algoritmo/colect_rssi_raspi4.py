@@ -71,7 +71,7 @@ try:
                 my_file = open(str(name)+ ".txt", "r")
 
 #                t.tic()
-                with open(str(name)+ ".txt") as fp:
+                with open(folder+ "/Archivos_Temporales/" + str(name)+ ".txt") as fp:
                     lines = fp.readlines()
                 
 #                t.toc('t_readlines= ')
