@@ -28,6 +28,7 @@ flag=False
 it = 0
 a = 30000
 
+folder = os.getcwd()
 nombre = "Potencia_r3"
 
 try:
@@ -38,7 +39,7 @@ try:
             for j in range(0,a):
                 
                 name = uuid.uuid4()
-                my_file=open(str(name)+".txt",'a')
+                my_file=open(folder + "/Archivos_Temporales/" + str(name)+".txt",'a')
                 
                 t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
@@ -113,7 +114,7 @@ try:
 #                t.toc('t_writing= ')
 
                 t.tic()
-                with open('Potencia_r3.csv', 'a', newline = '') as csvfile:
+                with open(folder + "/Potencias/" + 'Potencia_r3.csv', 'a', newline = '') as csvfile:
                     filewriter = csv.writer(csvfile)
 
                     if it==0 and j==0:
