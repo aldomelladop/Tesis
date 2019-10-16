@@ -39,7 +39,7 @@ try:
             
                 name = uuid.uuid4()
                 my_file=open(folder + "/Archivos_Temporales/"+ str(name)+".txt",'a')
-                print(f"os.path.isdir({folder + '/Archivos_Temporales/' + str(name)})")
+#                print(f"os.path.isdir({folder + '/Archivos_Temporales/' + str(name)})")
 #		print(f"os,path.isdir({folder + '/Archivos_Temporales/' + str(name)}) = {os.path.isdir(folder + '/Archivos_Temporales/' + str(name))}")
 
                 
@@ -127,7 +127,7 @@ try:
 #                t.toc('t_writing= ')
 
 #                t.tic()
-                with open(folder + "/Potencias/" + "Potencia_r4.csv", 'a', newline = '') as csvfile:
+                with open(folder + "/Potencias/" + nombre + ".csv", 'a', newline = '') as csvfile:
                     filewriter = csv.writer(csvfile)
 
                     if it==0 and j==0:
