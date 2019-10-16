@@ -1,0 +1,53 @@
+\begin{titlepage}
+\begingroup
+
+% Esta página usa interlineado simple sin saltos de párrafo
+\linespread{1}\selectfont
+\setlength{\parskip}{0pt}
+	
+{ \vspace*{2 pc} }
+
+\begin{center}
+	\textbf{\LARGE UNIVERSIDAD DE CONCEPCIÓN} \\[0.4 pc]
+	{\large FACULTAD DE INGENIERÍA} \\[0.4 pc]
+	{ DEPARTAMENTO DE INGENIERÍA ELÉCTRICA} \\[0.4 pc]
+\end{center}
+
+\vspace{6 pc}
+
+\noindent\begin{minipage}{0.35\textwidth}\hfill\end{minipage}
+%
+\begin{minipage}[t]{0.25\textwidth}
+	\centering
+	\includegraphics[width=3.2cm]{logos/logo_udec}
+\end{minipage}
+%
+\hspace*{0.5cm}
+%
+\begin{minipage}{0.35\textwidth}
+	Profesor Patrocinante: \\[0.4 pc] \textbf{\AdvisorNameA} \\
+	\vskip 4.3cm
+	Informe de Memoria de Título \\
+	para optar al título de: \\[0.4 pc]
+	\CTitle
+\end{minipage}
+
+\vspace{9 pc}
+
+\begin{center}
+	\textbf{\LARGE \MainTitle}
+\end{center}
+%
+%
+\vfill
+Concepción,
+\ifdefined\MyCustomDate
+	\MyCustomDate
+\else
+	{\monthname} de \the\year
+\fi
+\hfill \AuthorName
+%
+%
+\endgroup
+\end{titlepage}

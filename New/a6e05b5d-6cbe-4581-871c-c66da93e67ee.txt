@@ -1,0 +1,72 @@
+          Cell 01 - Address: 00:25:9C:98:4B:7D
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"linksys"
+           Cell 02 - Address: 98:FC:11:54:32:53
+                     Quality=43/70  Signal level=-67 dBm  
+                     ESSID:"Lab Energia Renovable 2"
+           Cell 03 - Address: 20:AA:4B:AE:FD:0A
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"Convertidores Estaticos"
+           Cell 04 - Address: BC:54:F9:FC:7F:60
+                     Quality=51/70  Signal level=-59 dBm  
+                     ESSID:"AP_1612927617"
+           Cell 05 - Address: 00:1E:E5:7B:E0:BE
+                     Quality=49/70  Signal level=-61 dBm  
+                     ESSID:"Ing. Civil Telecomunicaciones"
+           Cell 06 - Address: 98:FC:11:E2:A6:A5
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"CE5CFB"
+           Cell 07 - Address: 48:F8:B3:22:4C:FA
+                     Quality=70/70  Signal level=-39 dBm  
+                     ESSID:"Laboratorio de Redes"
+           Cell 08 - Address: 48:F8:B3:22:4D:4B
+                     Quality=47/70  Signal level=-63 dBm  
+                     ESSID:"Microondas"
+           Cell 09 - Address: F4:EC:38:D2:09:78
+                     Quality=49/70  Signal level=-61 dBm  
+                     ESSID:"Lab Energias Renovables"
+           Cell 10 - Address: 50:0F:F5:8B:5A:C8
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"Pulvimetalurgia"
+           Cell 11 - Address: 84:D4:7E:29:3E:80
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"UdeC"
+           Cell 12 - Address: 84:D4:7E:29:3E:81
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"WiFi-UdeC"
+           Cell 13 - Address: 80:2A:A8:D4:F3:58
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"SalaEstudioMecanica"
+           Cell 14 - Address: 00:11:95:09:C1:4A
+                     Quality=27/70  Signal level=-83 dBm  
+                     ESSID:"ANDES"
+           Cell 15 - Address: 0A:18:D6:CB:01:A4
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"Sala Dise\xC3\xB1o"
+           Cell 16 - Address: 50:C7:BF:DD:C3:B3
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"Vibraciones"
+           Cell 17 - Address: 68:FF:7B:1D:44:01
+                     Quality=29/70  Signal level=-81 dBm  
+                     ESSID:"Eduescob1"
+           Cell 18 - Address: AC:84:C6:3E:EF:51
+                     Quality=43/70  Signal level=-67 dBm  
+                     ESSID:"FabLab"
+           Cell 19 - Address: B0:72:BF:05:3C:3D
+                     Quality=33/70  Signal level=-77 dBm  
+                     ESSID:"SMA1930055648"
+           Cell 20 - Address: F0:D7:AA:D9:72:06
+                     Quality=45/70  Signal level=-65 dBm  
+                     ESSID:"Moto G (5) Plus 5535"
+           Cell 21 - Address: 84:D4:7E:29:3E:82
+                     Quality=43/70  Signal level=-67 dBm  
+                     ESSID:"eduroam"
+           Cell 22 - Address: 00:90:4C:91:00:03
+                     Quality=39/70  Signal level=-71 dBm  
+                     ESSID:"Lab ERNC"
+           Cell 23 - Address: F8:E9:03:C7:2C:80
+                     Quality=31/70  Signal level=-79 dBm  
+                     ESSID:"LCSE-24"
+           Cell 24 - Address: 0E:18:D6:CB:01:A4
+                     Quality=41/70  Signal level=-69 dBm  
+                     ESSID:"Docentes FI"
