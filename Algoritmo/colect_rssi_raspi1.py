@@ -63,7 +63,7 @@ try:
                 my_file.write(B)
 #                t.toc('my_file.write(B) = ')
 
-                my_file = open(str(name)+ ".txt", "r")
+                my_file = open(folder + "/Archivos_Temporales/" + str(name)+ ".txt", "r")
 
 #                t.tic()
                 with open(str(name)+ ".txt") as fp:
@@ -127,7 +127,7 @@ try:
                         filewriter.writerow(p_dBm)
 #                t.toc('t_csv ')
 
-                os.system("rm "+ str(name) +".txt")
+                os.system("rm "+ folder + "/Archivos_Temporales/" + str(name) +".txt")
                 pbar.update(1)
                 time.sleep(1)
 
