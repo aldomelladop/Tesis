@@ -68,10 +68,10 @@ try:
                 my_file.write(B)
 #                t.toc('my_file.write(B) = ')
 
-                my_file = open(str(name)+ ".txt", "r")
+                my_file = open(folder+ "/Archivos_Temporales/" + str(name)+ ".txt", "r")
 
 #                t.tic()
-                with open(folder+ "/Archivos_Temporales/" + str(name)+ ".txt") as fp:
+                with open(folder+ "/Archivos_Temporales/" + str(name) + ".txt") as fp:
                     lines = fp.readlines()
                 
 #                t.toc('t_readlines= ')
