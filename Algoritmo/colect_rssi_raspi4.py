@@ -136,7 +136,7 @@ try:
                         filewriter.writerow(dBm)
 #                t.toc('t_csv ')
 
-                os.system("rm "+ str(name) +".txt")
+                os.system("rm "+ folder+ "/Archivos_Temporales/" + str(name) +".txt")
                 pbar.update(1)
                 time.sleep(1)
 
