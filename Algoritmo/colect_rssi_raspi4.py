@@ -39,6 +39,9 @@ try:
             
                 name = uuid.uuid4()
                 my_file=open(folder + "/Archivos_Temporales/"+ str(name)+".txt",'a')
+		print(f"os.path.isdir({folder + '/Archivos_Temporales/' + str(name)})"))
+#		print(f"os,path.isdir({folder + '/Archivos_Temporales/' + str(name)}) = {os.path.isdir(folder + '/Archivos_Temporales/' + str(name))}")
+
                 
 #                t.tic()
                 A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
