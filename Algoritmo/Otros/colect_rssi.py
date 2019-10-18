@@ -100,7 +100,7 @@ try:
                 t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
-                    dBm[i]= dBm[i][2].replace("level=","")
+                    dBm[i]= int(dBm[i][2].replace("level=",""))
 
                     MAC[i] = MAC[i].split()
                     MAC[i] = MAC[i][-1]
