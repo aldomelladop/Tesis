@@ -109,11 +109,8 @@ try:
 #                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
-                    dBm[i]= dBm[i][2].replace("level=","")
-#                    print("dBm[{}] = {}".format(i,dBm[i]))
-                    dBm[i] = dBm[i].split()
-#                    print("dBm[{}] = {}".format(i,dBm[i]))
-                    
+                    dBm[i]= int(dBm[i][2].replace("level=",""))
+
                     MAC[i] = MAC[i].split()
                     MAC[i] = MAC[i][-1]
 

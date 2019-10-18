@@ -167,8 +167,3 @@ num_man = np.shape(mant_mes_cr)[0]# Numero de OT tipo T2 generadas durante el me
 atenciones = { }
 
 man_tec_mes = mantenciones_mes.loc[mantenciones_mes['Tipo de mantención'] == 'T2'] #mantenciones de tipo T2 hechas por nom.tec ese mes y año  
-
-
-# =============================================================================
-# 
-# =============================================================================

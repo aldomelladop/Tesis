@@ -16,7 +16,7 @@ import numpy as np
 from tqdm import tqdm
 from getkey import getkey
 from pytictoc import TicToc
-from fixrows import fixrows
+#from fixrows import fixrows
 #from createcords import createcords 
 
 t = TicToc()
@@ -44,7 +44,7 @@ try:
 
                 
 #                t.tic()
-                A  = os.popen('sudo iwlist wlan0 scan |egrep "Cell |ESSID|Quality"').readlines()
+                A  = os.popen('sudo iwlist wlp2s0 scan |egrep "Cell |ESSID|Quality"').readlines()
 #                t.toc('iwlist = ')
 
 #                print(f"len(A) = {len(A)}")
@@ -53,7 +53,7 @@ try:
                     print("Interface down")
                     time.sleep(10)
                     print(f"time.sleep(10)")
-                    print("sudo ifconfig wlan0 up")
+                    print("sudo ifconfig wlp2s0 up")
                     os.popen('sudo ifconfig wlan0 up')
                     continue
                 else:
@@ -109,10 +109,8 @@ try:
 #                t.tic()
                 for i in range(0,l):
                     dBm[i]= dBm[i].split()
-                    dBm[i]= dBm[i][2].replace("level=","")
-#                    print("dBm[{}] = {}".format(i,dBm[i]))
-                    dBm[i] = dBm[i].split()
-#                    print("dBm[{}] = {}".format(i,dBm[i]))
+                    dBm[i]= int(dBm[i][2].replace("level=",""))
+#                    print(type(dBm[i]))  
                     
                     MAC[i] = MAC[i].split()
                     MAC[i] = MAC[i][-1]
@@ -123,7 +121,10 @@ try:
 #                pdBm = [i[0].replace("/100","") for i in dBm if 'level:0' not in i[0]]
 
 #                p_dBm = [int(int(i)/2)-100 for i in pdBm]
+#                print(dBm)
                 p_dBm = np.array(dBm)
+#                print(p_dBm)
+                
 #                t.toc('t_writing= ')
 
 #                t.tic()
@@ -133,7 +134,7 @@ try:
                     if it==0 and j==0:
                         filewriter.writerow(m_MAC_ESSID)
                     else:
-                        filewriter.writerow(dBm)
+                        filewriter.writerow(p_dBm)
 #                t.toc('t_csv ')
 
                 os.system("rm "+ folder+ "/Archivos_Temporales/" + str(name) +".txt")
