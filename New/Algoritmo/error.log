@@ -1,9 +1,0 @@
-DEBUG:root:Our first message. 
-DEBUG:root:Our first message. 
-WARNING:root:This is a Warning
-INFO:root:Admin logged in
-INFO:root:Admin logged in
-ERROR:root:Invalid alias: The name clear can't be aliased because it is another magic command.
-ERROR:root:Invalid alias: The name more can't be aliased because it is another magic command.
-ERROR:root:Invalid alias: The name less can't be aliased because it is another magic command.
-ERROR:root:Invalid alias: The name man can't be aliased because it is another magic command.
