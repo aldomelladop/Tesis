@@ -33,6 +33,8 @@ folder = os.getcwd()
 if os.path.isdir(folder + '/Potencias') != True or os.path.isdir(folder + '/Archivos_Temporales') != True:
     os.mkdir('Potencias')
     os.mkdir('Archivos_Temporales')
+else:
+    pass
 
 try:
     t.tic()
