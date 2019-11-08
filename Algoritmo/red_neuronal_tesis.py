@@ -25,28 +25,28 @@ num_row = np.shape(df1)[0]
 coords  = [[1,0] for j in range(num_row)]
 coords = pd.DataFrame(coords,dtype=object, columns = ['X','Y'])
 df1 = coords.join(df1, how='left')
-df1.to_csv('Potencia__r1')
+df1.to_csv(dir_pot + 'Potencia__r1.csv')
 
 df2 = fixrows(dir_pot+'Potencia_r2')
 num_row = np.shape(df2)[0]
 coords  = [[0,0] for j in range(num_row)]
 coords = pd.DataFrame(coords,dtype=object, columns = ['X','Y'])
 df2 = coords.join(df2, how='left')
-df2.to_csv('Potencia__r2')
+df2.to_csv(dir_pot + 'Potencia__r2.csv')
 
 df3 = fixrows(dir_pot+'Potencia_r3')
 num_row = np.shape(df3)[0]
 coords  = [[0,1] for j in range(num_row)]
 coords = pd.DataFrame(coords,dtype=object, columns = ['X','Y'])
 df3 = coords.join(df3, how='left')
-df3.to_csv('Potencia__r3')
+df3.to_csv(dir_pot + 'Potencia__r3.csv')
 
 df4 = fixrows(dir_pot+'Potencia_r4')
 num_row = np.shape(df4)[0]
 coords  = [[1,1] for j in range(num_row)]
 coords = pd.DataFrame(coords,dtype=object, columns = ['X','Y'])
 df4 = coords.join(df4, how='left')
-df4.to_csv('Potencia__r4.csv')
+df4.to_csv(dir_pot + 'Potencia__r4.csv')
 
 #Ingresar a carpeta potencias
 fusionar_csv('Potencia__r1','Potencia__r2','Potencia__r3','Potencia__r4')
@@ -54,8 +54,6 @@ fusionar_csv('Potencia__r1','Potencia__r2','Potencia__r3','Potencia__r4')
 df0 = fixrows(dir_pot+'potencias_fusionado')
 
 df = pd.read_csv(dir_pot+'potencias_fusionado.csv')
-
-
 
 
 X = df0.iloc[:,1:].values #Independant values
