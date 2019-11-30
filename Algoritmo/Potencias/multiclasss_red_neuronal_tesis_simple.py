@@ -3,6 +3,9 @@
 """
 Created on Thu Jul 25 10:24:48 2019
 
+# for i in equipos:
+#    globals()['i_{}'.format(i)] = 'a'
+
 @author: aldo_mellado
 """
 # =============================================================================

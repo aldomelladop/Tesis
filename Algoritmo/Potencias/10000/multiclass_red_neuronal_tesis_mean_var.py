@@ -122,16 +122,24 @@ def build_classifier():
     classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
 
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 16, epochs = 2)
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 32, epochs = 50)
 accuracies = cross_val_score(estimator = classifier, X = X_trainn, y = y_train, cv = 15, n_jobs = -1)
 mean = accuracies.mean()
 variance = accuracies.std()
 
-history = classifier.fit(X_trainn, y_train, batch_size = 16, epochs = 20, validation_split=0.2)
+history = classifier.fit(X_trainn, y_train, batch_size = 32, epochs = 50, validation_split=0.2)
 
-y_pred = classifier.predict(np.array(X_testn))
-y_pred = np.argmax(y_pred)
-predictions = encoder.inverse_transform(y_pred)
+y_pred = classifier.predict(np.array(X_testn[:20,:]))
+predictions = list(encoder.inverse_transform(y_pred))
+
+y_pred_prob = classifier.predict_proba(np.array(X_testn[:20,:]))
+#y_pred = np.argmax(y_pred)
+
+for i in range(1,20):
+    y_pred = classifier.predict(np.array([X_testn[i]]))
+    predictions = list(encoder.inverse_transform(y_pred))
+    y_pred_prob = classifier.predict_proba(np.array([X_testn[i]]))
+    print(f"The position is: {predictions}, and its accuracy was: {np.argmax(y_pred_prob)}")
 
 from matplotlib import pyplot as plt
 

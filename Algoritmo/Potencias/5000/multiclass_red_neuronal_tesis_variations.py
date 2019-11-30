@@ -27,41 +27,39 @@ import pandas as pd
 # =============================================================================
 # dir_pot = os.getcwd() + '/Potencias/'
 #  
-# df1 = fixrows(dir_pot+'Potencia_r1')
-# num_row = np.shape(df1)[0]
-# coords  = ['(1,0)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df1 = coords.join(df1, how='left')
-# df1.to_csv(dir_pot + 'Potencia_R1.csv')
+df1 = fixrows( 'Potencia_r1').iloc[:5000,:]
+num_row = np.shape(df1)[0]
+coords  = ['(1,0)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df1 = coords.join(df1, how='left')
+df1.to_csv('Potencia_R1.csv')
 # 
-# df2 = fixrows(dir_pot+'Potencia_r2')
-# num_row = np.shape(df2)[0]
-# coords  = ['(0,0)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df2 = coords.join(df2, how='left')
-# df2.to_csv(dir_pot + 'Potencia_R2.csv')
-# 
-# df3 = fixrows(dir_pot+'Potencia_r3')
-# num_row = np.shape(df3)[0]
-# coords  = ['(0,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df3 = coords.join(df3, how='left')
-# df3.to_csv(dir_pot + 'Potencia_R3.csv')
-# 
-# df4 = fixrows(dir_pot+'Potencia_r4')
-# num_row = np.shape(df4)[0]
-# coords  = ['(1,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df4 = coords.join(df4, how='left')
-# df4.to_csv(dir_pot + 'Potencia_R4.csv')
-#  
-#  #Ingresar a carpeta potencias
-# fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
-# 
-# df0 = fixrows(dir_pot+'/potencias_fusionado').iloc[:,1:]
-# =============================================================================
+df2 = fixrows( 'Potencia_r2').iloc[:5000,:]
+num_row = np.shape(df2)[0]
+coords  = ['(0,0)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df2 = coords.join(df2, how='left')
+df2.to_csv('Potencia_R2.csv')
+ 
+df3 = fixrows( 'Potencia_r3').iloc[:5000,:]
+num_row = np.shape(df3)[0]
+coords  = ['(0,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df3 = coords.join(df3, how='left')
+df3.to_csv('Potencia_R3.csv')
 
-df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[:,1:]
+df4 = fixrows( 'Potencia_r4').iloc[:5000,:]
+num_row = np.shape(df4)[0]
+coords  = ['(1,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df4 = coords.join(df4, how='left')
+df4.to_csv('Potencia_R4.csv')
+  
+#Ingresar a carpeta potencias
+fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
+df0 = fixrows('potencias_fusionado').iloc[3:,1:]
+
+df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
 
 X = df0.iloc[:,1:].values #variables Dependientes (Potencias)
 y = df0.iloc[:,0].values #values Independientes (Posición)
@@ -111,42 +109,90 @@ def build_classifier(optimizer):
     classifier = Sequential()
 #1
     classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu', input_dim = 19))
-    classifier.add(Dropout(p = 0.1))
+    classifier.add(Dropout(p = 0.3))
 #2
     classifier.add(Dense(units = 15, kernel_initializer = 'uniform', activation = 'relu'))
-    classifier.add(Dropout(p = 0.1))
+    classifier.add(Dropout(p = 0.3))
 #3
-#    classifier.add(Dense(units = 25, kernel_initializer = 'uniform', activation = 'relu'))
-#    classifier.add(Dropout(p = 0.1))
+    classifier.add(Dense(units = 25, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dropout(p = 0.3))
 #4
     classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
-    classifier.add(Dropout(p = 0.1))
+    classifier.add(Dropout(p = 0.3))
 #5
-#    classifier.add(Dense(units = 8, kernel_initializer = 'uniform', activation = 'relu'))    
-#    classifier.add(Dropout(p = 0.1))
+    classifier.add(Dense(units = 8, kernel_initializer = 'uniform', activation = 'relu'))    
+    classifier.add(Dropout(p = 0.3))
 #6
     classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'softmax'))
     classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
 classifier = KerasClassifier(build_fn = build_classifier)
-parameters = {'batch_size': [32, 64],
-              'epochs': [100, 150],
-#              'optimizer': ['adam', 'adamax','rmsprop']}
-                'optimizer': ['adam', 'adamax']}
+parameters = {'batch_size': [16,32, 64],
+              'epochs': [20, 45, 70],
+                'optimizer': ['adam', 'adamax','rmsprop']}
+
 grid_search = GridSearchCV(estimator = classifier,
                            param_grid = parameters,
-                           scoring = 'accuracy',
-                           cv = 10,
+#                           scoring = 'accuracy',
+                           cv = 15,
                            n_jobs = -1)
 
 grid_search = grid_search.fit(X_trainn, y_train)
-best_parameters = grid_search.best_params_
+
+best_accuracy =   grid_search.best_score_
+best_parameters  = grid_search.best_params_
+print(f"best_parameters = {grid_search.best_params_}")
+print(f"best_accuracy =   {grid_search.best_score_}")
 
 
-print(f"best_parameters = {best_parameters}")
-best_accuracy = grid_search.best_score_
-print(f"best_accuracy = {best_accuracy}")
+# =============================================================================
+# Neural network to use
+# =============================================================================
 
+
+import keras
+from keras.wrappers.scikit_learn import KerasClassifier
+from sklearn.model_selection import cross_val_score
+from keras.models import Sequential
+from keras.layers import Dropout
+from keras.layers import Dense
+
+def build_classifier():
+    classifier = Sequential()
+    classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu', input_dim = 19))
+    classifier.add(Dropout(rate = 0.3))
+    
+    classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dropout(rate = 0.3))
+    
+    classifier.add(Dense(units = 20, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dropout(rate = 0.3))
+    
+    classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dropout(rate = 0.3))
+    
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))   
+    classifier.add(Dropout(rate = 0.3))
+
+    classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'softmax'))
+    classifier.compile(optimizer = 'adamax', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    return classifier
+
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 16, epochs = 20)
+accuracies = cross_val_score(estimator = classifier, X = X_trainn, y = y_train, cv = 10, n_jobs = -1)
+mean = accuracies.mean()
+variance = accuracies.std()
+
+history = classifier.fit(X_trainn, y_train, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
+
+# =============================================================================
+# Prediction
+# =============================================================================
+for i in range(1,20):
+    y_pred = grid_search.predict(np.array([X_testn[i]]))
+    predictions = list(encoder.inverse_transform(y_pred))
+    y_pred_prob = grid_search.predict_proba(np.array([X_testn[i]]))
+    print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
 
 from matplotlib import pyplot as plt
 
