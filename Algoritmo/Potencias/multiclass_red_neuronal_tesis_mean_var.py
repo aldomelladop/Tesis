@@ -124,23 +124,21 @@ def build_classifier():
     classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
 
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 16, epochs = 100)
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 16, epochs = 5)
 accuracies = cross_val_score(estimator = classifier, X = X_trainn, y = y_train, cv = 10, n_jobs = -1)
 mean = accuracies.mean()
 variance = accuracies.std()
 
-history = classifier.fit(X_trainn, y_train, batch_size = 16, epochs = 100, validation_split=0.2)
+history = classifier.fit(X_trainn, y_train, batch_size = 16, epochs = 5, validation_split=0.2)
 
 
 # =============================================================================
 #                               Confusion matrix
 # =============================================================================
 # =============================================================================
-# from sklearn.metrics import confusion_matrix
+# from sklearn.metrics import multilabel_confusion_matrix
 # 
-# y_pred = classifier.predict(X_test)
-# y_pred = np.argmax(y_pred)
-# predictions = list(encoder.inverse_transform(y_pred))
+# y_pred = classifier.predict(y_test,y_pred)
 # =============================================================================
 
 
