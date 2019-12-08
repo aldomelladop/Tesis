@@ -1,0 +1,14 @@
+El número de elementos usados es: 23000
+Los mejores parámetros son: {'batch_size': 64, 'epochs': 25, 'optimizer': 'rmsprop'}
+La media obtenida es: 0.8224184782608697
+La varianza obtenida es: 0.2962251181992741
+	ac: 99.71%
+	ac: 99.85%
+	ac: 99.85%
+	ac: 74.97%
+	ac: 25.18%
+	ac: 99.57%
+	ac: 99.69%
+	ac: 99.42%
+	ac: 99.7%
+	ac: 24.48%

@@ -1,0 +1,14 @@
+El número de elementos usados es: 1000
+Los mejores parámetros son: {'batch_size': 32, 'epochs': 40, 'optimizer': 'adam'}
+La media obtenida es: 0.7609375
+La varianza obtenida es: 0.27602879293879834
+	ac: 70.94%
+	ac: 19.69%
+	ac: 48.75%
+	ac: 100.0%
+	ac: 100.0%
+	ac: 74.38%
+	ac: 100.0%
+	ac: 47.5%
+	ac: 99.69%
+	ac: 100.0%
