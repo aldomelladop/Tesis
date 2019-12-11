@@ -21,7 +21,7 @@ from pytictoc import TicToc
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-num_test = [1000,5000,10000,15000,20000,25000,30000]
+num_test = [30000]
 t = TicToc()
 
 t.tic()
@@ -29,7 +29,7 @@ for j in num_test:
 #    globals()['accuracies_{}'.format(i)] = [] #Crear variables que almacenen la presición para esa cantidad de muestras
 #    globals()['best_param_{}'.format(i)] = []
 #    global()['predictions_{}'.format(i)]= []
-    print(f"Probando {i}\n")
+    print(f"Probando {j}\n")
     # =============================================================================
     df1 = fixrows( 'Potencia_r1').iloc[:j,:]
     num_row = np.shape(df1)[0]
@@ -140,7 +140,7 @@ for j in num_test:
 #    globals()['best_param_{}'.format(i)] = globals()['best_param_{}'.format(i)].append(grid_search.best_params_)
     print(f"best_accuracy =   {grid_search.best_score_}")
 #    globals()['accuracies_{}'.format(i)] = globals()['accuracies_{}'.format(i)].append(grid_search.best_score)
-    t.toc('\Tiempo en cross_validation\n')
+    t.toc('\nTiempo en cross_validation\n')
 
     # =============================================================================
     # Neural network to use
@@ -181,9 +181,9 @@ for j in num_test:
     ac = list(accuracies)
     mean = accuracies.mean()
     variance = accuracies.std()
-    t.toc('\Tiempo de red neuronal: ')
+    t.toc('\nTiempo de red neuronal: ')
 
-    history = classifier.fit(X_trainn, y_train, batch_size = 16, epochs = 20, validation_split=0.2)
+    history = classifier.fit(X_trainn, y_train, batch_size = best_parameters['epochs'], epochs = best_parameters['epochs'], validation_split=0.2)
 
     # =============================================================================
     # Prediction
@@ -196,7 +196,7 @@ for j in num_test:
         #globals()['predictions_{}'.format(i)] = global()['predictions_{}'.format(i)].append((predi))
         
     f = open("resultados_"+str(j)+".txt","w")
-    f.write("El número de elementos usados es: " + repr(i) +'\n'
+    f.write("El número de elementos usados es: " + repr(j) +'\n'
         "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
         "La media obtenida es: " + repr(mean) + '\n'
         )
@@ -209,7 +209,7 @@ for j in num_test:
 
     from matplotlib import pyplot as plt
     
-    ax1 = plt.subplot(121)
+    plt.subplot(121)
     plt.plot(history.history['acc'])
     plt.plot(history.history['val_acc'])
     plt.title('Model accuracy')
@@ -217,7 +217,6 @@ for j in num_test:
     plt.xlabel('epoch')
     plt.legend(['train', 'val'], loc='center right')
     plt.grid()
-    #ax1.set_ylim([0.9, 1.005])
     
     plt.subplot(122)
     plt.plot(history.history['loss'])
