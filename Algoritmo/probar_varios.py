@@ -23,12 +23,12 @@ from merge_csv import fusionar_csv
 #Run this code, only if the file with all the dataframes were deleted
 
 
-num_test = [1000,5000,10000,15000,20000,25000,30000]
+num_test = [15000,20000,25000,30000]
 
 
 for i in num_test:
-    global()['accuracies_{}'.format(i)] = [] #Crear variables que almacenen la presición para esa cantidad de muestras
-    global()['best_param_{}'.format(i)] = []
+#    globals()['accuracies_{}'.format(i)] = [] #Crear variables que almacenen la presición para esa cantidad de muestras
+#    globals()['best_param_{}'.format(i)] = []
 #    global()['predictions_{}'.format(i)]= []
     
     # =============================================================================
@@ -135,9 +135,9 @@ for i in num_test:
 
 
     print(f"best_parameters = {grid_search.best_params_}")
-    global()['best_param_{}'.format(i)] = global()['best_param_{}'.format(i)].append(grid_search.best_params_)
+    #globals()['best_param_{}'.format(i)] = globals()['best_param_{}'.format(i)].append(grid_search.best_params_)
     print(f"best_accuracy =   {grid_search.best_score_}")
-    global()['accuracies_{}'.format(i)] = global()['accuracies_{}'.format(i)].append(grid_search.best_score)
+    #globals()['accuracies_{}'.format(i)] = globals()['accuracies_{}'.format(i)].append(grid_search.best_score)
 
 
     # =============================================================================
@@ -209,7 +209,3 @@ plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='center right')
 plt.show()
 plt.savefig('accuracy_over_epochs_'+ str(i) +'.pdf')
-
-
-#from ann_visualizer.visualize import ann_viz
-#ann_viz(classifier, view=True, filename='network.gv', title='MyNeural Network_variations')

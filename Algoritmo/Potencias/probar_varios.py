@@ -21,7 +21,7 @@ from pytictoc import TicToc
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-num_test = [30000]
+num_test = [1000,5000,10000,15000,20000,23000,25000,30000]
 t = TicToc()
 
 t.tic()
@@ -30,14 +30,14 @@ for j in num_test:
 #    globals()['best_param_{}'.format(i)] = []
 #    global()['predictions_{}'.format(i)]= []
     print(f"Probando {j}\n")
-    # =============================================================================
-    df1 = fixrows( 'Potencia_r1').iloc[:j,:]
+    
+    df1 = fixrows( 'Potencia_r1.csv').iloc[:j,:]
     num_row = np.shape(df1)[0]
     coords  = ['(1,0)' for j in range(num_row)]
     coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
     df1 = coords.join(df1, how='left')
     df1.to_csv('Potencia_R1.csv')
-    # 
+     
     df2 = fixrows( 'Potencia_r2').iloc[:j,:]
     num_row = np.shape(df2)[0]
     coords  = ['(0,0)' for j in range(num_row)]
@@ -87,8 +87,8 @@ for j in num_test:
     # =============================================================================
     from sklearn.preprocessing import StandardScaler
     sc = StandardScaler()
-    X_trainn = sc.fit_transform(X_train)
-    X_testn = sc.transform(X_test)
+    X_train = sc.fit_transform(X_train)
+    X_test = sc.transform(X_test)
     # =============================================================================
 
     import keras
@@ -107,16 +107,16 @@ for j in num_test:
         classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu', input_dim = 19))
         classifier.add(Dropout(rate = 0.3))
     #2
-        classifier.add(Dense(units = 15, kernel_initializer = 'uniform', activation = 'relu'))
+        classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dropout(rate = 0.3))
     #3
-        classifier.add(Dense(units = 25, kernel_initializer = 'uniform', activation = 'relu'))
+        classifier.add(Dense(units = 20, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dropout(rate = 0.3))
     #4
         classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dropout(rate = 0.3))
     #5
-        classifier.add(Dense(units = 8, kernel_initializer = 'uniform', activation = 'relu'))    
+        classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))    
         classifier.add(Dropout(rate = 0.3))
     #6
         classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'softmax'))
@@ -133,13 +133,12 @@ for j in num_test:
                                cv = 15,
                                n_jobs = -1)
 
-    grid_search = grid_search.fit(X_trainn, y_train)
+    grid_search = grid_search.fit(X_train, y_train)
 
     best_parameters  = grid_search.best_params_
     print(f"best_parameters = {grid_search.best_params_}")
-#    globals()['best_param_{}'.format(i)] = globals()['best_param_{}'.format(i)].append(grid_search.best_params_)
     print(f"best_accuracy =   {grid_search.best_score_}")
-#    globals()['accuracies_{}'.format(i)] = globals()['accuracies_{}'.format(i)].append(grid_search.best_score)
+
     t.toc('\nTiempo en cross_validation\n')
 
     # =============================================================================
@@ -177,37 +176,19 @@ for j in num_test:
         return classifier
 
     classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
-    accuracies = cross_val_score(estimator = classifier, X = X_trainn, y = y_train, cv = 10, n_jobs = -1)
+    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
     ac = list(accuracies)
     mean = accuracies.mean()
     variance = accuracies.std()
     t.toc('\nTiempo de red neuronal: ')
 
-    history = classifier.fit(X_trainn, y_train, batch_size = best_parameters['epochs'], epochs = best_parameters['epochs'], validation_split=0.2)
+    history = classifier.fit(X_train, y_train, batch_size = best_parameters['epochs'], epochs = best_parameters['epochs'], validation_split=0.2)
 
     # =============================================================================
-    # Prediction
+    # Graficos
     # =============================================================================
-    for i in range(1,20):
-        y_pred = grid_search.predict(np.array([X_testn[i]]))
-        predictions = list(encoder.inverse_transform(y_pred))
-        y_pred_prob = grid_search.predict_proba(np.array([X_testn[i]]))
-        print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
-        #globals()['predictions_{}'.format(i)] = global()['predictions_{}'.format(i)].append((predi))
-        
-    f = open("resultados_"+str(j)+".txt","w")
-    f.write("El número de elementos usados es: " + repr(j) +'\n'
-        "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
-        "La media obtenida es: " + repr(mean) + '\n'
-        )
-    f.write("La varianza obtenida es: " + repr(variance) + '\n')    
-    
-    for i in ac:
-        f.write("\tac: " +  repr(round((i*100),2)) +"%" + '\n')
-    f.close()
-    print("Archivo escrito")
 
-    from matplotlib import pyplot as plt
+    import pyplot as plt
     
     plt.subplot(121)
     plt.plot(history.history['acc'])
@@ -228,3 +209,28 @@ for j in num_test:
     plt.grid()
     plt.subplots_adjust(wspace =0.4, hspace= 2.5)
     plt.savefig('accuracy_over_epochs_train_' + str(j) + '.pdf')
+
+    # =============================================================================
+    #                             Prediction
+    # =============================================================================
+    for i in range(1,20):
+        y_pred = grid_search.predict(np.array([X_test[i]]))
+        predictions = list(encoder.inverse_transform(y_pred))
+        y_pred_prob = grid_search.predict_proba(np.array([X_test[i]]))
+        print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
+        
+    # =============================================================================
+    #     Escritura de archivo
+    # =============================================================================
+        
+    f = open("resultados_"+str(j)+".txt","w")
+    f.write("El número de elementos usados es: " + repr(j) +'\n'
+        "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
+        "La media obtenida es: " + repr(mean) + '\n'
+        )
+    f.write("La varianza obtenida es: " + repr(variance) + '\n')    
+    
+    for i in ac:
+        f.write("\tac: " +  repr(round((i*100),2)) +"%" + '\n')
+    f.close()
+    print("Archivo escrito")

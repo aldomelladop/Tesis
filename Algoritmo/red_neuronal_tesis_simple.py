@@ -83,18 +83,18 @@ X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size = 0.
 # =============================================================================
 # Feature Scaling (Standarization)
 # =============================================================================
-# from sklearn.preprocessing import StandardScaler
-# sc = StandardScaler()
-# X_train = sc.fit_transform(X_train)
-# X_test = sc.transform(X_test)
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_trainn = sc.fit_transform(X_train)
+X_testn = sc.transform(X_test)
 # =============================================================================
 
 
 # Feature Scaling (Normalization)
-from sklearn import preprocessing
+#from sklearn import preprocessing
 # Normalize total_bedrooms column
-X_trainn = preprocessing.normalize(X_train)
-X_testn = preprocessing.normalize(X_test)
+#X_trainn = preprocessing.normalize(X_train)
+#X_testn = preprocessing.normalize(X_test)
 # =============================================================================
 
 # Part 2 - Now let's make the ANN!
@@ -147,7 +147,3 @@ classifier.fit(X_trainn, y_train, batch_size = 32, epochs = 100)
 #0,0
 #new_prediction = classifier.predict_classes(np.array([[-47,-67,-59,-63,-65,-75,-71,-83,-67,-75,-79,-57,-81,-77,-75,-75,-73]]),2)
 #new_prediction = (new_prediction > 0.5)
-
-from ann_visualizer.visualize import ann_viz
-
-ann_viz(classifier, view=True, filename='network.gv', title='MyNeural Network')

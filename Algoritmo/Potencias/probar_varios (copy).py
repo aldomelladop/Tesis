@@ -188,12 +188,12 @@ for j in num_test:
     # =============================================================================
     # Prediction
     # =============================================================================
-    for i in range(1,20):
-        y_pred = grid_search.predict(np.array([X_testn[i]]))
-        predictions = list(encoder.inverse_transform(y_pred))
-        y_pred_prob = grid_search.predict_proba(np.array([X_testn[i]]))
-        print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
-        #globals()['predictions_{}'.format(i)] = global()['predictions_{}'.format(i)].append((predi))
+    # for i in range(1,20):
+    #     y_pred = grid_search.predict(np.array([X_testn[i]]))
+    #     predictions = list(encoder.inverse_transform(y_pred))
+    #     y_pred_prob = grid_search.predict_proba(np.array([X_testn[i]]))
+    #     print(f"\nThe position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
+    #     #globals()['predictions_{}'.format(i)] = global()['predictions_{}'.format(i)].append((predi))
         
     f = open("resultados_"+str(j)+".txt","w")
     f.write("El número de elementos usados es: " + repr(j) +'\n'

@@ -5,16 +5,15 @@ Created on Sat Nov 23 17:14:06 2019
 
 @author: aldo_mellado
 """
-
-# =============================================================================
+# ============================================================================
 # Importing the libraries
 # =============================================================================
 import os
 import numpy as np
 import pandas as pd
+from fixrows import fixrows
 # =============================================================================
-# from fixrows import fixrows
-# from merge_csv import fusionar_csv
+from merge_csv import fusionar_csv
 # from create_cords import createcords
 # =============================================================================
 
@@ -27,40 +26,40 @@ import pandas as pd
 # =============================================================================
 # dir_pot = os.getcwd() + '/Potencias/'
 #  
-df1 = fixrows('Potencia_r1').iloc[:150,:]
+df1 = fixrows('Potencia_r1').iloc[:25000,:]
 num_row = np.shape(df1)[0]
 coords  = ['(1,0)' for j in range(num_row)]
 coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
 df1 = coords.join(df1, how='left')
-df1.to_csv(dir_pot + 'Potencia_R1.csv')
-# 
-# df2 = fixrows(dir_pot+'Potencia_r2')
-# num_row = np.shape(df2)[0]
-# coords  = ['(0,0)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df2 = coords.join(df2, how='left')
-# df2.to_csv(dir_pot + 'Potencia_R2.csv')
-# 
-# df3 = fixrows(dir_pot+'Potencia_r3')
-# num_row = np.shape(df3)[0]
-# coords  = ['(0,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df3 = coords.join(df3, how='left')
-# df3.to_csv(dir_pot + 'Potencia_R3.csv')
-# 
-# df4 = fixrows(dir_pot+'Potencia_r4')
-# num_row = np.shape(df4)[0]
-# coords  = ['(1,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df4 = coords.join(df4, how='left')
-# df4.to_csv(dir_pot + 'Potencia_R4.csv')
-#  
-#  #Ingresar a carpeta potencias
-# fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
-# 
-# df0 = fixrows(dir_pot+'/potencias_fusionado').iloc[:,1:]
+df1.to_csv('Potencia_R1.csv')
+ 
+df2 = fixrows('Potencia_r2').iloc[:25000,:]
+num_row = np.shape(df2)[0]
+coords  = ['(0,0)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df2 = coords.join(df2, how='left')
+df2.to_csv('Potencia_R2.csv')
+ 
+df3 = fixrows('Potencia_r3').iloc[:25000,:]
+num_row = np.shape(df3)[0]
+coords  = ['(0,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df3 = coords.join(df3, how='left')
+df3.to_csv('Potencia_R3.csv')
 
-df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[:,1:]
+df4 = fixrows('Potencia_r4').iloc[:25000,:]
+num_row = np.shape(df4)[0]
+coords  = ['(1,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df4 = coords.join(df4, how='left')
+df4.to_csv('Potencia_R4.csv')
+  
+#Ingresar a carpeta potencias
+fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
+ 
+df0 = fixrows('potencias_fusionado').iloc[:,1:]
+
+df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
 
 X = df0.iloc[:,1:].values #variables Dependientes (Potencias)
 y = df0.iloc[:,0].values #values Independientes (Posición)
@@ -124,12 +123,13 @@ def build_classifier():
     classifier.compile(optimizer = 'adam', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
 
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 16, epochs = 5)
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 32, epochs = 25)
 accuracies = cross_val_score(estimator = classifier, X = X_trainn, y = y_train, cv = 10, n_jobs = -1)
 mean = accuracies.mean()
 variance = accuracies.std()
 
-history = classifier.fit(X_trainn, y_train, batch_size = 16, epochs = 5, validation_split=0.2)
+history = classifier.fit(X_trainn, y_train, batch_size = 32, epochs = 25, validation_split=0.2)
+history = classifier.fit(X_test, y_test, batch_size = 32, epochs = 25, validation_split=0.2)
 
 
 # =============================================================================
