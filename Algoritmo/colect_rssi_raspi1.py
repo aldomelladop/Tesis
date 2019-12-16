@@ -23,8 +23,9 @@ t = TicToc()
 
 folder  = os.getcwd()
 
-if os.path.isdir(folder + '/Potencias') != True or os.path.isdir(folder + '/Archivos_Temporales') != True:
+if os.path.isdir(folder + '/Potencias') != True:
     os.mkdir('Potencias')
+elif os.path.isdir(folder + '/Archivos_Temporales') != True:
     os.mkdir('Archivos_Temporales')
 else:
     pass
@@ -33,7 +34,7 @@ start_time = time.time()
 flag=False
 it = 0
 a = 30000
-nombre = "Potencia_r1"
+nombre = "Potencia_r1_00"
 
 try:
     t.tic()
