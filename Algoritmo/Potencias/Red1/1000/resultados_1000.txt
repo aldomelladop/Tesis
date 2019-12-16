@@ -1,0 +1,29 @@
+El número de elementos usados es: 1000
+Los mejores parámetros son: {'batch_size': 16, 'epochs': 40, 'optimizer': 'rmsprop'}
+La media obtenida es: 0.78375
+La varianza obtenida es: 0.29163734971707583
+	ac: 99.38%
+	ac: 97.5%
+	ac: 76.25%
+	ac: 23.75%
+	ac: 66.56%
+	ac: 24.69%
+	ac: 98.12%
+	ac: 98.44%
+	ac: 99.06%
+	ac: 100.0%
+
+The position is:['(0,0)']and its accuracy was:0.5
+The position is:['(1,1)']and its accuracy was:0.99
+The position is:['(0,1)']and its accuracy was:0.5
+The position is:['(1,1)']and its accuracy was:0.5
+The position is:['(0,0)']and its accuracy was:0.5
+The position is:['(0,0)']and its accuracy was:1.0
+The position is:['(0,1)']and its accuracy was:0.5
+The position is:['(0,1)']and its accuracy was:1.0
+The position is:['(0,1)']and its accuracy was:1.0
+The position is:['(0,1)']and its accuracy was:0.5
+The position is:['(0,1)']and its accuracy was:0.5
+The position is:['(0,1)']and its accuracy was:0.5
+The position is:['(0,1)']and its accuracy was:0.5
+The position is:['(0,0)']and its accuracy was:0.99
