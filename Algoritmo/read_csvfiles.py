@@ -20,7 +20,7 @@ df3 = fixrows('Potencia_r3_02')
 #df3 = pd.read_csv('Potencia_r3_02_corregido.csv')
 
 # =============================================================================
-df4 = fixrows('Potencia_r2_10')
+df4 = fixrows('Potencia_r3_10')
 df5 = fixrows('Potencia_r1_11')
 df6 = fixrows('Potencia_r3_12')
 # =============================================================================

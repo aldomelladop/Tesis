@@ -31,7 +31,7 @@ for j in num_test:
 #    global()['predictions_{}'.format(i)]= []
     print(f"Probando {j}\n")
     
-    df1 = fixrows( 'Potencia_r1.csv').iloc[:j,:]
+    df1 = fixrows( 'Potencia_r1').iloc[:j,:]
     num_row = np.shape(df1)[0]
     coords  = ['(1,0)' for j in range(num_row)]
     coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
@@ -89,9 +89,8 @@ for j in num_test:
     sc = StandardScaler()
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
-    # =============================================================================
-
-    import keras
+    
+    
     from keras.wrappers.scikit_learn import KerasClassifier
     from sklearn.model_selection import GridSearchCV
     from keras.models import Sequential
@@ -144,12 +143,9 @@ for j in num_test:
     # =============================================================================
     # Neural network to use
     # =============================================================================
-    import keras
-    from keras.wrappers.scikit_learn import KerasClassifier
+
+    
     from sklearn.model_selection import cross_val_score
-    from keras.models import Sequential
-    from keras.layers import Dropout
-    from keras.layers import Dense
 
     t.tic()
     print("Entrando en Red Neuronal\n")
@@ -208,7 +204,13 @@ for j in num_test:
     plt.legend(['train', 'val'], loc='center right')
     plt.grid()
     plt.subplots_adjust(wspace =0.4, hspace= 2.5)
-    plt.savefig('accuracy_over_epochs_train_' + str(j) + '.pdf')
+    
+    if os.path.isdir(os.getcwd() + '/' + str(j)) == True:
+            pass
+    else:
+            os.mkdir(os.getcwd() + '/' + str(j))
+            
+    plt.savefig( os.getcwd() + '/' + str(j) + '/accuracy_over_epochs_train_' + str(j) + '.pdf')
 
     # =============================================================================
     #                             Prediction
@@ -222,15 +224,17 @@ for j in num_test:
     # =============================================================================
     #     Escritura de archivo
     # =============================================================================
-        
-    f = open("resultados_"+str(j)+".txt","w")
+    
+    outFileName= directory + '/' + str(j) + "/resultados_"+str(j)+".txt"
+    f = open(outFileName,"w")
     f.write("El número de elementos usados es: " + repr(j) +'\n'
-        "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
-        "La media obtenida es: " + repr(mean) + '\n'
-        )
-    f.write("La varianza obtenida es: " + repr(variance) + '\n')    
+            "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
+            "La media obtenida es: " + repr(mean) + '\n'
+            )
+    f.write("La varianza obtenida es: " + repr(variance) + '\n')
     
     for i in ac:
         f.write("\tac: " +  repr(round((i*100),2)) +"%" + '\n')
-    f.close()
+        f.close()
+
     print("Archivo escrito")
