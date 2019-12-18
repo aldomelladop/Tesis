@@ -34,7 +34,7 @@ start_time = time.time()
 flag=False
 it = 0
 a = 30000
-nombre = "Potencia_r1_00"
+nombre = "Potencia_r1_01"
 
 try:
     t.tic()
@@ -77,7 +77,6 @@ try:
                     lines = fp.readlines()
                 
 #                t.toc('t_readlines= ')
-
                 ESSID = []
                 MAC = []
                 dBm=  []
@@ -125,7 +124,7 @@ try:
 #                t.toc('t_writing= ')
 
 #                t.tic()
-                with open(folder + "/Potencias/" + 'Potencia_r1.csv', 'a', newline = '') as csvfile:
+                with open(folder + "/Potencias/" + nombre+ '.csv', 'a', newline = '') as csvfile:
                     filewriter = csv.writer(csvfile)
 
                     if it==0 and j==0:
