@@ -170,22 +170,20 @@ def build_classifier():
     classifier.add(Dropout(rate = 0.3))
 
     classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'softmax'))
-#    classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
+ #   classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
     classifier.compile(optimizer = 'adamax', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
 
 #classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 32, epochs = 45)
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = 64, epochs = 25)
 accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
 ac = list(accuracies)
 mean = accuracies.mean()
 variance = accuracies.std()
 t.toc('\nTiempo de red neuronal: ')
 
-from sklearn.metrics import multilabel_confusion_matrix
-multilabel_confusion_matrix(y_test, y_pred, labels = ['(0,0),(0,1),(1,0),(1,1)'])
-
-history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
+history = classifier.fit(X_test, y_test, batch_size = 64, epochs = 25, validation_split=0.2)
+#history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
 
 from matplotlib import pyplot as plt
 
@@ -197,7 +195,7 @@ plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='center right')
 plt.grid()
-ax1.set_ylim([0.9, 1.02])
+#ax1.set_ylim([0.9, 1.02])
 
 plt.subplot(122)
 plt.plot(history.history['loss'])
@@ -219,11 +217,22 @@ for i in range(1,20):
     y_pred_prob = classifier.predict_proba(np.array([X_test[i]]))
     print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
 
-a = np.array([[-54,-77,-82,-85,-75,-75,-91,-63,-65,-67,-89,-68,-85,-83,-84,-83,-84,-83,-83]])
-b = np.array([[-52,-70,-87,-85,-74,-75,-91,-61,-62,-67,-89,-67,-87,-85,-84,-84,-77,-77,-83]])
-c = np.array([[-51,-70,-85,-73,-76,-63,-64,-67,-93,-68,-85,-80,-80,-81,-81,-81,-83,-82,-84]])
+# y_pred
+    #Transforma mediciones estandarizadas de potencia, en valores codificados
+    # de y, que finalmente son transformados en potencias.
+    
+y_pred = classifier.predict(np.array(X_test))
+#y_pred = np_utils.to_categorical(y_pred)
+y_pred = list(encoder.inverse_transform(y_pred))
 
-y_pred = classifier.predict(b)
-predictions = list(encoder.inverse_transform(y_pred))
-y_pred_prob = classifier.predict_proba(b)
-print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
+
+y_real  = encoder.inverse_transform([np.argmax(i, axis=None, out=None) for i in y_test])
+
+# =============================================================================
+# Confussion Matrix
+# =============================================================================
+from sklearn.metrics import confusion_matrix
+from plot_confusion_matrix import plot_confusion_matrix
+
+plot_confusion_matrix(cm = confusion_matrix(y_real, y_pred), target_names=['(0,0)','(0,1)','(1,0)','(1,1)'],
+                      title='Confusion matrix')
