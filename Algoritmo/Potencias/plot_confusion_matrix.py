@@ -4,7 +4,9 @@ def plot_confusion_matrix(cm,
                           target_names,
                           title='Confusion matrix',
                           cmap=plt.cm.Blues,
-                          normalize=True):
+                          normalize=True,
+                          n,
+                          m):
     """
     given a sklearn confusion matrix (cm), make a nice plot
 
@@ -47,7 +49,7 @@ def plot_confusion_matrix(cm,
     if cmap is None:
         cmap = plt.get_cmap('Blues')
 
-    plt.figure(figsize=(10,8))
+    plt.figure(figsize=(15,13))
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
@@ -76,5 +78,5 @@ def plot_confusion_matrix(cm,
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.3f}; misclass={:0.3f}'.format(accuracy, misclass))
-#    plt.savefig('Confusion_matrix.png')
+    plt.savefig(m + 'Confusion_matrix_'+ str(n)+'.png')
     plt.show()

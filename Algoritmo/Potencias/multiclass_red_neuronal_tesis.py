@@ -13,6 +13,7 @@ import pandas as pd
 from fixrows import fixrows
 from pytictoc import TicToc
 from merge_csv import fusionar_csv
+from keras.models import model_from_json
 
 # =============================================================================
 # Importing the dataset
@@ -115,15 +116,19 @@ def build_classifier(optimizer):
     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dropout(rate = 0.3))
 #4
-    classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
     classifier.add(Dropout(rate = 0.3))
 #5
-    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))    
+    classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dropout(rate = 0.3))
 #6
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))    
+    classifier.add(Dropout(rate = 0.3))
+#7
     classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'softmax'))
     classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
+
 classifier = KerasClassifier(build_fn = build_classifier)
 parameters = {'batch_size': [16,32, 64],
               'epochs': [15, 25, 40],
@@ -157,34 +162,65 @@ def build_classifier():
     classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu', input_dim = 19))
     classifier.add(Dropout(rate = 0.3))
     
-    classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
+    classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dropout(rate = 0.3))
     
     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dropout(rate = 0.3))
     
+    classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
+    classifier.add(Dropout(rate = 0.3))
+
     classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dropout(rate = 0.3))
-    
-    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))   
+
+    classifier.add(Dense(units = 6, kernel_initializer = 'uniform', activation = 'relu'))    
     classifier.add(Dropout(rate = 0.3))
 
     classifier.add(Dense(units = 4, kernel_initializer = 'uniform', activation = 'softmax'))
- #   classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
-    classifier.compile(optimizer = 'adamax', loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
+#    classifier.compile(optimizer = 'adamax', loss = 'categorical_crossentropy', metrics = ['accuracy'])
     return classifier
 
-#classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
-classifier = KerasClassifier(build_fn = build_classifier, batch_size = 64, epochs = 25)
-accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
+classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
+#classifier = KerasClassifier(build_fn = build_classifier, batch_size = 64, epochs = 25)
+
+accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1, shuffle = True)
 ac = list(accuracies)
 mean = accuracies.mean()
 variance = accuracies.std()
 t.toc('\nTiempo de red neuronal: ')
 
-history = classifier.fit(X_test, y_test, batch_size = 64, epochs = 25, validation_split=0.2)
-#history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
+history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
 
+# evaluate the model
+
+# scores = classifier.evaluate(X, Y, verbose=0)
+#print("%s: %.2f%%" % (classifier.metrics_names[1], scores[1]*100))
+
+# =============================================================================
+# Confussion Matrix
+# =============================================================================
+    
+# y_pred
+    #Transforma mediciones estandarizadas de potencia, en valores codificados
+    # de y, que finalmente son transformados en potencias.
+    
+y_pred = list(encoder.inverse_transform(classifier.predict(np.array(X_test))))
+
+
+y_real  = encoder.inverse_transform([np.argmax(i, axis=None, out=None) for i in y_test])
+
+
+from sklearn.metrics import confusion_matrix
+from plot_confusion_matrix import plot_confusion_matrix
+
+plot_confusion_matrix(cm = confusion_matrix(y_real, y_pred), target_names=['(0,0)','(0,1)','(1,0)','(1,1)'],
+                      title='Confusion matrix')
+
+# =============================================================================
+#< Plot loss and accuracy
+# =============================================================================
 from matplotlib import pyplot as plt
 
 ax1 = plt.subplot(121)
@@ -217,22 +253,9 @@ for i in range(1,20):
     y_pred_prob = classifier.predict_proba(np.array([X_test[i]]))
     print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
 
-# y_pred
-    #Transforma mediciones estandarizadas de potencia, en valores codificados
-    # de y, que finalmente son transformados en potencias.
-    
-y_pred = classifier.predict(np.array(X_test))
-#y_pred = np_utils.to_categorical(y_pred)
-y_pred = list(encoder.inverse_transform(y_pred))
-
-
-y_real  = encoder.inverse_transform([np.argmax(i, axis=None, out=None) for i in y_test])
-
 # =============================================================================
-# Confussion Matrix
+# Save model 
 # =============================================================================
-from sklearn.metrics import confusion_matrix
-from plot_confusion_matrix import plot_confusion_matrix
+#from keras.models import model_from_json
 
-plot_confusion_matrix(cm = confusion_matrix(y_real, y_pred), target_names=['(0,0)','(0,1)','(1,0)','(1,1)'],
-                      title='Confusion matrix')
+# model_json = classifier.to_json()
