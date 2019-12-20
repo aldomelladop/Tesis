@@ -26,7 +26,7 @@ start_time = time.time()
 flag=False
 it = 0
 a = 30000
-nombre = "Potencia_r3"
+nombre = "Potencia_r3_22"
 
 folder = os.getcwd()
 
@@ -39,7 +39,7 @@ else:
 try:
     t.tic()
     while(flag==False):
-        with tqdm(total=a, desc="Writing on  Potencia_r3.csv", bar_format="{l_bar}{bar} [ remaining time: {remaining} ]") as pbar:
+        with tqdm(total=a, desc="Writing on " + str(nombre) + ".csv", bar_format="{l_bar}{bar} [ remaining time: {remaining} ]") as pbar:
 #            t.tic()
             for j in range(0,a):
                 remaining = a - j
@@ -156,18 +156,18 @@ try:
                 flag=True
                 try:
                     t.tic()
-                    df = fixrows(nombre) # A través de la función fixrows se ajustan las diferencias de elementos en las filas 
-                    t.toc("fixing rows")
-                    num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
-                    print(f"num_row = {np.shape(df)[0]}")
+#                    df = fixrows(nombre) # A través de la función fixrows se ajustan las diferencias de elementos en las filas 
+#                    t.toc("fixing rows")
+#                    num_row = np.shape(df)[0] # se toma la cantidad de filas que se obtuvieron luego de arreglarlo
+#                    print(f"num_row = {np.shape(df)[0]}")
 #                    t.tic()
 #                    coords = createcords(num_row) # se crean un numero equivalente de pares ordenados para la cantidad de filas
 #                    t.toc("createcords: ")
 #                    df= coords.join(df, how='right') # se unen ambas partes, los pares y las mediciones en un solo archivo
 #                    df.to_csv(name + '_c.csv', index = None) #se exporta este a un archivo csv que será procesado por la red
 #                     df = pd.read_csv('Datos.csv')
-                except Exception as e:  
-                    print(e)
+                except Exception as e:
+#                    print(e)
                     print("Error detectado")
                 finally:
 #                    print(f"--- {((time.time() - start_time)/60):.2f} minutes ---\n")
