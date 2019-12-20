@@ -193,11 +193,6 @@ t.toc('\nTiempo de red neuronal: ')
 
 history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
 
-# evaluate the model
-
-# scores = classifier.evaluate(X, Y, verbose=0)
-#print("%s: %.2f%%" % (classifier.metrics_names[1], scores[1]*100))
-
 # =============================================================================
 # Confussion Matrix
 # =============================================================================
@@ -231,7 +226,6 @@ plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'val'], loc='center right')
 plt.grid()
-#ax1.set_ylim([0.9, 1.02])
 
 plt.subplot(122)
 plt.plot(history.history['loss'])
@@ -247,11 +241,11 @@ plt.savefig('accuracy_over_epochs_train.pdf')
 # =============================================================================
 #                             Prediction
 # =============================================================================
-for i in range(1,20):
-    y_pred = classifier.predict(np.array([X_test[i]]))
-    predictions = list(encoder.inverse_transform(y_pred))
-    y_pred_prob = classifier.predict_proba(np.array([X_test[i]]))
-    print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
+# for i in range(1,20):
+#     y_pred = classifier.predict(np.array([X_test[i]]))
+#     predictions = list(encoder.inverse_transform(y_pred))
+#     y_pred_prob = classifier.predict_proba(np.array([X_test[i]]))
+#     print(f"The position is: {predictions}, and its accuracy was: {np.amax(y_pred_prob):.3g}")
 
 # =============================================================================
 # Save model 

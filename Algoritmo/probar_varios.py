@@ -5,7 +5,6 @@ Created on Sat Nov 23 17:14:06 2019
 
 @author: aldo_mellado
 """
-
 # =============================================================================
 # Importing the libraries
 # =============================================================================
@@ -21,19 +20,11 @@ from merge_csv import fusionar_csv
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-
-
-num_test = [15000,20000,25000,30000]
-
+num_test = [1000,5000,10000,15000,20000,25000,30000]
 
 for i in num_test:
-#    globals()['accuracies_{}'.format(i)] = [] #Crear variables que almacenen la presición para esa cantidad de muestras
-#    globals()['best_param_{}'.format(i)] = []
-#    global()['predictions_{}'.format(i)]= []
-    
+
     # =============================================================================
-    # dir_pot = os.getcwd() + '/Potencias/'
-    #  
     df1 = fixrows( 'Potencia_r1').iloc[:5000,:]
     num_row = np.shape(df1)[0]
     coords  = ['(1,0)' for j in range(num_row)]
