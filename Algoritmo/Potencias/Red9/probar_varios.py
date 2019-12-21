@@ -21,7 +21,7 @@ from merge_csv import fusionar_csv
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-num_test = [100, 1000, 5000, 10000, 120000, 15000, 20000, 23000, 25000, 30000]
+num_test = [1000, 5000, 10000, 120000, 15000, 20000, 23000, 25000, 30000]
 
 t = TicToc()
 
