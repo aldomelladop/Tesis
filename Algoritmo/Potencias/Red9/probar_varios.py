@@ -21,8 +21,7 @@ from merge_csv import fusionar_csv
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-#num_test = [5000, 10000, 12000, 15000, 20000, 23000, 25000, 30000]
-num_test = [5000]
+num_test = [10000, 12000, 15000, 20000, 23000, 25000, 30000]
 
 t = TicToc()
 
@@ -38,83 +37,83 @@ for j in num_test:
     else:
     	os.mkdir(os.getcwd() + '/' + str(j))
     
-    # df1 = fixrows('Potencia_r1_00').iloc[:j,:]
-    # num_row = np.shape(df1)[0]
-    # coords  = ['(0,0)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df1 = coords.join(df1, how='left')
-    # df1.to_csv('Potencia_R1_00.csv')
+    df1 = fixrows('Potencia_r1_00').iloc[:j,:]
+    num_row = np.shape(df1)[0]
+    coords  = ['(0,0)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df1 = coords.join(df1, how='left')
+    df1.to_csv('Potencia_R1_00.csv')
 
-    # df2 = fixrows('Potencia_r1_01').iloc[:j,:]
-    # num_row = np.shape(df2)[0]
-    # coords  = ['(0,1)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df2 = coords.join(df2, how='left')
-    # df2.to_csv('Potencia_R1_01.csv')
+    df2 = fixrows('Potencia_r1_01').iloc[:j,:]
+    num_row = np.shape(df2)[0]
+    coords  = ['(0,1)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df2 = coords.join(df2, how='left')
+    df2.to_csv('Potencia_R1_01.csv')
 
-    # df3 = fixrows('Potencia_r1_02').iloc[:j,:]
-    # num_row = np.shape(df3)[0]
-    # coords  = ['(0,2)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df3 = coords.join(df3, how='left')
-    # df3.to_csv('Potencia_R1_02.csv')
+    df3 = fixrows('Potencia_r1_02').iloc[:j,:]
+    num_row = np.shape(df3)[0]
+    coords  = ['(0,2)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df3 = coords.join(df3, how='left')
+    df3.to_csv('Potencia_R1_02.csv')
 
-    # df4 = fixrows('Potencia_r2_10').iloc[:j,:]
-    # num_row = np.shape(df4)[0]
-    # coords  = ['(1,0)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df4 = coords.join(df4, how='left')
-    # df4.to_csv('Potencia_R2_10.csv')
+    df4 = fixrows('Potencia_r2_10').iloc[:j,:]
+    num_row = np.shape(df4)[0]
+    coords  = ['(1,0)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df4 = coords.join(df4, how='left')
+    df4.to_csv('Potencia_R2_10.csv')
 
-    # df5 = fixrows('Potencia_r2_11').iloc[:j,:]
-    # num_row = np.shape(df5)[0]
-    # coords  = ['(1,1)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df5 = coords.join(df5, how='left')
-    # df5.to_csv('Potencia_R2_11.csv')
+    df5 = fixrows('Potencia_r2_11').iloc[:j,:]
+    num_row = np.shape(df5)[0]
+    coords  = ['(1,1)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df5 = coords.join(df5, how='left')
+    df5.to_csv('Potencia_R2_11.csv')
 
-    # df6 = fixrows('Potencia_r2_12').iloc[:j,:]
-    # num_row = np.shape(df6)[0]
-    # coords  = ['(1,2)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df6 = coords.join(df6, how='left')
-    # df6.to_csv('Potencia_R2_12.csv')
+    df6 = fixrows('Potencia_r2_12').iloc[:j,:]
+    num_row = np.shape(df6)[0]
+    coords  = ['(1,2)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df6 = coords.join(df6, how='left')
+    df6.to_csv('Potencia_R2_12.csv')
 
-    # df7 = fixrows('Potencia_r3_20').iloc[:j,:]
-    # num_row = np.shape(df7)[0]
-    # coords  = ['(2,0)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df7 = coords.join(df7, how='left')
-    # df7.to_csv('Potencia_R3_20.csv')
+    df7 = fixrows('Potencia_r3_20').iloc[:j,:]
+    num_row = np.shape(df7)[0]
+    coords  = ['(2,0)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df7 = coords.join(df7, how='left')
+    df7.to_csv('Potencia_R3_20.csv')
 
-    # df8 = fixrows('Potencia_r3_21').iloc[:j,:]
-    # num_row = np.shape(df8)[0]
-    # coords  = ['(2,1)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df8 = coords.join(df8, how='left')
-    # df8.to_csv('Potencia_R3_21.csv')
+    df8 = fixrows('Potencia_r3_21').iloc[:j,:]
+    num_row = np.shape(df8)[0]
+    coords  = ['(2,1)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df8 = coords.join(df8, how='left')
+    df8.to_csv('Potencia_R3_21.csv')
 
-    # df9 = fixrows('Potencia_r3_22').iloc[:j,:]
-    # num_row = np.shape(df9)[0]
-    # coords  = ['(2,2)' for j in range(num_row)]
-    # coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    # df9 = coords.join(df9, how='left')
-    # df9.to_csv('Potencia_R3_22.csv')
+    df9 = fixrows('Potencia_r3_22').iloc[:j,:]
+    num_row = np.shape(df9)[0]
+    coords  = ['(2,2)' for j in range(num_row)]
+    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+    df9 = coords.join(df9, how='left')
+    df9.to_csv('Potencia_R3_22.csv')
 
-    # t.tic()
-    # # Fusionar archivos corregidos para obtener el archivo de potencias final
-    # fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
-    #              'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
+    t.tic()
+    # Fusionar archivos corregidos para obtener el archivo de potencias final
+    fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
+                  'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
 
-    # t.toc('\nTiempo Archivos Fusionados\n')  
+    t.toc('\nTiempo Archivos Fusionados\n')  
     
-    # # =============================================================================
-    # #   Remover archivos corregidos
-    # # =============================================================================
-    # os.system('rm Potencia_R*')
-    # os.system('rm Potencia_r*_*_corregido.csv')
+    # =============================================================================
+    #   Remover archivos corregidos
+    # =============================================================================
+    os.system('rm Potencia_R*')
+    os.system('rm Potencia_r*_*_corregido.csv')
 
-    # df0 = fixrows('potencias_fusionado').iloc[3:,1:]
+    df0 = fixrows('potencias_fusionado').iloc[3:,1:]
 
     df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
 
@@ -142,7 +141,6 @@ for j in num_test:
     X_train = sc.fit_transform(X_train)
     X_test = sc.transform(X_test)
     
-    
     from keras.wrappers.scikit_learn import KerasClassifier
     from sklearn.model_selection import GridSearchCV
     from keras.models import Sequential
@@ -152,44 +150,44 @@ for j in num_test:
     print('\nComenzando GridSearchCV\n')
     t.tic()
     
-    # def build_classifier(optimizer):
-    #     classifier = Sequential()
-    # #1
-    #     classifier.add(Dense(units = int(np.shape(X_test)[1]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-    #     classifier.add(Dropout(rate = 0.3))
-    # #2
-    #     classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
-    #     classifier.add(Dropout(rate = 0.3))
-    # #3    
-    #     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-    #     classifier.add(Dropout(rate = 0.3))
-    # #4    
-    #     classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
-    #     classifier.add(Dropout(rate = 0.3))
-    # #5    
-    #     classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))   
-    #     classifier.add(Dropout(rate = 0.3))
-    # #6
-    #     classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
-    #     classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
-    #     return classifier
-    # classifier = KerasClassifier(build_fn = build_classifier)
-    # parameters = {'batch_size': [16,32, 64],
-    #               'epochs': [20, 30,40],
-    #                 'optimizer': ['adam', 'adamax','rmsprop']}
+    def build_classifier(optimizer):
+        classifier = Sequential()
+    #1
+        classifier.add(Dense(units = int(np.shape(X_test)[1]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
+        classifier.add(Dropout(rate = 0.3))
+    #2
+        classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
+        classifier.add(Dropout(rate = 0.3))
+    #3    
+        classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
+        classifier.add(Dropout(rate = 0.3))
+    #4    
+        classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
+        classifier.add(Dropout(rate = 0.3))
+    #5    
+        classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))   
+        classifier.add(Dropout(rate = 0.3))
+    #6
+        classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
+        classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
+        return classifier
+    classifier = KerasClassifier(build_fn = build_classifier)
+    parameters = {'batch_size': [16,32, 64],
+                  'epochs': [20, 30,40],
+                    'optimizer': ['adam', 'adamax','rmsprop']}
 
-    # grid_search = GridSearchCV(estimator = classifier,
-    #                            param_grid = parameters,
-    # #                           scoring = 'accuracy',
-    #                            cv = 15,
-    #                            n_jobs = -1)
+    grid_search = GridSearchCV(estimator = classifier,
+                                param_grid = parameters,
+    #                           scoring = 'accuracy',
+                                cv = 10,
+                                n_jobs = -1)
 
-    # grid_search = grid_search.fit(X_train, y_train)
+    grid_search = grid_search.fit(X_train, y_train)
 
-    # best_parameters  = grid_search.best_params_
+    best_parameters  = grid_search.best_params_
 
-    # print(f"\nbest_parameters = {grid_search.best_params_}")
-    # print(f"best_accuracy =   {grid_search.best_score_}")
+    print(f"\nbest_parameters = {grid_search.best_params_}")
+    print(f"best_accuracy =   {grid_search.best_score_}")
 
     t1 = t.tocvalue()
     t.toc('\nTiempo en GridSearchCV\n')
@@ -201,7 +199,7 @@ for j in num_test:
 
     t.tic()
     print("Entrando en Red Neuronal\n")
-    best_parameters = {'batch_size': 32, 'epochs': 40, 'optimizer': 'adamax'}
+    # best_parameters = {'batch_size': 32, 'epochs': 40, 'optimizer': 'adamax'}
 
     
     def build_classifier():
@@ -226,7 +224,7 @@ for j in num_test:
         return classifier
 
     classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
-    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 15, n_jobs = -1)
+    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
     ac = list(accuracies)
     mean = accuracies.mean()
     variance = accuracies.std()
@@ -234,7 +232,6 @@ for j in num_test:
     time = t.tocvalue()
     
     history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
-
     # =============================================================================
     # Graficos
     # =============================================================================
