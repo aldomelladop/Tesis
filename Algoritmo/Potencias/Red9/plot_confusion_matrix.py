@@ -76,4 +76,4 @@ def plot_confusion_matrix(cm,
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.3f}; misclass={:0.3f}'.format(accuracy, misclass))
     plt.savefig('Confusion_matrix.png')
-    plt.show()
+    #plt.show()
