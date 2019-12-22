@@ -1,10 +1,10 @@
 El número de elementos usados es: 1000
 Los mejores parámetros son: {'batch_size': 16, 'epochs': 40, 'optimizer': 'adamax'}
-
 Tiempo de GridSearchCV  = 22
 Tiempo red neuronal  = 1
 La media obtenida es: 0.5658549896049896
 La varianza obtenida es: 0.24058646463529224
+
 	ac: 69.44%
 	ac: 62.37%
 	ac: 72.97%

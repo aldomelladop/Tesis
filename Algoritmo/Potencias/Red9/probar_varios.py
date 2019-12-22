@@ -239,10 +239,10 @@ for j in num_test:
     f = open(outFileName,"w")
     f.write("El número de elementos usados es: " + repr(j) +'\n'
             "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
-            "\nTiempo de GridSearchCV  = " + repr(round(int(t1/60),2)) + 
-            "\nTiempo red neuronal  = " + repr(round(int(time/60),2)) + 
+            "Tiempo de GridSearchCV  = " + repr(round(int(t1/60),2)) +'min' + 
+            "\nTiempo red neuronal  = " + repr(round(int(time/60),2))+'min' + 
             "\nLa media obtenida es: " + repr(mean) +
-            "\nLa varianza obtenida es: " + repr(variance) + '\n'
+            "\nLa varianza obtenida es: " + repr(variance) + '\n\n'
             )
     
     for i in ac:
