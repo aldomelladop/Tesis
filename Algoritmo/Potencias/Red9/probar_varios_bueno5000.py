@@ -21,9 +21,8 @@ from merge_csv import fusionar_csv
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-#num_test = [5000, 10000, 12000, 15000, 20000, 23000, 25000, 30000]
+#num_test = [1000, 5000, 10000, 120000, 15000, 20000, 23000, 25000, 30000]
 num_test = [5000]
-
 t = TicToc()
 
 t.tic()
@@ -34,9 +33,9 @@ for j in num_test:
     directory = os.getcwd()
 
     if os.path.isdir(os.getcwd() + '/' + str(j)) == True:
-    	pass
+        pass
     else:
-    	os.mkdir(os.getcwd() + '/' + str(j))
+        os.mkdir(os.getcwd() + '/' + str(j))
     
     # df1 = fixrows('Potencia_r1_00').iloc[:j,:]
     # num_row = np.shape(df1)[0]
@@ -101,18 +100,17 @@ for j in num_test:
     # df9 = coords.join(df9, how='left')
     # df9.to_csv('Potencia_R3_22.csv')
 
-    # t.tic()
-    # # Fusionar archivos corregidos para obtener el archivo de potencias final
+    t.tic()
+    # Fusionar archivos corregidos para obtener el archivo de potencias final
     # fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
-    #              'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
+                 # 'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
 
-    # t.toc('\nTiempo Archivos Fusionados\n')  
+    t.toc('\nTiempo Archivos Fusionados\n')  
     
-    # # =============================================================================
-    # #   Remover archivos corregidos
-    # # =============================================================================
+    # =============================================================================
+    #   Remover archivos corregidos
+    # =============================================================================
     # os.system('rm Potencia_R*')
-    # os.system('rm Potencia_r*_*_corregido.csv')
 
     # df0 = fixrows('potencias_fusionado').iloc[3:,1:]
 
@@ -226,14 +224,45 @@ for j in num_test:
         return classifier
 
     classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
-    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 15, n_jobs = -1)
+    accuracies = classifier(estimator = classifier, X = X_train, y = y_train, cv = 15, n_jobs = -1)
     ac = list(accuracies)
     mean = accuracies.mean()
     variance = accuracies.std()
     t.toc('\nTiempo de red neuronal: ')
     time = t.tocvalue()
+
+    history  = classifier.fit(X_train, y_train, batch_size = best_parameters['epochs'], epochs = best_parameters['epochs'], validation_split=0.2)
+
+    # =============================================================================
+    #     Escritura de archivo
+    # =============================================================================
+
+    outFileName= directory + '/' + str(j) + "/resultados_"+str(j)+".txt"
+    f = open(outFileName,"w")
     
-    history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
+    f.write("El número de elementos usados es: " + repr(j) +
+            "\nLos mejores parámetros son: "+ repr(best_parameters) +
+            "\nTiempo de GridSearchCV  = " + repr(round(int(t1/60),2)) +'min' + 
+            "\nTiempo red neuronal  = " + repr(round(int(time/60),2))+'min' + 
+            "\nLa media obtenida es: " + repr(mean) +
+            "\nLa varianza obtenida es: " + repr(variance) + '\n\n'
+            )
+    
+    for i in ac:
+        f.write("\tac: " +  repr(round((i*100),2)) +"%" + '\n')
+
+    # =============================================================================
+    #                             Prediction
+    # =============================================================================
+    for i in range(1,15):
+        r = random.randint(0, np.shape(X_test)[0]-1) 
+        y_pred = classifier.predict(np.array([X_test[r]]))
+        predictions = list(encoder.inverse_transform(y_pred))
+        y_pred_prob = classifier.predict_proba(np.array([X_test[r]]))
+        f.write("\nFor the vector: ["+ repr(X_test[r])+ "]\t the predicted position is:" +  repr(predictions) +  "and its accuracy was:" + repr(round(np.amax(y_pred_prob),2)))
+    f.close()
+
+    print("Archivo escrito\n")
 
     # =============================================================================
     # Graficos
@@ -275,89 +304,19 @@ for j in num_test:
     from sklearn.metrics import confusion_matrix
     from plot_confusion_matrix import plot_confusion_matrix
 
-    plot_confusion_matrix(cm = confusion_matrix(y_real, y_pred), target_names=['(0,0)','(0,1)','(0,2)','(1,0)','(1,1)','(1,2)','(2,0)','(2,1)','(2,2)'],
+    plot_confusion_matrix(cm = confusion_matrix(y_real, y_pred), target_names=['(0,0)','(0,1)','(1,0)','(1,1)'],
                           title='Confusion matrix')
-
+    
     # =============================================================================
     #     Move file to folder
     # =============================================================================
     mv = directory + '/' + str(j) + '/' + 'Confusion_matrix.png'
     os.system('mv Confusion_matrix.png '+ mv)    
 
-	# =============================================================================
-    #     Escritura de archivo
     # =============================================================================
-
-    outFileName= directory + '/' + str(j) + "/resultados_"+str(j)+".txt"
-    f = open(outFileName,"w")
-    f.write("El número de elementos usados es: " + repr(j) +
-            "\nLos mejores parámetros son: "+ repr(best_parameters) +
-            "\nTiempo de GridSearchCV  = " + repr(round(int(t1/60),2)) +'min' + 
-            "\nTiempo red neuronal  = " + repr(round(int(time/60),2))+'min' + 
-            "\nLa media obtenida es: " + repr(mean) +
-            "\nLa varianza obtenida es: " + repr(variance) + '\n\n'
-            )
-    
-    for i in ac:
-        f.write("\tac: " +  repr(round((i*100),2)) +"%" + '\n')
-
+    # Subir codigo
     # =============================================================================
-    #                             Prediction
-    # =============================================================================
-    for i in range(1,15):
-        r = random.randint(0, np.shape(X_test)[0]-1) 
-        y_pred = classifier.predict(np.array([X_test[r]]))
-        predictions = list(encoder.inverse_transform(y_pred))
-        y_pred_prob = classifier.predict_proba(np.array([X_test[r]]))
-        f.write("\nFor the vector: ["+ repr(X_test[r])+ "]\t the predicted position is:" +  repr(predictions) +  "and its accuracy was:" + repr(round(np.amax(y_pred_prob),2)))
-    f.close()
-
-    print("Archivo escrito\n")
-    
-    # =============================================================================
-    #     Saving model
-    # =============================================================================
-
-    classifier = Sequential()
-    classifier.add(Dense(units = int(np.shape(X_test)[0]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-    classifier.add(Dropout(rate = 0.3))
-    
-    classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
-    classifier.add(Dropout(rate = 0.3))
-    
-    classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-    classifier.add(Dropout(rate = 0.3))
-    
-    classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
-    classifier.add(Dropout(rate = 0.3))
-    
-    classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
-    classifier.add(Dropout(rate = 0.3))
-    
-    classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
-    classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
-    
-    classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
-    
-    from keras.models import model_from_json
-    from keras.models import load_model
-    
-    # save model and architecture to single file
-    classifier.save(directory + "/{}/model_{}.h5".format(j,j))
-    json_string = classifier.to_json()
-    
-    # serialize model to JSON
-    model_json = classifier.to_json()
-    with open(directory +"/{}/model_{}.json".format(j,j), "w") as json_file:
-        json_file.write(model_json)    
-
-    print("Saved model to disk")
-    
-	# =============================================================================
-	# Subir codigo
-	# =============================================================================
     print('Actualizando repositorio')
     os.system('git add .')
     os.system('git commit -m "subiendo archivos para j = {}" '.format(j))
     os.system('git push')
-

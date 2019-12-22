@@ -9,9 +9,9 @@ Created on Sat Nov 23 17:14:06 2019
 # Importing the libraries
 # =============================================================================
 import os
-import random
 import numpy as np
 import pandas as pd
+import random
 from pytictoc import TicToc
 from fixrows import fixrows
 from merge_csv import fusionar_csv
@@ -219,43 +219,35 @@ accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, c
 ac = list(accuracies)
 mean = accuracies.mean()
 variance = accuracies.std()
-t.toc('\tGridSearchCV:  ')
+t.toc('\nTiempo de red neuronal: ')
 time = t.tocvalue()
 
-t.tic()
 history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
-t.toc('\nTiempo de red neuronal: ')
+#history = classifier.fit(X_test, y_test, batch_size = 32, epochs = 40, validation_split=0.2)
 
 
 # =============================================================================
 #     Saving model
 # =============================================================================
-classifier = Sequential()
-classifier.add(Dense(units = int(np.shape(X_test)[0]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-classifier.add(Dropout(rate = 0.3))
-
-classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
-classifier.add(Dropout(rate = 0.3))
-
-classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-classifier.add(Dropout(rate = 0.3))
-
-classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
-classifier.add(Dropout(rate = 0.3))
-
-classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))
-classifier.add(Dropout(rate = 0.3))
-
-classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
-classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
-
 from keras.models import model_from_json
-from keras.models import load_model
+from numpy import loadtxt
 
 # save model and architecture to single file
-classifier.save(directory + "/{}/model_{}.h5".format(j,j))
+model.save("model.h5")
+print("Saved model to disk")
 
-print("Saved model to disk\n")
+# load model
+model = load_model('model.h5')
+# summarize model.
+model.summary()
+# load dataset
+dataset = loadtxt("pima-indians-diabetes.csv", delimiter=",")
+# split into input (X) and output (Y) variables
+X = dataset[:,0:8]
+Y = dataset[:,8]
+# evaluate the model
+score = model.evaluate(X, Y, verbose=0)
+print("%s: %.2f%%" % (model.metrics_names[1], score[1]*100))
 
 # =============================================================================
 #     Escritura de archivo
@@ -279,14 +271,12 @@ for i in ac:
 #                             Prediction
 # =============================================================================
 for i in range(1,15):
-    r = random.randint(0, np.shape(X_test)[0]-1)
-    y_pred = classifier.predict(np.array([X_test[r]]))
-    predictions = list(encoder.inverse_transform(y_pred))
-    y_pred_prob = classifier.predict_proba(np.array([X_test[r]]))
-    f.write("\nFor the vector: ["+ repr(X_test[r])+ "]\t the predicted position is:" +  repr(predictions) +  "and its accuracy was:" + repr(round(np.amax(y_pred_prob),2)))
+	r = random.randint(0, np.shape(X_test)[0]-1) 
+	y_pred = classifier.predict(np.array([X_test[r]]))
+	predictions = list(encoder.inverse_transform(y_pred))
+	y_pred_prob = classifier.predict_proba(np.array([X_test[r]]))
+	f.write("\nFor the vector: ["+ repr(X_test[r])+ "]\t the predicted position is:" +  repr(predictions) +  "and its accuracy was:" + repr(round(np.amax(y_pred_prob),2)))
 f.close()
-
-print("Archivo escrito\n")
 
 # =============================================================================
 # Confussion Matrix
@@ -341,15 +331,3 @@ plt.subplots_adjust(wspace =0.4, hspace= 2.5)
         
 plt.savefig( os.getcwd() + '/5000/accuracy_over_epochs_train_5000.pdf')
 
-
-# =============================================================================
-#   Load Model
-# =============================================================================
-# load and evaluate a saved model
-from numpy import loadtxt
-from keras.models import load_model
-
-# load model
-classifier = load_model('model.h5')
-# summarize model.
-classifier.summary()
