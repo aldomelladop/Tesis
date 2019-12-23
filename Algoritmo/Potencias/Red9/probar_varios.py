@@ -354,7 +354,7 @@ for j in num_test:
 	# Subir codigo
 	# =============================================================================
     print('Actualizando repositorio')
-    os.system('git add .')
-    os.system('git commit -m "subiendo archivos para j = {}" '.format(j))
-    os.system('git push')
+    !git add .
+    !git commit -m "subiendo archivos para j = {}" '.format(j)
+    !git push
 
