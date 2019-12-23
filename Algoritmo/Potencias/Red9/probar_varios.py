@@ -21,7 +21,7 @@ from merge_csv import fusionar_csv
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-num_test = [10000, 12000, 15000, 20000, 23000, 25000, 30000]
+num_test = [15000, 20000, 25000, 30000]
 
 t = TicToc()
 
@@ -173,7 +173,7 @@ for j in num_test:
         return classifier
     classifier = KerasClassifier(build_fn = build_classifier)
     parameters = {'batch_size': [16,32, 64],
-                  'epochs': [20, 30,40],
+                  'epochs': [20, 30, 40],
                     'optimizer': ['adam', 'adamax','rmsprop']}
 
     grid_search = GridSearchCV(estimator = classifier,
@@ -205,19 +205,19 @@ for j in num_test:
     def build_classifier():
         classifier = Sequential()
         classifier.add(Dense(units = int(np.shape(X_test)[1]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-        classifier.add(Dropout(rate = 0.3))
+        classifier.add(Dropout(rate = 0.2))
         
         classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.3))
+        classifier.add(Dropout(rate = 0.2))
         
         classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.3))
+        classifier.add(Dropout(rate = 0.2))
         
         classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.3))
+        classifier.add(Dropout(rate = 0.2))
         
         classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))   
-        classifier.add(Dropout(rate = 0.3))
+        classifier.add(Dropout(rate = 0.2))
 
         classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
         classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
@@ -231,7 +231,7 @@ for j in num_test:
     t.toc('\nTiempo de red neuronal: ')
     time = t.tocvalue()
     
-    history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
+    history = classifier.fit(X_train, y_train, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
     # =============================================================================
     # Graficos
     # =============================================================================
@@ -259,7 +259,7 @@ for j in num_test:
     plt.savefig(os.getcwd() + '/{}/accuracy_over_epochs_train_{}.pdf'.format(j,j))
 
     # =============================================================================
-    # Confussion Matrix
+    # Confusion Matrix
     # =============================================================================
     
     # y_pred
@@ -334,11 +334,11 @@ for j in num_test:
     classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
     classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
     
-    classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
+#    classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
     
-    from keras.models import model_from_json
-    from keras.models import load_model
-    
+    # from keras.models import model_from_json
+    # from keras.models import load_model
+
     # save model and architecture to single file
     classifier.save(directory + "/{}/model_{}.h5".format(j,j))
     json_string = classifier.to_json()
@@ -348,7 +348,7 @@ for j in num_test:
     with open(directory +"/{}/model_{}.json".format(j,j), "w") as json_file:
         json_file.write(model_json)    
 
-    print("Saved model to disk")
+    print("\nSaved model to disk")
     
 	# =============================================================================
 	# Subir codigo
