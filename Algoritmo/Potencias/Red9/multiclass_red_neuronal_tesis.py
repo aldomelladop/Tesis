@@ -22,10 +22,10 @@ from keras.models import model_from_json
 
 directory = os.getcwd()
 
-if os.path.isdir(os.getcwd() + '/5000') == True:
+if os.path.isdir(os.getcwd() + '/17500') == True:
     pass
 else:
-    os.mkdir(os.getcwd() + '/5000')
+    os.mkdir(os.getcwd() + '/17500')
 
 t = TicToc()
 # df1 = fixrows('Potencia_r1_00').iloc[:5000,:]
@@ -185,7 +185,7 @@ t1 = t.tocvalue()
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import cross_val_score
 
-best_parameters = {'batch_size': 32, 'epochs': 40, 'optimizer': 'adamax'}
+best_parameters = {'batch_size': 48, 'epochs': 40, 'optimizer': 'adamax'}
 
 t.tic() 
 print("\nEntrando en Cross Validation\n")

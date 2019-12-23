@@ -21,7 +21,8 @@ from merge_csv import fusionar_csv
 # =============================================================================
    
 #Run this code, only if the file with all the dataframes were deleted
-num_test = [15000, 20000, 25000, 30000]
+# num_test = [1000,5000,10000,15000, 20000, 25000, 30000]
+num_test = [17500]
 
 t = TicToc()
 
@@ -150,44 +151,44 @@ for j in num_test:
     print('\nComenzando GridSearchCV\n')
     t.tic()
     
-    def build_classifier(optimizer):
-        classifier = Sequential()
-    #1
-        classifier.add(Dense(units = int(np.shape(X_test)[1]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-        classifier.add(Dropout(rate = 0.3))
-    #2
-        classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.3))
-    #3    
-        classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.3))
-    #4    
-        classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.3))
-    #5    
-        classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))   
-        classifier.add(Dropout(rate = 0.3))
-    #6
-        classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
-        classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
-        return classifier
-    classifier = KerasClassifier(build_fn = build_classifier)
-    parameters = {'batch_size': [16,32, 64],
-                  'epochs': [20, 30, 40],
-                    'optimizer': ['adam', 'adamax','rmsprop']}
+    # def build_classifier(optimizer):
+    #     classifier = Sequential()
+    # #1
+    #     classifier.add(Dense(units = int(np.shape(X_test)[1]/2)+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
+    #     classifier.add(Dropout(rate = 0.3))
+    # #2
+    #     classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.3))
+    # #3    
+    #     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.3))
+    # #4    
+    #     classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.3))
+    # #5    
+    #     classifier.add(Dense(units = 12, kernel_initializer = 'uniform', activation = 'relu'))   
+    #     classifier.add(Dropout(rate = 0.3))
+    # #6
+    #     classifier.add(Dense(units = 9, kernel_initializer = 'uniform', activation = 'softmax'))
+    #     classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    #     return classifier
+    # classifier = KerasClassifier(build_fn = build_classifier)
+    # parameters = {'batch_size': [16,32, 64],
+    #               'epochs': [20, 30, 40],
+    #                 'optimizer': ['adam', 'adamax','rmsprop']}
 
-    grid_search = GridSearchCV(estimator = classifier,
-                                param_grid = parameters,
-    #                           scoring = 'accuracy',
-                                cv = 10,
-                                n_jobs = -1)
+    # grid_search = GridSearchCV(estimator = classifier,
+    #                             param_grid = parameters,
+    # #                           scoring = 'accuracy',
+    #                             cv = 10,
+    #                             n_jobs = -1)
 
-    grid_search = grid_search.fit(X_train, y_train)
+    # grid_search = grid_search.fit(X_train, y_train)
 
-    best_parameters  = grid_search.best_params_
+    # best_parameters  = grid_search.best_params_
 
-    print(f"\nbest_parameters = {grid_search.best_params_}")
-    print(f"best_accuracy =   {grid_search.best_score_}")
+    # print(f"\nbest_parameters = {grid_search.best_params_}")
+    # print(f"best_accuracy =   {grid_search.best_score_}")
 
     t1 = t.tocvalue()
     t.toc('\nTiempo en GridSearchCV\n')
@@ -199,7 +200,7 @@ for j in num_test:
 
     t.tic()
     print("Entrando en Red Neuronal\n")
-    # best_parameters = {'batch_size': 32, 'epochs': 40, 'optimizer': 'adamax'}
+    best_parameters = {'batch_size': 48, 'epochs': 40, 'optimizer': 'adamax'}
 
     
     def build_classifier():
@@ -354,7 +355,7 @@ for j in num_test:
 	# Subir codigo
 	# =============================================================================
     print('Actualizando repositorio')
-    !git add .
-    !git commit -m "subiendo archivos para j = {}" '.format(j)
-    !git push
+    os.system('git add .')
+    os.system('git commit -m "subiendo archivos para j = {}" '.format(j))
+    os.system('git push')
 
