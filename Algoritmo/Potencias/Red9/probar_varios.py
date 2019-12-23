@@ -200,7 +200,7 @@ for j in num_test:
 
     t.tic()
     print("Entrando en Red Neuronal\n")
-    best_parameters = {'batch_size': 48, 'epochs': 40, 'optimizer': 'adamax'}
+    best_parameters = {'batch_size': 32, 'epochs': 40, 'optimizer': 'adamax'}
 
     
     def build_classifier():
