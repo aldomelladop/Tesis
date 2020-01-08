@@ -107,13 +107,13 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
         
         }
         \newpage 
-        \item {\textbf{\ac{RToF}}: en este método basado en \ref{ToA} que consiste en el tiempo total que toma la conexión entre los dos dispositivos que participan en la comunicación. A diferencia de \ref{fig:TDoA}, acá se considera el tiempo de ida y regreso de la señal, no sólo el tiempo que tarda desde el transmisor hasta el receptor. Este método de medida no requiere ninguna sincronización entre los dispositivos, de modo que se puede implementar necesitan únicamente enviar el resultado de la medición del \ac{RTT} para hacer el cálculo bajo la siguiente fórmula:\\
+        \item {\textbf{\ac{RToF}}: en este método basado en \ref{ToA} que consiste en el tiempo total que toma la conexión entre los dos dispositivos que participan en la comunicación. A diferencia de \ref{fig:TDoA}, acá se considera el tiempo de ida y regreso de la señal, no sólo el tiempo que tarda desde el transmisor hasta el receptor. Este método de medida no requiere ninguna sincronización entre los dispositivos, de modo que se puede implementar necesitan únicamente enviar el resultado de la medición del \ac{RTT} para hacer el cálculo bajo la siguiente fórmula:
         
         \begin{equation}
             d = \dfrac{c\cdot{\left(T_{Total} - T_{proc}\right)}}{2}
         \end{equation}
         
-        Donde \textit{d}, representa la distancia entre los dos dispositivos; \textit{c}, la velocidad de la luz; $T_{proc}$, el tiempo que le toma a la estación realizar el calculo. Siendo este último, un parámetro complejo de obtener con precisión, ya que depende de la latencia del sistema. Esto se escala como la principal desventaja de este sistema ya que calcular la posición para varios dispositivos se traduce en lidiar con latencias que impidan obtener la posición de dispositivos que se mueven rápidamente.
+        Donde \textit{d}, representa la distancia entre los dos dispositivos; \textit{c}, la velocidad de la luz; $T_{proc}$, el tiempo que le toma a la estación realizar el calculo. Siendo este último, un parámetro complejo de obtener con precisión, ya que depende de la latencia del sistema. Esto se escala como la principal desventaja de este sistema ya que calcular la posición para varios dispositivos se traduce en lidiar con latencias que impidan obtener la posición de dispositivos que se mueven rápidamente.\\
         
         \begin{figure}[h!]
             \centering
@@ -140,12 +140,12 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
             \label{fig:RSSI}
         \end{figure}
         
-        \item{Algoritmos de posicionamiento para método por características de posición}\\
+        \item{Algoritmos de posicionamiento para método por características de posición}
         
             \begin{enumerate}
-                \item {\textbf{Método Probabilístico}: En este método, se considera el estimar la posición del objetivo, como un problema de clasificación, ya que desde un vector de RSS capturadas desde los APs, se puede estimar la probabilidad de que un valor \textit{S}, pertenezca a un AP particular, y por ende, a un punto de coordenadas aproximado. \\
+                \item {\textbf{Método Probabilístico}: En este método, se considera el estimar la posición del objetivo, como un problema de clasificación, ya que desde un vector de RSS capturadas desde los APs, se puede estimar la probabilidad de que un valor \textit{S}, pertenezca a un AP particular, y por ende, a un punto de coordenadas aproximado.\\
                 
-                Se puede hacer el cálculo de la posición a través de modelos de inferencia y asociarlo también a un tipo de Cadenas de Markov, así como también, apoyar el cálculo introduciendo medidas de dispersión tales como la desviación estándar y la varianza, o de una medida de tendencia central como es la media.\\
+                Se puede hacer el cálculo de la posición a través de modelos de inferencia y asociarlo también a un tipo de Cadenas de Markov, así como también, apoyar el cálculo introduciendo medidas de dispersión tales como la desviación estándar y la varianza, o de una medida de tendencia central como es la media.
                 }
                 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,7 +154,7 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
                 
                 \item{\textbf{Método \ac{SVM}}: \label{SVM} En la literatura consultada \cite{7} los autores señalan a esta técnica como \textit{''Una nueva u prometedora técnica para clasificación de datos y Machine Learning.''}, que ha sido usada con resultados satisfactorios en el mapeo de intensidad de señales inalámbricas.\\
                 
-                Su implementación consiste igualmente en dos fases; una de entrenamiento, que es aquella en que los sets con los datos de  intensidad de señal de los AP son ingresados, y con los cuales se buscará diseñar un hiperplano que clasifique los vectores en dos clases, procurando maximizar la distancia entre estos.\\
+                Su implementación consiste igualmente en dos fases; una de entrenamiento, que es aquella en que los sets con los datos de  intensidad de señal de los AP son ingresados, y con los cuales se buscará diseñar un hiperplano que clasifique los vectores en dos clases, procurando maximizar la distancia entre estos.
                 
                 \begin{figure}[h!]
                     \centering
@@ -163,13 +163,13 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
                     \label{fig:SVM}
                 \end{figure}
                 
-                Sin embargo, dado que en un espacio indoor, la cantidad de AP es , por lo general, superior a 2, la posibilidad de que en un set de datos podamos diferenciar entre un AP u otro mediante el procedimiento de encontrar el hiperplano que separa maximizando la distancia entre los valores, es nula, e implementar un algoritmo recursivo que vaya evaluando para cada AP, el hiperplano que clasifica la medición del objetivo en alguno de ellos, es costosa computacionalmente además de compleja.\\
+                Sin embargo, dado que en un espacio indoor, la cantidad de AP es , por lo general, superior a 2, la posibilidad de que en un set de datos podamos diferenciar entre un AP u otro mediante el procedimiento de encontrar el hiperplano que separa maximizando la distancia entre los valores, es nula, e implementar un algoritmo recursivo que vaya evaluando para cada AP, el hiperplano que clasifica la medición del objetivo en alguno de ellos, es costosa computacionalmente además de compleja.
                 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
                 \clearpage 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-                \item {\textbf{Método \ac{KNN}}: El método de vecinos más cercano es uno de los métodos de clasificación más simple dentro de la librería de Machine Learning ya que consiste, en una clasificación por similitud respecto de otros puntos en un dataset de entrenamiento. \\
+                \item {\textbf{Método \ac{KNN}}: El método de vecinos más cercano es uno de los métodos de clasificación más simple dentro de la librería de Machine Learning ya que consiste, en una clasificación por similitud respecto de otros puntos en un dataset de entrenamiento.\\
 
                 El objetivo de este método es el de agrupar vectores de características, que no son más que representaciones matemáticas para la información. Ha de tenerse en cuenta que el vector de características puede requerir un pre procesamiento si es que estas no son necesariamente numéricas, ya que de este modo se podrá agrupar los datos como si se tratara de un vector de $R^{N}$.\\
 
@@ -183,13 +183,13 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
                     \item {Se calcularán las distancias entre los valores a clasificar, y aquellos contenidos en el data-set. En el cálculo de la distancia suele usarse la distancia euclidiana, que es básicamente, la magnitud del vector que se obtiene al restar un punto de muestra del data-set de entrenamiento, con el punto a clasificar
     
                     \begin{equation}
-                        E(x,y) = \sqrt{\sum_{i=0}^{n}({x_{i}-y_{i}})^{2}} \ \ 
+                        E(x,y) = \sqrt{\sum_{i=0}^{n}({x_{i}-y_{i}})^{2}}
                     \end{equation}
                     }
 
-                    \item{Se escogerá un valor \textit{K}, que por lo general, no es ni múltiplo de la cantidad de clases, ni par, y que representa la cantidad de valores \textit{K} con las distancias más bajas. Este puede ser escogido arbitrariamente o bien, en caso que sea necesario, obtenido por validación cruzada. \footnote{La validación cruzada o cross-validation es una técnica utilizada para evaluar los resultados de un análisis estadístico y garantizar que son independientes de la partición entre datos de entrenamiento y prueba.}\\}
+                    \item{Se escogerá un valor \textit{K}, que por lo general, no es ni múltiplo de la cantidad de clases, ni par, y que representa la cantidad de valores \textit{K} con las distancias más bajas. Este puede ser escogido arbitrariamente o bien, en caso que sea necesario, obtenido por validación cruzada. \footnote{La validación cruzada o cross-validation es una técnica utilizada para evaluar los resultados de un análisis estadístico y garantizar que son independientes de la partición entre datos de entrenamiento y prueba.}}
                     
-                    \item{Finalmente, se agruparán los datos a una clase, a través de la comparación de las distancias obtenidas. Si este, posee la mayoría de los  \textit{K} de puntos cuya distancia los asocia a una clase A, entonces este será clasificado en dicha clase. Si por el contrario, el número de puntos cuya distancia se acerca a los datos objetivo no son mayoría, entonces este pertenecerá a B.\\
+                    \item{Finalmente, se agruparán los datos a una clase, a través de la comparación de las distancias obtenidas. Si este, posee la mayoría de los  \textit{K} de puntos cuya distancia los asocia a una clase A, entonces este será clasificado en dicha clase. Si por el contrario, el número de puntos cuya distancia se acerca a los datos objetivo no son mayoría, entonces este pertenecerá a B.
                     
                     \begin{figure}[h!]
                         \centering
@@ -224,18 +224,18 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
             
             Tal como se puede ver en \ref{fig:Perceptron}, se tiene que están las conexiones de la capa de entrada, representadas por impulsos o señales de entrada \textbf{$x_j$}, que luego se multiplican por los pesos \textit{$w_j$} y pasan a evaluarse en la función de activación.\\
             
-            Las neuronas son representadas como unidades individuales de procesamiento, que al agruparse forman una red neuronal cuya función de activación, y luego, las capas se resumen en tres:\\
+            Las neuronas son representadas como unidades individuales de procesamiento, que al agruparse forman una red neuronal cuya función de activación, y luego, las capas se resumen en tres:
             
             \begin{itemize}
                 \item {\textbf{Capa de entrada}: las unidades que componen esta capa son los campos de entrada, por donde ingresan los primeros estímulos}
                 
-                \item{\textbf{Conexiones ponderadas}: Las operaciones que se realizan en las capas, se logran a través de las fuerzas de conexión variables, o ponderaciones, que resultan del producto entre los pesos \textbf{$w_j$}, que representan la fuerza que tiene un nodo en particular, y los estímulos \textbf{$x_j$}. Los datos de entrada se presentan en la primera capa y estos se propagan a través de las capas ocultas, en forma de \textit{función de propagación},tal cual hiciera el impulso eléctrico en las neuronas, hasta llegar a la capa de salida que es donde el dato de salida, nos permitirá tomar decisiones o evaluar resultados.}
+                \item{\textbf{Conexiones ponderadas}: Las operaciones que se realizan en las capas, se logran a través de las fuerzas de conexión variables, o ponderaciones, que resultan del producto entre los pesos \textbf{$w_j$}, que representan la fuerza que tiene un nodo en particular, y los estímulos \textbf{$x_j$}. Los datos de entrada se presentan en la primera capa y estos se propagan a través de las capas ocultas, en forma de \textit{función de propagación},tal cual hiciera el impulso eléctrico en las neuronas, hasta llegar a la capa de salida que es donde el dato de salida, nos permitirá tomar decisiones o evaluar resultados.\\}
                 
-                \item{\textbf{Capas Ocultas}:  Son aquellas unidades de procesamiento que transforman el impulso de entrada en otro diferente pero que no son realmente ni una entrada ni una salida.}
+                \item{\textbf{Capas Ocultas}:  Son aquellas unidades de procesamiento que transforman el impulso de entrada en otro diferente pero que no son realmente ni una entrada ni una salida.\\}
                 
                 \item{\textbf{Función de activación}: Es quizás la característica principal o definitoria de las neuronas, la que mejor define el comportamiento de la misma. Se usan diferentes tipos de funciones, desde simples funciones simples de umbral a funciones no lineales. Se encarga de calcular el nivel o estado de activación de la neurona en función de la entrada total.\\
                 
-                La función de activación, en este caso Sigmoide, corresponde una función continua no lineal cuyo rango va entre 0 y 1 que puede ser representada gráficamente a través de \ref{fig:sigmoid} y matemáticamente a través de \ref{sigmoid_eq}:\\
+                La función de activación, en este caso Sigmoide, corresponde una función continua no lineal cuyo rango va entre 0 y 1 que puede ser representada gráficamente a través de \ref{fig:sigmoid} y matemáticamente a través de \ref{sigmoid_eq}:
             
                 \begin{figure}[h!]
                     \centering
@@ -263,9 +263,36 @@ Este método utiliza propiedades geométricas de triángulos para determinar la 
             
             Al igual que hace el cerebro por acción de las neuronas, una red es capaz de aprender examinando los registros individuales, generando una predicción para cada uno de estos y ajustando, a través de los pesos, las ponderaciones en caso que el resultado no haya sido el óptimo. Este proceso es iterativo y puede tener lugar cientos de veces antes que la red sea capaz de mejorar sus predicciones antes de alcanzar resultados que satisfagan los criterios de parada.\\
             
-            En un comienzo, las ponderaciones son aleatorias, y las respuestas suelen ser muy dispares, sin embargo, y conforme va avanzando el entrenamiento, esta va mejorando, haciéndose más precisa en predecir o replicar a partir de los resultados conocidos.\\
+            En un comienzo, las ponderaciones son aleatorias, y las respuestas suelen ser muy dispares, sin embargo, y conforme va avanzando el entrenamiento, esta va mejorando, haciéndose más precisa en aprender a partir de los resultados conocidos y estimar la posición.\\
             
-            Un aspecto importante, es que a la propagación de las respuestas desde las capas de entrada hacia la capa de salida, se le llama \textit{forward propagation} o \textit{propagación hacia adelante} y cuyo objetivo, así como el del entrenamiento en general es minimizar el costo computacional de la red. Ahora, así como existe la propagación hacia adelante, existe también una hacia atrás llamada \textit{back propagation}, que consiste en reingresar al sistema, la salida resultante de proceso anterior, a fin de optimizar el resultado de los pesos y sesgos. }
+            No obstante, obtener una buena precisión, por si sola no es un buen indicador de que nuestra red está realizando una buena estimación de la posición, por esto generalmente se extraen otros indicadores tales como:\\
+            
+            \begin{itemize}
+                \item{\textbf{Bias:} El sesgo estadístico, es una característica de una técnica estadística o de sus resultados, donde el valor esperado difiere del verdadero resultado.\\
+                
+                Dicho de otro modo, es la incapacidad de un modelo de Aprendizaje automático o \textit{machine learning}, en este caso, de una Red Neuronal Artificial, de extraer la verdadera relación entre los valores reales y el predicho.\\
+                
+                Existe una relación subyacente entre el valor del bias y qué tan exacta es la predicción hecha por el modelo, esta es tal que si existe un:
+                
+                \begin{itemize}
+                
+                    \item {\textbf{Bajo Bias}: Los valores predichos son cercanos a los valores reales y el modelo no necesita extraer demasiadas características para lograr este resultado.}
+                    
+                    \item {\textbf{Alto Bias}: Los valores predichos son cercanos a los valores reales y la red debe hacer un mayor trabajo con los datos a fin de extraer las características que le permitan llegar al resultado.}
+                
+                    Lo anterior tiene por consecuencia que aun cuando el modelo intenta reducir el sesgo o bias, este tiende a sobre ajustar los datos, produciendo lo que llamamos, \textit{Overfitting}.
+                    
+                \end{itemize}
+                }
+            
+                \item{\textbf{Varianza}: Definida como la medida de cuán alejados, o esparcidos, están unos de otros los datos, respecto de su valor medio, la varianza permite entender cómo, están repartidas las predicciones hechas por el modelo. Así, los distintos valores de este indicador señalarán características interesantes de la red tales como que si la varianza es baja, los valores se encuentran cerca unos de otros y los ajustes en caso que el bias sea alto, son menores. En cambio, si la varianza es alta, aun cuando se tenga un bias bajo, el funcionamiento de la red no será el óptimo.}
+                
+            \end{itemize}
+            
+            Es entonces que a partir de combinaciones de estos parámetros se obtiene una guía para comprender cuándo los valores estimados por la red serán los correctos
+            
+            %Un aspecto importante, es que a la propagación de las respuestas desde las capas de entrada hacia la capa de salida, se le llama \textit{forward propagation} o \textit{propagación hacia adelante} y cuyo objetivo, así como el del entrenamiento en general es minimizar el costo computacional de la red. Ahora, así como existe la propagación hacia adelante, existe también una hacia atrás llamada \textit{back propagation}, que consiste en reingresar al sistema, la salida resultante de proceso anterior, a fin de optimizar el resultado de los pesos y sesgos.\\ 
+            }
             \end{enumerate}
         \end{enumerate}
             }
