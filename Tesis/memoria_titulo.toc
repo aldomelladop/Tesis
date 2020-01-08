@@ -1,0 +1,53 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {iii}}{section*.2}
+\contentsline {chapter}{\IeC {\'I}ndice de Tablas}{\es@scroman {v}}{section*.4}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Antecedentes hist\IeC {\'o}ricos}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Definici\IeC {\'o}n del problema}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Estado del arte}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Hip\IeC {\'o}tesis de trabajo}{9}{section.1.4}
+\contentsline {section}{\numberline {1.5}Objetivos}{9}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Objetivo general}{9}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Objetivos espec\IeC {\'\i }ficos}{9}{subsection.1.5.2}
+\contentsline {section}{\numberline {1.6}Alcances y limitaciones}{9}{section.1.6}
+\contentsline {section}{\numberline {1.7}Metodolog\IeC {\'\i }a}{10}{section.1.7}
+\contentsline {chapter}{\numberline {2}Marco Te\IeC {\'o}rico}{11}{chapter.2}
+\contentsline {section}{\numberline {2.1}Introducci\IeC {\'o}n}{11}{section.2.1}
+\contentsline {section}{\numberline {2.2}Aplicaciones y aproximaciones en sistemas de posicionamiento indoor}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}An\IeC {\'a}lisis de Escena}{11}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Detecci\IeC {\'o}n de proximidad}{12}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Triangulaci\IeC {\'o}n}{12}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1}\textbf {Angulaci\IeC {\'o}n}}{12}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2}\textbf {Lateraci\IeC {\'o}n}}{15}{subsubsection.2.2.3.2}
+\contentsline {chapter}{\numberline {3}Dise\IeC {\~n}o de algoritmo}{26}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introducci\IeC {\'o}n}{26}{section.3.1}
+\contentsline {section}{\numberline {3.2}Dise\IeC {\~n}o general de trabajo}{26}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Offline}{27}{subsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.1.1}Medici\IeC {\'o}n}{27}{subsubsection.3.2.1.1}
+\contentsline {subsubsection}{\numberline {3.2.1.2}Extracci\IeC {\'o}n y procesamiento de datos}{27}{subsubsection.3.2.1.2}
+\contentsline {subsubsection}{\numberline {3.2.1.3}Dise\IeC {\~n}o de Set de Entrenamiento}{27}{subsubsection.3.2.1.3}
+\contentsline {subsubsection}{\numberline {3.2.1.4}Entrenamiento y Optimizaci\IeC {\'o}n}{27}{subsubsection.3.2.1.4}
+\contentsline {subsection}{\numberline {3.2.2}Online}{28}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}ANN para estimar la posici\IeC {\'o}n del objetivo.}{28}{subsubsection.3.2.2.1}
+\contentsline {chapter}{\numberline {4}Implementaci\IeC {\'o}n}{29}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introducci\IeC {\'o}n}{29}{section.4.1}
+\contentsline {section}{\numberline {4.2}Implementaci\IeC {\'o}n general de trabajo}{29}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Fase Offline}{30}{subsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.1.1}Adquisici\IeC {\'o}n de RSSI}{30}{subsubsection.4.2.1.1}
+\contentsline {subsubsection}{\numberline {4.2.1.2}Set de entrenamiento}{32}{subsubsection.4.2.1.2}
+\contentsline {subsection}{\numberline {4.2.2}Red Neuronal}{33}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {5}Resultados}{35}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introducci\IeC {\'o}n}{35}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Etapa Offline}{35}{subsection.5.1.1}
+\contentsline {subsubsection}{\numberline {5.1.1.1}Medici\IeC {\'o}n}{35}{subsubsection.5.1.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Laboratorio dividido en sectores.}{37}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Entrenamiento}{37}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Ajustes entrenamiento}{37}{subsection.5.2.1}
+\contentsline {section}{\numberline {5.3}Predicci\IeC {\'o}n}{37}{section.5.3}
+\contentsline {chapter}{\numberline {6}Conclusiones}{38}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sumario}{38}{section.6.1}
+\contentsline {section}{\numberline {6.2}Conclusiones}{38}{section.6.2}
+\contentsline {section}{\numberline {6.3}Trabajo Futuro}{39}{section.6.3}
+\contentsline {chapter}{\numberline {7}C\IeC {\'o}digos}{40}{chapter.7}
+\contentsline {section}{\numberline {7.1}Derivaci\IeC {\'o}n de f\IeC {\'o}rmulas}{40}{section.7.1}
+\contentsline {section}{\numberline {7.2}Unidades especiales}{40}{section.7.2}
