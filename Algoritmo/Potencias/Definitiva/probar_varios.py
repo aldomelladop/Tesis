@@ -37,92 +37,39 @@ for j in num_test:
     else:
     	os.mkdir(os.getcwd() + '/' + str(j))
     
-    df1 = fixrows('Potencia_r1_00').iloc[:j,:]
+    df1 = fixrows('Potencia_r1').iloc[:j,:]
     num_row = np.shape(df1)[0]
     coords  = ['(0,0)' for j in range(num_row)]
     coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
     df1 = coords.join(df1, how='left')
-    df1.to_csv('Potencia_R1_00.csv')
+    df1.to_csv('Potencia_R1.csv')
 
     print('\n______')
 
-    df2 = fixrows('Potencia_r1_01').iloc[:j,:]
+    df2 = fixrows('Potencia_r2').iloc[:j,:]
     num_row = np.shape(df2)[0]
     coords  = ['(0,1)' for j in range(num_row)]
     coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
     df2 = coords.join(df2, how='left')
-    df2.to_csv('Potencia_R1_01.csv')
+    df2.to_csv('Potencia_R2.csv')
 
-    print('\n______')
 
-    df3 = fixrows('Potencia_r1_02').iloc[:j,:]
+    df3 = fixrows('Potencia_r3').iloc[:j,:]
     num_row = np.shape(df3)[0]
-    coords  = ['(0,2)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df3 = coords.join(df3, how='left')
-    df3.to_csv('Potencia_R1_02.csv')
-
-    print('\n______')
-
-    df4 = fixrows('Potencia_r2_10').iloc[:j,:]
-    num_row = np.shape(df4)[0]
     coords  = ['(1,0)' for j in range(num_row)]
     coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df4 = coords.join(df4, how='left')
-    df4.to_csv('Potencia_R2_10.csv')
+    df3 = coords.join(df3, how='left')
+    df3.to_csv('Potencia_R3.csv')
 
-    print('\n______')
 
-    df5 = fixrows('Potencia_r2_11').iloc[:j,:]
-    num_row = np.shape(df5)[0]
+    df4 = fixrows('Potencia_r4').iloc[:j,:]
+    num_row = np.shape(df4)[0]
     coords  = ['(1,1)' for j in range(num_row)]
     coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df5 = coords.join(df5, how='left')
-    df5.to_csv('Potencia_R2_11.csv')
+    df4 = coords.join(df4, how='left')
+    df4.to_csv('Potencia_R4.csv')
 
-    print('\n______')
 
-    df6 = fixrows('Potencia_r2_12').iloc[:j,:]
-    num_row = np.shape(df6)[0]
-    coords  = ['(1,2)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df6 = coords.join(df6, how='left')
-    df6.to_csv('Potencia_R2_12.csv')
-
-    print('\n______')
-
-    df7 = fixrows('Potencia_r3_20').iloc[:j,:]
-    num_row = np.shape(df7)[0]
-    coords  = ['(2,0)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df7 = coords.join(df7, how='left')
-    df7.to_csv('Potencia_R3_20.csv')
-
-    print('\n______')
-
-    df8 = fixrows('Potencia_r3_21').iloc[:j,:]
-    num_row = np.shape(df8)[0]
-    coords  = ['(2,1)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df8 = coords.join(df8, how='left')
-    df8.to_csv('Potencia_R3_21.csv')
-
-    print('\n______')
-
-    df9 = fixrows('Potencia_r3_22').iloc[:j,:]
-    num_row = np.shape(df9)[0]
-    coords  = ['(2,2)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df9 = coords.join(df9, how='left')
-    df9.to_csv('Potencia_R3_22.csv')
-
-    print('\n______')
-
-    # Fusionar archivos corregidos para obtener el archivo de potencias final
-    fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
-                 'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
- 
-      
     #Ingresar a carpeta potencias
     t.tic()
     fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
@@ -305,33 +252,78 @@ for j in num_test:
     plt.savefig( os.getcwd() + '/' + str(j) + '/accuracy_over_epochs_train_' + str(j) + '.pdf')
 
     # =============================================================================
-    # Confussion Matrix
+    # Confussion Matri6x
+    # =============================================================================
+        
+    # y_pred = list(encoder.inverse_transform([np.argmax(classifier.predict(np.array(X_test)))]))
+    # y_real  = encoder.inverse_transform([np.argmax(i, axis=None, out=None) for i in y_test])
+    
+    # =============================================================================
+    # Funcion de Prueba
     # =============================================================================
     
-    # y_pred
-        #Transforma mediciones estandarizadas de potencia, en valores codificados
-        # de y, que finalmente son transformados en potencias.
+    from plot_history import * 
+    from full_multiclass_report import * 
     
-    y_pred = list(encoder.inverse_transform(classifier.predict(np.array(X_test))))
-    y_real  = encoder.inverse_transform([np.argmax(i, axis=None, out=None) for i in y_test])
-
-
-    from sklearn.metrics import confusion_matrix
-    from plot_confusion_matrix import plot_confusion_matrix
-
-    plot_confusion_matrix(cm = confusion_matrix(y_real, y_pred), target_names=['(0,0)','(0,1)','(1,0)','(1,1)'],
-                          title='Confusion matrix')
+    history = classifier.fit(X_train, 
+                        y_train,
+                        epochs = best_parameters['epochs'],
+                        batch_size = best_parameters['batch_size'],
+                        verbose=0,
+                        validation_data=(X_test,y_test))
+    plot_history(history)
+    
+    full_multiclass_report(classifier,X_test,y_test,classes=['(0,0)','(0,1)','(1,0)','(1,1)'])
+    
     
     # =============================================================================
     #     Move file to folder
     # =============================================================================
-    mv = directory + '/' + str(j) + '/' + 'Confusion_matrix.png'
+    mv = directory + '/{}/Confusion_matrix.png'.format(j)
     os.system('mv Confusion_matrix.png '+ mv)
-
-
-# =============================================================================
-# Subir codigo
-# =============================================================================
-!git add .
-!git commit -m "mensaje"
-!git push
+    
+    mv = directory + '/{}/Classification_report.csv'.format(j)
+    os.system('mv Classification_report.csv ' + mv)
+    
+    # =============================================================================
+    #< Plot loss and accuracy
+    # =============================================================================
+    from matplotlib import pyplot as plt
+    
+    history = classifier.fit(X_train, y_train, validation_split=0.2, epochs=best_parameters['epochs'], batch_size=best_parameters['batch_size'], verbose=0)
+    
+    # list all data in history
+    print(history.history.keys())
+    
+    # summarize history for accuracy
+    plt.plot(history.history['acc'])
+    plt.plot(history.history['val_acc'])
+    plt.title('model accuracy')
+    plt.ylabel('accuracy')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    #plt.show()
+    #plt.close()
+    
+    # summarize history for loss
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.title('model loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(['train', 'test'], loc='upper left')
+    #plt.show()
+    #plt.close()
+            
+    plt.savefig( os.getcwd() + '/{}/accuracy_over_epochs_train_{}.pdf'.format(j,j))
+    
+    # =============================================================================
+    #   Load Model
+    # =============================================================================
+    # load and evaluate a saved model
+    # from numpy import loadtxt
+    # from keras.models import load_model
+    
+    # # load model
+    # classifier = load_model('model.h5')
+    # # summarize model.

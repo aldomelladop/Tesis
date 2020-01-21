@@ -22,96 +22,96 @@ from keras.models import model_from_json
 
 directory = os.getcwd()
 
-if os.path.isdir(os.getcwd() + '/25000') == True:
+if os.path.isdir(os.getcwd() + '/1000') == True:
     pass
 else:
-    os.mkdir(os.getcwd() + '/25000')
+    os.mkdir(os.getcwd() + '/1000')
 
 t = TicToc()
-# df1 = fixrows('Potencia_r1_00').iloc[:25,:]
-# num_row = np.shape(df1)[0]
-# coords  = ['(0,0)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df1 = coords.join(df1, how='left')
-# df1.to_csv('Potencia_R1_00.csv')
+df1 = fixrows('Potencia_r1_00').iloc[:1000,:]
+num_row = np.shape(df1)[0]
+coords  = ['(0,0)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df1 = coords.join(df1, how='left')
+df1.to_csv('Potencia_R1_00.csv')
  
-# print('\n______')
+print('\n______')
 
-# df2 = fixrows('Potencia_r1_01').iloc[:25,:]
-# num_row = np.shape(df2)[0]
-# coords  = ['(0,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df2 = coords.join(df2, how='left')
-# df2.to_csv('Potencia_R1_01.csv')
+df2 = fixrows('Potencia_r1_01').iloc[:1000,:]
+num_row = np.shape(df2)[0]
+coords  = ['(0,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df2 = coords.join(df2, how='left')
+df2.to_csv('Potencia_R1_01.csv')
  
-# print('\n______')
+print('\n______')
 
-# df3 = fixrows('Potencia_r1_02').iloc[:25,:]
-# num_row = np.shape(df3)[0]
-# coords  = ['(0,2)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df3 = coords.join(df3, how='left')
-# df3.to_csv('Potencia_R1_02.csv')
+df3 = fixrows('Potencia_r1_02').iloc[:1000,:]
+num_row = np.shape(df3)[0]
+coords  = ['(0,2)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df3 = coords.join(df3, how='left')
+df3.to_csv('Potencia_R1_02.csv')
 
-# print('\n______')
+print('\n______')
 
-# df4 = fixrows('Potencia_r2_10').iloc[:25,:]
-# num_row = np.shape(df4)[0]
-# coords  = ['(1,0)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df4 = coords.join(df4, how='left')
-# df4.to_csv('Potencia_R2_10.csv')
+df4 = fixrows('Potencia_r2_10').iloc[:1000,:]
+num_row = np.shape(df4)[0]
+coords  = ['(1,0)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df4 = coords.join(df4, how='left')
+df4.to_csv('Potencia_R2_10.csv')
 
-# print('\n______')
+print('\n______')
 
-# df5 = fixrows('Potencia_r2_11').iloc[:25,:]
-# num_row = np.shape(df5)[0]
-# coords  = ['(1,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df5 = coords.join(df5, how='left')
-# df5.to_csv('Potencia_R2_11.csv')
+df5 = fixrows('Potencia_r2_11').iloc[:1000,:]
+num_row = np.shape(df5)[0]
+coords  = ['(1,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df5 = coords.join(df5, how='left')
+df5.to_csv('Potencia_R2_11.csv')
 
-# print('\n______')
+print('\n______')
 
-# df6 = fixrows('Potencia_r2_12').iloc[:25,:]
-# num_row = np.shape(df6)[0]
-# coords  = ['(1,2)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df6 = coords.join(df6, how='left')
-# df6.to_csv('Potencia_R2_12.csv')
+df6 = fixrows('Potencia_r2_12').iloc[:1000,:]
+num_row = np.shape(df6)[0]
+coords  = ['(1,2)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df6 = coords.join(df6, how='left')
+df6.to_csv('Potencia_R2_12.csv')
 
-# print('\n______')
+print('\n______')
 
-# df7 = fixrows('Potencia_r3_20').iloc[:25,:]
-# num_row = np.shape(df7)[0]
-# coords  = ['(2,0)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df7 = coords.join(df7, how='left')
-# df7.to_csv('Potencia_R3_20.csv')
+df7 = fixrows('Potencia_r3_20').iloc[:1000,:]
+num_row = np.shape(df7)[0]
+coords  = ['(2,0)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df7 = coords.join(df7, how='left')
+df7.to_csv('Potencia_R3_20.csv')
 
-# print('\n______')
+print('\n______')
 
-# df8 = fixrows('Potencia_r3_21').iloc[:25,:]
-# num_row = np.shape(df8)[0]
-# coords  = ['(2,1)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df8 = coords.join(df8, how='left')
-# df8.to_csv('Potencia_R3_21.csv')
+df8 = fixrows('Potencia_r3_21').iloc[:1000,:]
+num_row = np.shape(df8)[0]
+coords  = ['(2,1)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df8 = coords.join(df8, how='left')
+df8.to_csv('Potencia_R3_21.csv')
 
-# print('\n______')
+print('\n______')
 
-# df9 = fixrows('Potencia_r3_22').iloc[:25,:]
-# num_row = np.shape(df9)[0]
-# coords  = ['(2,2)' for j in range(num_row)]
-# coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-# df9 = coords.join(df9, how='left')
-# df9.to_csv('Potencia_R3_22.csv')
+df9 = fixrows('Potencia_r3_22').iloc[:1000,:]
+num_row = np.shape(df9)[0]
+coords  = ['(2,2)' for j in range(num_row)]
+coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+df9 = coords.join(df9, how='left')
+df9.to_csv('Potencia_R3_22.csv')
 
-# print('\n______')
+print('\n______')
   
 # # Fusionar archivos corregidos para obtener el archivo de potencias final
-# fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
-#              'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
+fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
+              'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
  
 # df0 = fixrows('potencias_fusionado').iloc[:,1:]
 
@@ -256,10 +256,10 @@ history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_siz
 # =============================================================================
 print(f"\nnp.shape(X_test)[0] = {np.shape(X_test)[0]}\n")
 
-outFileName= directory + "/25000/resultados_25000.txt"
+outFileName= directory + "/1000/resultados_1000.txt"
 f = open(outFileName,"w")
 
-f.write("El número de elementos usados es: 25000\n"
+f.write("El número de elementos usados es: 1000\n"
         "Los mejores parámetros son: "+ repr(best_parameters) +'\n'
         "\nTiempo red neuronal  = " + repr(time) + 
         "\nLa media obtenida es: " + repr(mean)+ 
@@ -305,7 +305,7 @@ plot_confusion_matrix(cm, target_names=['(0,0)','(0,1)','(0,2)','(1,0)','(1,1)',
 # =============================================================================
 #     Move file to folder
 # =============================================================================
-mv = directory + '/25000/Confusion_matrix.png'
+mv = directory + '/1000/Confusion_matrix.png'
 os.system('mv Confusion_matrix.png '+ mv)
 
 # =============================================================================
@@ -333,5 +333,5 @@ plt.legend(['train', 'val'], loc='center right')
 plt.grid()
 plt.subplots_adjust(wspace =0.4, hspace= 2.5)
         
-plt.savefig( os.getcwd() + '/25000/accuracy_over_epochs_train_25000.pdf')
+plt.savefig( os.getcwd() + '/1000/accuracy_over_epochs_train_1000.pdf')
 
