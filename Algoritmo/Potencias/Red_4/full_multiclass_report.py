@@ -81,8 +81,8 @@ def plot_confusion_matrix(cm,
     plt.ylabel('True label')
     plt.xlabel('Predicted label\naccuracy={:0.3f}; misclass={:0.3f}'.format(accuracy, misclass))
     plt.savefig('Confusion_matrix.png')
-    plt.show()
-
+#    plt.show()
+#    plt.close()
 
 ## multiclass or binary report
 ## If binary (sigmoid output), set binary parameter to True
@@ -112,7 +112,6 @@ def full_multiclass_report(model,
     df = pd.DataFrame(report).transpose()
     df.to_csv('Classification_report.csv')
 
-    
     # 5. Plot confusion matrix
     cnf_matrix = confusion_matrix(y_true,y_pred)
     print(cnf_matrix)

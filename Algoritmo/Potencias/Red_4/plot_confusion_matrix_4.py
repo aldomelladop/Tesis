@@ -65,3 +65,4 @@ plot_confusion_matrix(y_test, y_pred, classes=class_names, normalize=True,
                       title='Normalized confusion matrix')
 
 plt.show()
+plt.close()
