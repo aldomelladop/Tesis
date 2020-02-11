@@ -19,7 +19,7 @@ from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-a = list(product([1000,5000,10000,15000],['s','n']))
+a = list(product([15000],['n','s']))
 
 for i in range(len(a)):
   
@@ -29,8 +29,8 @@ for i in range(len(a)):
 
     directory = os.getcwd()
 
-    if j==1000 and son=='S' or son=='N':
-    	continue
+    if j==1000 and son=='S' or j==1000 and son=='N':
+        continue
     
     if os.path.isdir(os.getcwd() + '/{}_{}'.format(j,son)) == True:
         pass
@@ -106,32 +106,20 @@ for i in range(len(a)):
         X_train = preprocessing.normalize(X_train)
         X_test  = preprocessing.normalize(X_test)
     # =============================================================================
-    
+    # Buscar mejores parámetros
     # =============================================================================
-    #  Buscar mejores parámetros
-    # =============================================================================
-    
-    #Ingresar best_paremters
-    # best_parameters = {'batch_size': 0, 'epochs': 0, 'optimizer': 'adamax'}
-    # best_parameters['batch_size'] = int(input('Ingrese el valor de batch_size: '))
-    # best_parameters['epochs'] = int(input('Ingrese el valor de epochs: '))
-    # best_parameters['optimizer'] = str(input('Ingrese el optimizer: '))
-    
     from keras.wrappers.scikit_learn import KerasClassifier
     from sklearn.model_selection import GridSearchCV
     from keras.models import Sequential
     from keras.layers import Dropout
     from keras.layers import Dense
-    
+
     print("Comenzando Grid_search\n")
     t.tic()
-    
+
     def build_classifier(optimizer):
         classifier = Sequential()
         classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-        classifier.add(Dropout(rate = 0.2))
-        
-        classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dropout(rate = 0.2))
         
         classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
@@ -148,27 +136,27 @@ for i in range(len(a)):
         return classifier
     
     classifier = KerasClassifier(build_fn = build_classifier)
-    parameters = {'batch_size': [16,32, 64],
-                  'epochs': [15, 25, 40],
-                    'optimizer': ['adam', 'adamax','rmsprop']}
+    parameters = {'batch_size': [16,32,48],'epochs': [15, 25, 35],'optimizer': ['adam', 'adamax','rmsprop']}
+
+    grid = GridSearchCV(estimator = classifier,param_grid = parameters,
+#                           scoring = 'accuracy',
+                            cv = 5,n_jobs=-4)
+
+    grid_search_results = grid.fit(X_train, y_train)
     
-    grid_search = GridSearchCV(estimator = classifier,
-                                param_grid = parameters,
-    #                           scoring = 'accuracy',
-                                cv = 10,
-                                n_jobs = -1)
-    
-    grid_search = grid_search.fit(X_train, y_train)
-    
-    best_parameters  = grid_search.best_params_
-    print(f"best_parameters = {grid_search.best_params_}")
-    print(f"best_accuracy =   {grid_search.best_score_}")
+    best_parameters  = grid_search_results.best_params_
+    print(f"best_parameters = {grid_search_results.best_params_}")
+    print(f"best_accuracy =   {grid_search_results.best_score_}")
     t.toc('Finalizado - Grid_search')
     t1 = t.tocvalue()
+
+    means = grid_search_results.cv_results_['mean_test_score']
+    stds = grid_search_results.cv_results_['std_test_score']
+    params = grid_search_results.cv_results_['params']
     
-    # =============================================================================
-    # Cross Validation
-    # =============================================================================
+#     # =============================================================================
+#     # Cross Validation
+#     # =============================================================================
     from keras.wrappers.scikit_learn import KerasClassifier
     from sklearn.model_selection import cross_val_score
     
@@ -178,9 +166,6 @@ for i in range(len(a)):
     def build_classifier():
         classifier = Sequential()
         classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-        classifier.add(Dropout(rate = 0.2))
-        
-        classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
         classifier.add(Dropout(rate = 0.2))
         
         classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
@@ -198,7 +183,7 @@ for i in range(len(a)):
     
     classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
     
-    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 10, n_jobs = -1)
+    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 5, n_jobs = -2)
     ac = list(accuracies)
     mean = accuracies.mean()
     variance = accuracies.std()
@@ -216,16 +201,12 @@ for i in range(len(a)):
     plt.savefig('CV_Accuracies_distribution.png')
     plt.close()
     
-    # history = classifier.fit(X_test, y_test, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'], validation_split=0.2)
-    
     # =====================================================
     #     Saving model
     # =============================================================================
+    best_parameters = {'optimizer':'rmsprop','epochs': 25,'batch_size': 48}
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-    classifier.add(Dropout(rate = 0.2))
-    
-    classifier.add(Dense(units = 18, kernel_initializer = 'uniform', activation = 'relu'))
     classifier.add(Dropout(rate = 0.2))
     
     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
@@ -257,12 +238,15 @@ for i in range(len(a)):
     f.write("El número de elementos usados es: {}\n".format(j)+
             "Los mejores parámetros son: {}".format(best_parameters) +
             "\nTiempo de GridSearchCV  = {}".format(round(int(t1/60),2)) + 
-            "\nTiempo red neuronal  =  {}".format(time) +
+            "\nTiempo red neuronal  =  {}".format(round(int(time/60),2)) + 
             "\nLa media obtenida es: {}".format(mean)+
             "\nLa varianza obtenida es: {}".format(variance) + '\n'
             )
     for i in ac:
         f.write("\tac: " + repr(round((i*100),2)) +"%" + '\n')
+
+    for i,j in enumerate(zip(params,means,stds)):
+        f.write("\nparams[{}] = {} --> means[{}] = {}\n".format(i,params[i],i,round(means[i],2)))
     
     # =============================================================================
     #                             Prediction
@@ -278,14 +262,7 @@ for i in range(len(a)):
     print("Archivo escrito\n")
     
     # =============================================================================
-    # Confussion Matrix
-    # =============================================================================
-        
-    # y_pred = encoder.inverse_transform([np.argmax(classifier.predict(np.array(X_test)))])
-    # y_real  = encoder.inverse_transform([np.argmax(i, axis=None, out=None) for i in y_test])
-    
-    # =============================================================================
-    # Funcion de Prueba
+    # Full multiclass report 
     # =============================================================================
     
     from plot_history import * 
