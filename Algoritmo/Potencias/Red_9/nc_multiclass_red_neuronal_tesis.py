@@ -16,6 +16,7 @@ from pytictoc import TicToc
 from fixrows import fixrows
 from merge_csv import fusionar_csv
 from keras.models import model_from_json
+from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
