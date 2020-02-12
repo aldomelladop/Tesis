@@ -114,6 +114,8 @@ t = TicToc()
 #              'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
  
 # df0 = fixrows('potencias_fusionado').iloc[:,1:]
+# os.system('rm Potencia_R*')
+# os.system('rm Potencia_r*_corregido.csv')
 
 df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[:,1:]
 
@@ -189,8 +191,8 @@ def build_classifier(optimizer):
     return classifier
 
 classifier = KerasClassifier(build_fn = build_classifier)
-parameters = {'batch_size': [16,32, 64],
-              'epochs': [10, 15, 20],
+parameters = {'batch_size': [16,32, 48],
+              'epochs': [15, 25, 35],
                 'optimizer': ['adam', 'adamax','rmsprop']}
 
 grid_search = GridSearchCV(estimator = classifier,
