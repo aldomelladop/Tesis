@@ -1,47 +1,88 @@
 from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
-import itertools
-from sklearn import datasets
-from sklearn.preprocessing import LabelEncoder
-from sklearn.model_selection import train_test_split, KFold, GridSearchCV
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.utils import to_categorical
-from keras.wrappers.scikit_learn import KerasClassifier
 
-def plot_confusion_matrix(cm, classes,
-                          normalize=False,
-                          cmap=plt.cm.Blues):
-    """
-    This function prints and plots the confusion matrix.
-    Normalization can be applied by setting `normalize=True`.
-    """
-    if normalize:
-        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-        title='Normalized confusion matrix'
-    else:
-        title='Confusion matrix'
 
+def plot_confusion_matrix(cm,
+                          classes,
+                          title='Confusion matrix',
+                          cmap=None,
+                          normalize=True):
+    """
+    given a sklearn confusion matrix (cm), make a nice plot
+
+    Arguments
+    ---------
+    cm:           confusion matrix from sklearn.metrics.confusion_matrix
+
+    target_names: given classification classes such as [0, 1, 2]
+                  the class names, for example: ['high', 'medium', 'low']
+
+    title:        the text to display at the top of the matrix
+
+    cmap:         the gradient of the values displayed from matplotlib.pyplot.cm
+                  see http://matplotlib.org/examples/color/colormaps_reference.html
+                  plt.get_cmap('jet') or plt.cm.Blues
+
+    normalize:    If False, plot the raw numbers
+                  If True, plot the proportions
+
+    Usage
+    -----
+    plot_confusion_matrix(cm           = cm,                  # confusion matrix created by
+                                                              # sklearn.metrics.confusion_matrix
+                          normalize    = True,                # show proportions
+                          target_names = y_labels_vals,       # list of names of the classes
+                          title        = best_estimator_name) # title of graph
+
+    Citiation
+    ---------
+    http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
+
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+    import itertools
+
+    accuracy = np.trace(cm) / float(np.sum(cm))
+    misclass = 1 - accuracy
+
+    if cmap is None:
+        cmap = plt.get_cmap('Blues')
+
+    plt.figure(figsize=(10, 8))
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
-    tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
-    plt.yticks(tick_marks, classes)
 
-    fmt = '.2f' if normalize else 'd'
-    thresh = cm.max() / 2.
+    if classes is not None:
+        tick_marks = np.arange(len(classes))
+        plt.xticks(tick_marks, classes, rotation=45)
+        plt.yticks(tick_marks, classes)
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+
+    thresh = cm.max() / 1.5 if normalize else cm.max() / 2
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
-                 horizontalalignment="center",
-                 color="white" if cm[i, j] > thresh else "black")
+        if normalize:
+            plt.text(j, i, "{:0.2f}".format(cm[i, j]),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
+        else:
+            plt.text(j, i, "{:,}".format(cm[i, j]),
+                     horizontalalignment="center",
+                     color="white" if cm[i, j] > thresh else "black")
 
-    plt.tight_layout()
+    # plt.tight_layout()
+    plt.xlim(-0.5, len(np.unique(classes))-0.5)
+    plt.ylim(len(np.unique(classes))-0.5, -0.5)
     plt.ylabel('True label')
-    plt.xlabel('Predicted label')
-    plt.show()
+    plt.xlabel('Predicted label\naccuracy={:0.3f}; misclass={:0.3f}'.format(accuracy, misclass))
+    plt.savefig('Confusion_matrix.png')
+#    plt.show()
+#    plt.close()
 
 ## multiclass or binary report
 ## If binary (sigmoid output), set binary parameter to True
@@ -71,7 +112,6 @@ def full_multiclass_report(model,
     df = pd.DataFrame(report).transpose()
     df.to_csv('Classification_report.csv')
 
-    
     # 5. Plot confusion matrix
     cnf_matrix = confusion_matrix(y_true,y_pred)
     print(cnf_matrix)
