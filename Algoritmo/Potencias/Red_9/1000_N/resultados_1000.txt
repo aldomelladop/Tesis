@@ -1,0 +1,108 @@
+El número de elementos usados es: 1000
+Los mejores parámetros son: {'batch_size': 32, 'epochs': 35, 'optimizer': 'rmsprop'}
+Tiempo de GridSearchCV  = 84
+Tiempo red neuronal  =  5
+La media obtenida es: 0.5030539170329247
+La varianza obtenida es: 0.10635944347247382
+	ac: 61.35%
+	ac: 62.66%
+	ac: 41.43%
+	ac: 35.74%
+	ac: 50.35%
+
+params[0] = {'batch_size': 16, 'epochs': 15, 'optimizer': 'adam'} --> means[0] = 0.2
+
+params[1] = {'batch_size': 16, 'epochs': 15, 'optimizer': 'adamax'} --> means[1] = 0.35
+
+params[2] = {'batch_size': 16, 'epochs': 15, 'optimizer': 'rmsprop'} --> means[2] = 0.3
+
+params[3] = {'batch_size': 16, 'epochs': 25, 'optimizer': 'adam'} --> means[3] = 0.18
+
+params[4] = {'batch_size': 16, 'epochs': 25, 'optimizer': 'adamax'} --> means[4] = 0.1
+
+params[5] = {'batch_size': 16, 'epochs': 25, 'optimizer': 'rmsprop'} --> means[5] = 0.35
+
+params[6] = {'batch_size': 16, 'epochs': 35, 'optimizer': 'adam'} --> means[6] = 0.32
+
+params[7] = {'batch_size': 16, 'epochs': 35, 'optimizer': 'adamax'} --> means[7] = 0.29
+
+params[8] = {'batch_size': 16, 'epochs': 35, 'optimizer': 'rmsprop'} --> means[8] = 0.24
+
+params[9] = {'batch_size': 32, 'epochs': 15, 'optimizer': 'adam'} --> means[9] = 0.35
+
+params[10] = {'batch_size': 32, 'epochs': 15, 'optimizer': 'adamax'} --> means[10] = 0.25
+
+params[11] = {'batch_size': 32, 'epochs': 15, 'optimizer': 'rmsprop'} --> means[11] = 0.32
+
+params[12] = {'batch_size': 32, 'epochs': 25, 'optimizer': 'adam'} --> means[12] = 0.29
+
+params[13] = {'batch_size': 32, 'epochs': 25, 'optimizer': 'adamax'} --> means[13] = 0.26
+
+params[14] = {'batch_size': 32, 'epochs': 25, 'optimizer': 'rmsprop'} --> means[14] = 0.41
+
+params[15] = {'batch_size': 32, 'epochs': 35, 'optimizer': 'adam'} --> means[15] = 0.29
+
+params[16] = {'batch_size': 32, 'epochs': 35, 'optimizer': 'adamax'} --> means[16] = 0.32
+
+params[17] = {'batch_size': 32, 'epochs': 35, 'optimizer': 'rmsprop'} --> means[17] = 0.55
+
+params[18] = {'batch_size': 48, 'epochs': 15, 'optimizer': 'adam'} --> means[18] = 0.18
+
+params[19] = {'batch_size': 48, 'epochs': 15, 'optimizer': 'adamax'} --> means[19] = 0.24
+
+params[20] = {'batch_size': 48, 'epochs': 15, 'optimizer': 'rmsprop'} --> means[20] = 0.32
+
+params[21] = {'batch_size': 48, 'epochs': 25, 'optimizer': 'adam'} --> means[21] = 0.27
+
+params[22] = {'batch_size': 48, 'epochs': 25, 'optimizer': 'adamax'} --> means[22] = 0.39
+
+params[23] = {'batch_size': 48, 'epochs': 25, 'optimizer': 'rmsprop'} --> means[23] = 0.51
+
+params[24] = {'batch_size': 48, 'epochs': 35, 'optimizer': 'adam'} --> means[24] = 0.1
+
+params[25] = {'batch_size': 48, 'epochs': 35, 'optimizer': 'adamax'} --> means[25] = 0.36
+
+params[26] = {'batch_size': 48, 'epochs': 35, 'optimizer': 'rmsprop'} --> means[26] = 0.52
+
+For the vector: [array([-0.2873379 , -0.2873379 , -0.22544974, -0.30502024, -0.24313207,
+       -0.27849674, -0.3138614 , -0.29617907, -0.27849674, -0.27849674,
+       -0.3138614 , -0.16356158, -0.29617907])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.29337219, -0.27051202, -0.29718221, -0.2819421 , -0.27051202,
+       -0.27051202, -0.27432204, -0.28956216, -0.21717162, -0.28575213,
+       -0.27432204, -0.29337219, -0.27813207])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.28675571, -0.28675571, -0.22499294, -0.30440222, -0.2338162 ,
+       -0.26910921, -0.31322547, -0.32204872, -0.29557897, -0.27793246,
+       -0.30440222, -0.15440692, -0.28675571])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.25220065, -0.26748554, -0.26748554, -0.27130676, -0.19870354,
+       -0.28277043, -0.29805532, -0.29423409, -0.29041287, -0.29423409,
+       -0.30951898, -0.26748554, -0.29423409])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.30871518, -0.1769967 , -0.26755315, -0.25108834, -0.25932075,
+       -0.24285594, -0.3416448 , -0.30048277, -0.26755315, -0.26755315,
+       -0.31694758, -0.26755315, -0.30048277])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.29063226, -0.2604367 , -0.27930893, -0.29063226, -0.19627114,
+       -0.29440671, -0.29440671, -0.27176004, -0.29818115, -0.27176004,
+       -0.26421115, -0.29818115, -0.27930893])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.29525734, -0.26881639, -0.27763004, -0.25118908, -0.26881639,
+       -0.27763004, -0.36576656, -0.29525734, -0.17186621, -0.30407099,
+       -0.26881639, -0.27763004, -0.24237543])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.24720767, -0.25588163, -0.29057744, -0.26455558, -0.26455558,
+       -0.3165993 , -0.27322953, -0.24720767, -0.29925139, -0.29925139,
+       -0.28190349, -0.26455558, -0.29057744])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.30796472, -0.13550448, -0.26690275, -0.25869036, -0.25869036,
+       -0.20941601, -0.34081429, -0.29975232, -0.27511515, -0.29153993,
+       -0.31617711, -0.26690275, -0.31617711])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.27399334, -0.23920053, -0.23050233, -0.23920053, -0.30878614,
+       -0.35227715, -0.34357895, -0.15221852, -0.30878614, -0.30008794,
+       -0.25659693, -0.26529514, -0.27399334])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.2934169 , -0.26714076, -0.27589947, -0.24962333, -0.26714076,
+       -0.26714076, -0.36348661, -0.30217561, -0.22334719, -0.30217561,
+       -0.25838205, -0.27589947, -0.23210591])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.28829688, -0.27312336, -0.29588364, -0.27691674, -0.26932998,
+       -0.26932998, -0.2845035 , -0.2845035 , -0.21622266, -0.29967702,
+       -0.26932998, -0.29209026, -0.27691674])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.27551928, -0.24927935, -0.23178606, -0.2405327 , -0.30175921,
+       -0.31050585, -0.35423907, -0.16181291, -0.3192525 , -0.30175921,
+       -0.26677264, -0.26677264, -0.27551928])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
+For the vector: [array([-0.27680043, -0.30985123, -0.21069883, -0.27680043, -0.24374963,
+       -0.25201233, -0.30985123, -0.30158853, -0.27680043, -0.26027503,
+       -0.30985123, -0.14459724, -0.36769012])]	 the predicted position is:['(1,2)']and its accuracy was:0.11
