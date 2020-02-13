@@ -21,7 +21,7 @@ from itertools import product
 # Importing the dataset
 # =============================================================================
 
-a = list(product([5000,10000,15000],['s','n']))
+a = list(product([100,500,1500,2000,3000,5000],['s','n']))
 
 for i in range(len(a)):
   
