@@ -140,7 +140,7 @@ for i in range(len(a)):
 
     grid = GridSearchCV(estimator = classifier,param_grid = parameters,
 #                           scoring = 'accuracy',
-                            cv = 5,n_jobs=-4)
+                            cv = 5,n_jobs=-2)
 
     grid_search_results = grid.fit(X_train, y_train)
     
