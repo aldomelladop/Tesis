@@ -174,7 +174,7 @@ for i in range(len(a)):
 
     grid = GridSearchCV(estimator = classifier,param_grid = parameters,
     #                           scoring = 'accuracy',
-                        cv = 5,n_jobs=-3)
+                        cv = 3,n_jobs=-1)
 
     grid_search_results = grid.fit(X_train, y_train)
 
