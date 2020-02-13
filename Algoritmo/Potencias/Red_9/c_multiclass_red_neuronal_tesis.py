@@ -21,7 +21,7 @@ from itertools import product
 # Importing the dataset
 # =============================================================================
 
-a = list(product([500,1500,2000,3000,5000],['s','n']))
+a = list(product([100,500,1500,2000,3000,5000],['s','n']))
 
 for i in range(len(a)):
   
@@ -151,94 +151,94 @@ for i in range(len(a)):
     print("Comenzando Grid_search\n")
     t.tic()
 
-    def build_classifier(optimizer):
-        classifier = Sequential()
-        classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-        classifier.add(Dropout(rate = 0.2))
+    # def build_classifier(optimizer):
+    #     classifier = Sequential()
+    #     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
+    #     classifier.add(Dropout(rate = 0.2))
         
-        classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.2))
+    #     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.2))
         
-        classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
-        classifier.add(Dropout(rate = 0.2))
+    #     classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
+    #     classifier.add(Dropout(rate = 0.2))
 
-        classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.2))
+    #     classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.2))
 
-        classifier.add(Dense(units = np.shape(y_test)[1], kernel_initializer = 'uniform', activation = 'softmax'))
-        classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
-        return classifier
+    #     classifier.add(Dense(units = np.shape(y_test)[1], kernel_initializer = 'uniform', activation = 'softmax'))
+    #     classifier.compile(optimizer = optimizer, loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    #     return classifier
 
-    classifier = KerasClassifier(build_fn = build_classifier)
-    parameters = {'batch_size': [16,32,48],'epochs': [15, 25, 35],'optimizer': ['adam', 'adamax','rmsprop']}
+    # classifier = KerasClassifier(build_fn = build_classifier)
+    # parameters = {'batch_size': [16,32,48],'epochs': [15, 25, 35],'optimizer': ['adam', 'adamax','rmsprop']}
 
-    grid = GridSearchCV(estimator = classifier,param_grid = parameters,
-    #                           scoring = 'accuracy',
-                        cv = 3,n_jobs=-1)
+    # grid = GridSearchCV(estimator = classifier,param_grid = parameters,
+    # #                           scoring = 'accuracy',
+    #                     cv = 3,n_jobs=-1)
 
-    grid_search_results = grid.fit(X_train, y_train)
+    # grid_search_results = grid.fit(X_train, y_train)
 
-    best_parameters  = grid_search_results.best_params_
-    print(f"best_parameters = {grid_search_results.best_params_}")
-    print(f"best_accuracy =   {grid_search_results.best_score_}")
-    t.toc('Finalizado - Grid_search')
-    t1 = t.tocvalue()
+    # best_parameters  = grid_search_results.best_params_
+    # print(f"best_parameters = {grid_search_results.best_params_}")
+    # print(f"best_accuracy =   {grid_search_results.best_score_}")
+    # t.toc('Finalizado - Grid_search')
+    # t1 = t.tocvalue()
 
-    means = grid_search_results.cv_results_['mean_test_score']
-    stds = grid_search_results.cv_results_['std_test_score']
-    params = grid_search_results.cv_results_['params']
+    # means = grid_search_results.cv_results_['mean_test_score']
+    # stds = grid_search_results.cv_results_['std_test_score']
+    # params = grid_search_results.cv_results_['params']
 
-    #     # =============================================================================
-    #     # Cross Validation
-    #     # =============================================================================
-    from keras.wrappers.scikit_learn import KerasClassifier
-    from sklearn.model_selection import cross_val_score
+    # #     # =============================================================================
+    # #     # Cross Validation
+    # #     # =============================================================================
+    # from keras.wrappers.scikit_learn import KerasClassifier
+    # from sklearn.model_selection import cross_val_score
 
-    t.tic() 
-    print("\nEntrando en Cross Validation\n")
+    # t.tic() 
+    # print("\nEntrando en Cross Validation\n")
 
-    def build_classifier():
-        classifier = Sequential()
-        classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
-        classifier.add(Dropout(rate = 0.2))
+    # def build_classifier():
+    #     classifier = Sequential()
+    #     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
+    #     classifier.add(Dropout(rate = 0.2))
         
-        classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.2))
+    #     classifier.add(Dense(units = 24, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.2))
         
-        classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
-        classifier.add(Dropout(rate = 0.2))
+    #     classifier.add(Dense(units = 16, kernel_initializer = 'uniform', activation = 'relu'))    
+    #     classifier.add(Dropout(rate = 0.2))
 
-        classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu'))
-        classifier.add(Dropout(rate = 0.2))
+    #     classifier.add(Dense(units = 10, kernel_initializer = 'uniform', activation = 'relu'))
+    #     classifier.add(Dropout(rate = 0.2))
 
-        classifier.add(Dense(units = np.shape(y_test)[1], kernel_initializer = 'uniform', activation = 'softmax'))
-        classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
-        return classifier
+    #     classifier.add(Dense(units = np.shape(y_test)[1], kernel_initializer = 'uniform', activation = 'softmax'))
+    #     classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
+    #     return classifier
 
-    classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
+    # classifier = KerasClassifier(build_fn = build_classifier, batch_size = best_parameters['batch_size'], epochs = best_parameters['epochs'])
 
-    accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 5, n_jobs = -2)
-    ac = list(accuracies)
-    mean = accuracies.mean()
-    variance = accuracies.std()
-    t.toc('\nTiempo Cross-Validation: ')
-    time = t.tocvalue()
+    # accuracies = cross_val_score(estimator = classifier, X = X_train, y = y_train, cv = 5, n_jobs = -2)
+    # ac = list(accuracies)
+    # mean = accuracies.mean()
+    # variance = accuracies.std()
+    # t.toc('\nTiempo Cross-Validation: ')
+    # time = t.tocvalue()
 
-    # =============================================================================
-    #     Distribución de probabilidad
-    # =============================================================================
-    import seaborn as sns
-    import matplotlib.pyplot as plt
+    # # =============================================================================
+    # #     Distribución de probabilidad
+    # # =============================================================================
+    # import seaborn as sns
+    # import matplotlib.pyplot as plt
         
-    print('>> Mean CV score is: ', round(np.mean(accuracies),3))
-    pltt = sns.distplot(pd.Series(accuracies,name='CV scores distribution'), color='r')
-    plt.savefig('CV_Accuracies_distribution.png')
-    plt.close()
+    # print('>> Mean CV score is: ', round(np.mean(accuracies),3))
+    # pltt = sns.distplot(pd.Series(accuracies,name='CV scores distribution'), color='r')
+    # plt.savefig('CV_Accuracies_distribution.png')
+    # plt.close()
 
     # =====================================================
     #     Saving model
     # =============================================================================
-
+    best_parameters = {'batch_size':16,'epochs':35,'optimizer':'rmsprop'}
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
     classifier.add(Dropout(rate = 0.2))
@@ -264,36 +264,36 @@ for i in range(len(a)):
     # =============================================================================
     #     Escritura de archivo
     # =============================================================================
-    print(f"\nnp.shape(X_test)[0] = {np.shape(X_test)[0]}\n")
+    # print(f"\nnp.shape(X_test)[0] = {np.shape(X_test)[0]}\n")
 
-    outFileName= directory + "/{}_{}/resultados_{}.txt".format(j,son,j)
-    f = open(outFileName,"w")
+    # outFileName= directory + "/{}_{}/resultados_{}.txt".format(j,son,j)
+    # f = open(outFileName,"w")
 
-    f.write("El número de elementos usados es: {}\n".format(j)+
-        "Los mejores parámetros son: {}".format(best_parameters) +
-        "\nTiempo de GridSearchCV  = {}".format(round(int(t1/60),2)) + 
-        "\nTiempo red neuronal  =  {}".format(round(int(time/60),2)) + 
-        "\nLa media obtenida es: {}".format(mean)+
-        "\nLa varianza obtenida es: {}".format(variance) + '\n'
-        )
-    for i in ac:
-        f.write("\tac: " + repr(round((i*100),2)) +"%" + '\n')
+    # f.write("El número de elementos usados es: {}\n".format(j)+
+    #     "Los mejores parámetros son: {}".format(best_parameters) +
+    #     "\nTiempo de GridSearchCV  = {}".format(round(int(t1/60),2)) + 
+    #     "\nTiempo red neuronal  =  {}".format(round(int(time/60),2)) + 
+    #     "\nLa media obtenida es: {}".format(mean)+
+    #     "\nLa varianza obtenida es: {}".format(variance) + '\n'
+    #     )
+    # for i in ac:
+    #     f.write("\tac: " + repr(round((i*100),2)) +"%" + '\n')
 
-    for i,j in enumerate(zip(params,means,stds)):
-        f.write("\nparams[{}] = {} --> means[{}] = {}\n".format(i,params[i],i,round(means[i],2)))
+    # for i,j in enumerate(zip(params,means,stds)):
+    #     f.write("\nparams[{}] = {} --> means[{}] = {}\n".format(i,params[i],i,round(means[i],2)))
 
-    # =============================================================================
-    #                             Prediction
-    # =============================================================================
-    for i in range(1,15):
-        r = random.randint(0, np.shape(X_test)[0]-1)
-        y_pred = classifier.predict(np.array([X_test[r]]))
-        predictions = list(encoder.inverse_transform([np.argmax(y_pred, axis=None, out=None)]))
-        y_pred_prob = classifier.predict_proba(np.array([X_test[r]]))
-        f.write("\nFor the vector: ["+ repr(X_test[r])+ "]\t the predicted position is:" +  repr(predictions) +  "and its accuracy was:" + repr(round(np.amax(y_pred_prob),2)))
-    f.close()
+    # # =============================================================================
+    # #                             Prediction
+    # # =============================================================================
+    # for i in range(1,15):
+    #     r = random.randint(0, np.shape(X_test)[0]-1)
+    #     y_pred = classifier.predict(np.array([X_test[r]]))
+    #     predictions = list(encoder.inverse_transform([np.argmax(y_pred, axis=None, out=None)]))
+    #     y_pred_prob = classifier.predict_proba(np.array([X_test[r]]))
+    #     f.write("\nFor the vector: ["+ repr(X_test[r])+ "]\t the predicted position is:" +  repr(predictions) +  "and its accuracy was:" + repr(round(np.amax(y_pred_prob),2)))
+    # f.close()
 
-    print("Archivo escrito\n")
+    # print("Archivo escrito\n")
 
     # =============================================================================
     # Full multiclass report 
