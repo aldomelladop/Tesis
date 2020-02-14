@@ -21,7 +21,8 @@ from itertools import product
 # Importing the dataset
 # =============================================================================
 
-a = list(product([500,1500,2000,3000,5000],['n','s']))
+#a = list(product([500,1500,2000,3000,5000],['n','s']))
+a = list(product([2500],['s','n']))
 
 for i in range(len(a)):
   
@@ -241,7 +242,7 @@ for i in range(len(a)):
     # =====================================================
     #     Saving model
     # =============================================================================
-    best_parameters = {'batch_size':32,'epochs':35,'optimizer':'adam'}
+    best_parameters = {'batch_size':32,'epochs':15,'optimizer':'adam'}
 
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))

@@ -29,6 +29,9 @@ for i in range(len(a)):
     son = a[i][1].capitalize()
     print(f"j = {a[i][0]}\nson = {a[i][1]}")
 
+    if j==2500 and son=='S':
+    	continue
+
     directory = os.getcwd()
     
     if os.path.isdir(os.getcwd() + '/{}_{}'.format(j,son)) == True:
