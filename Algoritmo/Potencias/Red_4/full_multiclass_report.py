@@ -82,7 +82,7 @@ def plot_confusion_matrix(cm,
     plt.xlabel('Predicted label\naccuracy={:0.3f}; misclass={:0.3f}'.format(accuracy, misclass))
     plt.savefig('Confusion_matrix.png')
 #    plt.show()
-#    plt.close()
+    plt.close()
 
 ## multiclass or binary report
 ## If binary (sigmoid output), set binary parameter to True

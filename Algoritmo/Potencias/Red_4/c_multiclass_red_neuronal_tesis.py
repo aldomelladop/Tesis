@@ -19,7 +19,7 @@ from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-a = list(product([2500],['n','s']))
+a = list(product([250,350,500,1000,2500,5000,10000],['n','s']))
 
 for i in range(len(a)):
   
@@ -204,7 +204,35 @@ for i in range(len(a)):
     # =====================================================
     #     Saving model
     # =============================================================================
-    best_parameters = {'optimizer':'rmsprop','epochs': 25,'batch_size': 48}
+    #a = optimizer, b= epochs,c=batch_size
+
+    if j==30:
+    	best_parameters={'optimizer': 'adam', 'epochs': 40, 'batch_size': 16}
+    elif j==50 or j==100 or j==250 or j==350 or j==500:
+    	best_parameters={'optimizer': 'rmsprop', 'epochs': 25, 'batch_size': 48}
+    elif j==1000:
+    	if son=='N':
+            best_parameters={'batch_size': 16, 'epochs': 15, 'optimizer': 'adamax'}
+    	else:
+            best_parameters={'batch_size': 64, 'epochs': 25, 'optimizer': 'rmsprop'}
+    elif j==2500:
+    	if son=='N':
+            best_parameters={'batch_size': 48, 'epochs': 25, 'optimizer': 'rmsprop'}
+    	else:
+            best_parameters={'batch_size': 16, 'epochs': 15, 'optimizer': 'adamax'}
+    elif j==5000:
+    	if son=='N':
+            best_parameters={'batch_size': 16, 'epochs': 35, 'optimizer': 'rmsprop'}
+    	else:
+            best_parameters={'batch_size': 16, 'epochs': 35, 'optimizer': 'adam'}
+    elif j==10000:
+    	if son=='N':
+            best_parameters={'batch_size': 48, 'epochs': 25, 'optimizer': 'rmsprop'}
+    	else:
+            best_parameters={'batch_size': 32, 'epochs': 35, 'optimizer': 'adam'}
+    
+    print(f"best_parameters = {best_parameters}")
+
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
     classifier.add(Dropout(rate = 0.2))
