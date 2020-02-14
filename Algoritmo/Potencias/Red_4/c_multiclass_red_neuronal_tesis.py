@@ -19,7 +19,7 @@ from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-a = list(product([5000],['s','n']))
+a = list(product([350],['n','s']))
 
 for i in range(len(a)):
   
@@ -204,7 +204,7 @@ for i in range(len(a)):
     # =====================================================
     #     Saving model
     # =============================================================================
-    best_parameters = {'optimizer':'adam','epochs': 35,'batch_size': 16}
+    best_parameters = {'optimizer':'rmsprop','epochs': 25,'batch_size': 48}
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
     classifier.add(Dropout(rate = 0.2))
@@ -286,4 +286,4 @@ for i in range(len(a)):
     os.system('mv Loss.png '+ mv + 'Loss.png')
     os.system('mv Accuracy.png '+ mv + 'Accuracy.png')
     os.system('mv Classification_report.csv ' + mv + 'Classification_report.csv')
-    os.system('mv CV_Accuracies_distribution.png '+ mv+ 'CV_Accuracies_distribution.png')
+    #os.system('mv CV_Accuracies_distribution.png '+ mv+ 'CV_Accuracies_distribution.png')

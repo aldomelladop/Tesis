@@ -19,7 +19,7 @@ from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-a = list(product([100,500,1500,2000,3000,5000],['s','n']))
+a = list(product([2500],['n','s']))
 
 for i in range(len(a)):
   
@@ -283,7 +283,7 @@ for i in range(len(a)):
     # =============================================================================
     mv = directory + '/{}_{}/'.format(j,son)
     os.system('mv Confusion_matrix.png '+ mv+ 'Confusion_matrix.png')
-    os.system('mv CV_Accuracies_distribution.png '+ mv+ 'CV_Accuracies_distribution.png')
     os.system('mv Loss.png '+ mv + 'Loss.png')
     os.system('mv Accuracy.png '+ mv + 'Accuracy.png')
     os.system('mv Classification_report.csv ' + mv + 'Classification_report.csv')
+    os.system('mv CV_Accuracies_distribution.png '+ mv+ 'CV_Accuracies_distribution.png')
