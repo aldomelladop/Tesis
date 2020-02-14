@@ -27,7 +27,7 @@ def plot_history(history):
     plt.legend()
     plt.savefig('Loss.png')
 #    plt.show()
-#    plt.close()
+    plt.close()
     
     ## Accuracy
     plt.figure(2)
@@ -43,4 +43,4 @@ def plot_history(history):
     plt.grid()
     plt.savefig('Accuracy.png')
 #    plt.show()
-#    plt.close()
+    plt.close()

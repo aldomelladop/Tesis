@@ -21,7 +21,7 @@ from itertools import product
 # Importing the dataset
 # =============================================================================
 
-a = list(product([100,500,1500,2000,3000,5000],['s','n']))
+a = list(product([500,1500,2000,3000,5000],['n','s']))
 
 for i in range(len(a)):
   
@@ -35,6 +35,9 @@ for i in range(len(a)):
         pass
     else:
         os.mkdir(os.getcwd() + '/{}_{}'.format(j,son))
+
+    if j==100 and son=='S':
+        continue
     
     t = TicToc()
     df1 = fixrows('Potencia_r1_00').iloc[:j,:]
@@ -238,7 +241,8 @@ for i in range(len(a)):
     # =====================================================
     #     Saving model
     # =============================================================================
-    best_parameters = {'batch_size':16,'epochs':35,'optimizer':'rmsprop'}
+    best_parameters = {'batch_size':32,'epochs':35,'optimizer':'adam'}
+
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
     classifier.add(Dropout(rate = 0.2))
@@ -255,12 +259,13 @@ for i in range(len(a)):
     classifier.add(Dense(units = np.shape(y_test)[1], kernel_initializer = 'uniform', activation = 'softmax'))
     classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
 
+    # serialize model to JSON
+    model_json = classifier.to_json()
+    with open("model.json", "w") as json_file:
+        json_file.write(model_json)
     # save model and architecture to single file
-
     classifier.save(directory + "/{}_{}/model_{}.h5".format(j,son,j))
-
     print("Saved model to disk\n")
-
     # =============================================================================
     #     Escritura de archivo
     # =============================================================================
@@ -321,3 +326,4 @@ for i in range(len(a)):
     os.system('mv Loss.png '+ mv + 'Loss.png')
     os.system('mv Accuracy.png '+ mv + 'Accuracy.png')
     os.system('mv Classification_report.csv ' + mv + 'Classification_report.csv')
+    os.system('mv model.json ' + mv + 'model_{}_{}.json'.format(j,son))
