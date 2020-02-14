@@ -19,7 +19,7 @@ from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-a = list(product([2500],['n','s']))
+a = list(product([2500],['s','n']))
 
 for i in range(len(a)):
   
@@ -221,10 +221,12 @@ for i in range(len(a)):
     classifier.add(Dense(units = np.shape(y_test)[1], kernel_initializer = 'uniform', activation = 'softmax'))
     classifier.compile(optimizer = best_parameters['optimizer'], loss = 'categorical_crossentropy', metrics = ['accuracy'])
     
+    # serialize model to JSON
+    model_json = classifier.to_json()
+    with open("model.json", "w") as json_file:
+        json_file.write(model_json)
     # save model and architecture to single file
-    
     classifier.save(directory + "/{}_{}/model_{}.h5".format(j,son,j))
-    
     print("Saved model to disk\n")
     
     # =============================================================================
@@ -287,3 +289,4 @@ for i in range(len(a)):
     os.system('mv Accuracy.png '+ mv + 'Accuracy.png')
     os.system('mv Classification_report.csv ' + mv + 'Classification_report.csv')
     os.system('mv CV_Accuracies_distribution.png '+ mv+ 'CV_Accuracies_distribution.png')
+    os.system('mv model.json ' + mv + 'model_{}_{}.json'.format(j,son))
