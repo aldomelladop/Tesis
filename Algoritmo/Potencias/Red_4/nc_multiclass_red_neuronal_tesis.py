@@ -8,7 +8,7 @@ Created on Sat Nov 23 17:14:06 2019
 # ============================================================================
 # Importing the libraries
 # =============================================================================
-import os
+import os   
 import random
 import numpy as np
 import pandas as pd
@@ -19,7 +19,13 @@ from itertools import product
 # =============================================================================
 # Importing the dataset
 # =============================================================================
-a = list(product([2500],['s','n']))
+a = list(product([500],['n']))
+
+duration = 2 #segundos
+f1 = 440    #término de procesos simples
+f2 = 550    #Termino de grid search
+f3 = 650    #Termino de cross_validation
+f4 = 750    #Termino del codigo, paso al siguiente
 
 for i in range(len(a)):
   
@@ -28,10 +34,8 @@ for i in range(len(a)):
     print(f"j = {a[i][0]}\nson = {a[i][1]}")
 
     directory = os.getcwd()
+    print(f"directory = {directory+'/'}")
 
-    if j==1000 and son=='S' or j==1000 and son=='N':
-        continue
-    
     if os.path.isdir(os.getcwd() + '/{}_{}'.format(j,son)) == True:
         pass
     else:
@@ -39,41 +43,47 @@ for i in range(len(a)):
     
     t = TicToc()
     
-    df1 = fixrows('Potencia_r1').iloc[:j,:]
-    num_row = np.shape(df1)[0]
-    coords  = ['(1,0)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df1 = coords.join(df1, how='left')
-    df1.to_csv('Potencia_R1.csv')
-     
-    df2 = fixrows('Potencia_r2').iloc[:j,:]
-    num_row = np.shape(df2)[0]
-    coords  = ['(0,0)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df2 = coords.join(df2, how='left')
-    df2.to_csv('Potencia_R2.csv')
-     
-    df3 = fixrows('Potencia_r3').iloc[:j,:]
-    num_row = np.shape(df3)[0]
-    coords  = ['(0,1)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df3 = coords.join(df3, how='left')
-    df3.to_csv('Potencia_R3.csv')
-    
-    df4 = fixrows('Potencia_r4').iloc[:j,:]
-    num_row = np.shape(df4)[0]
-    coords  = ['(1,1)' for j in range(num_row)]
-    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-    df4 = coords.join(df4, how='left')
-    df4.to_csv('Potencia_R4.csv')
-      
-    # Fusionar archivos corregidos para obtener el archivo de potencias final
-    fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
-     
-    df0 = fixrows('potencias_fusionado').iloc[:,1:]
-    os.system('rm Potencia_R*')
-    os.system('rm Potencia_r*_corregido.csv')
-    df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
+    if son=='S':
+        df1 = fixrows('Potencia_r1').iloc[:j,:]
+        num_row = np.shape(df1)[0]
+        coords  = ['(1,0)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df1 = coords.join(df1, how='left')
+        df1.to_csv('Potencia_R1.csv')
+         
+        df2 = fixrows('Potencia_r2').iloc[:j,:]
+        num_row = np.shape(df2)[0]
+        coords  = ['(0,0)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df2 = coords.join(df2, how='left')
+        df2.to_csv('Potencia_R2.csv')
+         
+        df3 = fixrows('Potencia_r3').iloc[:j,:]
+        num_row = np.shape(df3)[0]
+        coords  = ['(0,1)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df3 = coords.join(df3, how='left')
+        df3.to_csv('Potencia_R3.csv')
+        
+        df4 = fixrows('Potencia_r4').iloc[:j,:]
+        num_row = np.shape(df4)[0]
+        coords  = ['(1,1)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df4 = coords.join(df4, how='left')
+        df4.to_csv('Potencia_R4.csv')
+          
+        # Fusionar archivos corregidos para obtener el archivo de potencias final
+        fusionar_csv('Potencia_R1','Potencia_R2','Potencia_R3','Potencia_R4')
+         
+        df0 = fixrows('potencias_fusionado').iloc[:,1:]
+        os.system('rm Potencia_R*')
+        os.system('rm Potencia_r*_corregido.csv')
+        df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
+        os.system('play -nq -t alsa synth {} sine {}'.format(duration,f1))
+    else:
+        print("Leyendo archivo ya creado ")
+        df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
+        os.system('play -nq -t alsa synth {} sine {}'.format(duration,f1))
     
     X = df0.iloc[:,1:].values #variables Dependientes (Potencias)
     y = df0.iloc[:,0].values #values Independientes (Posición)
@@ -140,7 +150,7 @@ for i in range(len(a)):
 
     grid = GridSearchCV(estimator = classifier,param_grid = parameters,
 #                           scoring = 'accuracy',
-                            cv = 5,n_jobs=-4)
+                            cv = 3,n_jobs=-3)
 
     grid_search_results = grid.fit(X_train, y_train)
     
@@ -148,12 +158,14 @@ for i in range(len(a)):
     print(f"best_parameters = {grid_search_results.best_params_}")
     print(f"best_accuracy =   {grid_search_results.best_score_}")
     t.toc('Finalizado - Grid_search')
+    os.system('play -nq -t alsa synth {} sine {}'.format(duration,f2))
     t1 = t.tocvalue()
 
     means = grid_search_results.cv_results_['mean_test_score']
     stds = grid_search_results.cv_results_['std_test_score']
     params = grid_search_results.cv_results_['params']
     
+
 #     # =============================================================================
 #     # Cross Validation
 #     # =============================================================================
@@ -188,6 +200,7 @@ for i in range(len(a)):
     mean = accuracies.mean()
     variance = accuracies.std()
     t.toc('\nTiempo Cross-Validation: ')
+    os.system('play -nq -t alsa synth {} sine {}'.format(duration,f3))
     time = t.tocvalue()
     
     # =============================================================================
@@ -201,10 +214,9 @@ for i in range(len(a)):
     plt.savefig('CV_Accuracies_distribution.png')
     plt.close()
     
-    # =====================================================
+    # =============================================================================
     #     Saving model
     # =============================================================================
-    best_parameters = {'optimizer':'rmsprop','epochs': 25,'batch_size': 48}
     classifier = Sequential()
     classifier.add(Dense(units = np.shape(X_test)[1]+1, kernel_initializer = 'uniform', activation = 'relu', input_dim = np.shape(X_test)[1]))
     classifier.add(Dropout(rate = 0.2))
@@ -262,6 +274,7 @@ for i in range(len(a)):
     f.close()
     
     print("Archivo escrito\n")
+    os.system('play -nq -t alsa synth {} sine {}'.format(duration,f1))
     
     # =============================================================================
     # Full multiclass report 
@@ -283,6 +296,7 @@ for i in range(len(a)):
     # =============================================================================
     #     Move file to folder
     # =============================================================================
+    print(f"directory = {directory}")
     mv = directory + '/{}_{}/'.format(j,son)
     os.system('mv Confusion_matrix.png '+ mv+ 'Confusion_matrix.png')
     os.system('mv Loss.png '+ mv + 'Loss.png')
@@ -290,3 +304,4 @@ for i in range(len(a)):
     os.system('mv Classification_report.csv ' + mv + 'Classification_report.csv')
     os.system('mv CV_Accuracies_distribution.png '+ mv+ 'CV_Accuracies_distribution.png')
     os.system('mv model.json ' + mv + 'model_{}_{}.json'.format(j,son))
+    os.system('play -nq -t alsa synth {} sine {}'.format(duration,f4))
