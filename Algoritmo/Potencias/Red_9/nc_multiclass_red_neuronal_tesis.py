@@ -21,7 +21,7 @@ from itertools import product
 # Importing the dataset
 # =============================================================================
 
-a = list(product([2500,10000],['s','n']))
+a = list(product([10000],['s','n']))
 duration = 1 #segundos
 f1 = 440    #término de procesos simples
 f2 = 550    #Termino de grid search
@@ -35,7 +35,7 @@ for i in range(len(a)):
     print(f"j = {a[i][0]}\nson = {a[i][1]}")
 
     if j==2500 and son=='S':
-    	continue
+        continue
 
     directory = os.getcwd()
     
@@ -46,82 +46,82 @@ for i in range(len(a)):
     
     t = TicToc()
 
-	if son=='S':
-	    df1 = fixrows('Potencia_r1_00').iloc[:j,:]
-	    num_row = np.shape(df1)[0]
-	    coords  = ['(0,0)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df1 = coords.join(df1, how='left')
-	    df1.to_csv('Potencia_R1_00.csv')
-	     
-	    df2 = fixrows('Potencia_r1_01').iloc[:j,:]
-	    num_row = np.shape(df2)[0]
-	    coords  = ['(0,1)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df2 = coords.join(df2, how='left')
-	    df2.to_csv('Potencia_R1_01.csv')
+    if son=='S':
+        df1 = fixrows('Potencia_r1_00').iloc[:j,:]
+        num_row = np.shape(df1)[0]
+        coords  = ['(0,0)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df1 = coords.join(df1, how='left')
+        df1.to_csv('Potencia_R1_00.csv')
+         
+        df2 = fixrows('Potencia_r1_01').iloc[:j,:]
+        num_row = np.shape(df2)[0]
+        coords  = ['(0,1)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df2 = coords.join(df2, how='left')
+        df2.to_csv('Potencia_R1_01.csv')
 
-	    df3 = fixrows('Potencia_r1_02').iloc[:j,:]
-	    num_row = np.shape(df3)[0]
-	    coords  = ['(0,2)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df3 = coords.join(df3, how='left')
-	    df3.to_csv('Potencia_R1_02.csv')
+        df3 = fixrows('Potencia_r1_02').iloc[:j,:]
+        num_row = np.shape(df3)[0]
+        coords  = ['(0,2)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df3 = coords.join(df3, how='left')
+        df3.to_csv('Potencia_R1_02.csv')
 
-	    df4 = fixrows('Potencia_r2_10').iloc[:j,:]
-	    num_row = np.shape(df4)[0]
-	    coords  = ['(1,0)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df4 = coords.join(df4, how='left')
-	    df4.to_csv('Potencia_R2_10.csv')
+        df4 = fixrows('Potencia_r2_10').iloc[:j,:]
+        num_row = np.shape(df4)[0]
+        coords  = ['(1,0)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df4 = coords.join(df4, how='left')
+        df4.to_csv('Potencia_R2_10.csv')
 
-	    df5 = fixrows('Potencia_r2_11').iloc[:j,:]
-	    num_row = np.shape(df5)[0]
-	    coords  = ['(1,1)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df5 = coords.join(df5, how='left')
-	    df5.to_csv('Potencia_R2_11.csv')
+        df5 = fixrows('Potencia_r2_11').iloc[:j,:]
+        num_row = np.shape(df5)[0]
+        coords  = ['(1,1)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df5 = coords.join(df5, how='left')
+        df5.to_csv('Potencia_R2_11.csv')
 
-	    df6 = fixrows('Potencia_r2_12').iloc[:j,:]
-	    num_row = np.shape(df6)[0]
-	    coords  = ['(1,2)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df6 = coords.join(df6, how='left')
-	    df6.to_csv('Potencia_R2_12.csv')
+        df6 = fixrows('Potencia_r2_12').iloc[:j,:]
+        num_row = np.shape(df6)[0]
+        coords  = ['(1,2)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df6 = coords.join(df6, how='left')
+        df6.to_csv('Potencia_R2_12.csv')
 
-	    df7 = fixrows('Potencia_r3_20').iloc[:j,:]
-	    num_row = np.shape(df7)[0]
-	    coords  = ['(2,0)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df7 = coords.join(df7, how='left')
-	    df7.to_csv('Potencia_R3_20.csv')
+        df7 = fixrows('Potencia_r3_20').iloc[:j,:]
+        num_row = np.shape(df7)[0]
+        coords  = ['(2,0)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df7 = coords.join(df7, how='left')
+        df7.to_csv('Potencia_R3_20.csv')
 
-	    df8 = fixrows('Potencia_r3_21').iloc[:j,:]
-	    num_row = np.shape(df8)[0]
-	    coords  = ['(2,1)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df8 = coords.join(df8, how='left')
-	    df8.to_csv('Potencia_R3_21.csv')
+        df8 = fixrows('Potencia_r3_21').iloc[:j,:]
+        num_row = np.shape(df8)[0]
+        coords  = ['(2,1)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df8 = coords.join(df8, how='left')
+        df8.to_csv('Potencia_R3_21.csv')
 
-	    df9 = fixrows('Potencia_r3_22').iloc[:j,:]
-	    num_row = np.shape(df9)[0]
-	    coords  = ['(2,2)' for j in range(num_row)]
-	    coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
-	    df9 = coords.join(df9, how='left')
-	    df9.to_csv('Potencia_R3_22.csv')
-	      
-	    # Fusionar archivos corregidos para obtener el archivo de potencias final
-	    fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
-	             'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
-	     
-	    df0 = fixrows('potencias_fusionado').iloc[:,1:]
-	    os.system('rm Potencia_R*')
-	    os.system('rm Potencia_r*_corregido.csv')
-	    df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
+        df9 = fixrows('Potencia_r3_22').iloc[:j,:]
+        num_row = np.shape(df9)[0]
+        coords  = ['(2,2)' for j in range(num_row)]
+        coords = pd.DataFrame(coords,dtype=object, columns = ['X,Y'])
+        df9 = coords.join(df9, how='left')
+        df9.to_csv('Potencia_R3_22.csv')
+          
+        # Fusionar archivos corregidos para obtener el archivo de potencias final
+        fusionar_csv('Potencia_R1_00','Potencia_R1_01','Potencia_R1_02','Potencia_R2_10','Potencia_R2_11',
+                 'Potencia_R2_12','Potencia_R3_20','Potencia_R3_21','Potencia_R3_22')
+         
+        df0 = fixrows('potencias_fusionado').iloc[:,1:]
+        os.system('rm Potencia_R*')
+        os.system('rm Potencia_r*_corregido.csv')
+        df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
         os.system('play -nq -t alsa synth {} sine {}'.format(duration,f1))
     else:
-    	df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
-		os.system('play -nq -t alsa synth {} sine {}'.format(duration,f1))
+        df0 = pd.read_csv('potencias_fusionado_corregido.csv').iloc[3:,1:]
+        os.system('play -nq -t alsa synth {} sine {}'.format(duration,f1))
 
     X = df0.iloc[:,1:].values #variables Dependientes (Potencias)
     y = df0.iloc[:,0].values #values Independientes (Posición)
